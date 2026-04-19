@@ -1,0 +1,212 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — Diyalog Motoru: Katman 4 — Sonrası
+# File: common/scripted_effects/dialogue/04_carn_ext_dialogue_aftermath.txt
+#
+# Pleasure score outcome'una göre kapanış metni seçer.
+# Root = aktif karakter, scope:partner = alıcı karakter
+# ==============================================================================
+
+carn_ext_dialogue_aftermath_select = {
+    if = {
+        limit = { carn_ext_pleasure_traumatic = yes }
+        carn_ext_aftermath_traumatic = yes
+    }
+    else_if = {
+        limit = { carn_ext_pleasure_unsatisfied = yes }
+        carn_ext_aftermath_unsatisfied = yes
+    }
+    else_if = {
+        limit = { carn_ext_pleasure_satisfied = yes }
+        carn_ext_aftermath_satisfied = yes
+    }
+    else_if = {
+        limit = { carn_ext_pleasure_deeply_satisfied = yes }
+        carn_ext_aftermath_deeply = yes
+    }
+    else_if = {
+        limit = { carn_ext_pleasure_transcendent = yes }
+        carn_ext_aftermath_transcendent = yes
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# TRAVMATİK
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_aftermath_traumatic = {
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_traumatic_01
+                # "[partner.GetFirstName] o gece ağladı.
+                #  Kimse duymadı. Bu belki daha kötüydü."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_traumatic_02
+                # "Sabah geldiğinde [partner.GetFirstName]
+                #  birinin fark etmesini isteyip istemediğini bilmiyordu.
+                #  Fark eden olmadı. Bu da bir cevaptı."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_traumatic_03
+                # "[Root.GetFirstName] çoktan uyumuştu.
+                #  [partner.GetFirstName] gözlerini tavana dikti
+                #  ve saydı. Nefes. Yıldız. Sebep. Hiçbiri yetmedi."
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# TATMİNSİZ
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_aftermath_unsatisfied = {
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_unsatisfied_01
+                # "İkisi de bir süre sessiz kaldı.
+                #  Söylenecek bir şey vardı — ama ikisi de söylemedi.
+                #  Gece bu sessizlikle bitti."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_unsatisfied_02
+                # "[partner.GetFirstName] döndü, sırtını verdi.
+                #  [Root.GetFirstName] bir şey söylemek istedi.
+                #  Bıraktı."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_unsatisfied_03
+                # "Beklentiler her zaman gerçekle buluşamaz.
+                #  Bu gece de buluşmadı. İkisi de bunu biliyordu.
+                #  Sabahı dört gözle bekledi [partner.GetFirstName]."
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# TATMİN OLMUŞ
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_aftermath_satisfied = {
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_satisfied_01
+                # "Gece onlara iyiydi.
+                #  İkisi de bunu bir şekilde, sessizce kabul etti
+                #  ve uyudu."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_satisfied_02
+                # "[partner.GetFirstName] [Root.GetFirstName]'e yaslandı.
+                #  Bir şey söylemeye gerek yoktu.
+                #  Zaten biliniyordu."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_satisfied_03
+                # "Sabah erken geldi. Çok erken.
+                #  [partner.GetFirstName] bunu düşündü —
+                #  ve biraz daha kaldı."
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# DERİNDEN TATMİN
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_aftermath_deeply = {
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_deeply_01
+                # "[partner.GetFirstName] uyumadı o gece.
+                #  Değil kötü bir şey yüzünden — tam tersi.
+                #  Bir şeylerin değiştiğini hissediyordu
+                #  ve bunu kaçırmak istemiyordu."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_deeply_02
+                # "Hâlâ [Root.GetFirstName]'in sıcaklığını hissediyordu.
+                #  Hâlâ nefesini. Hâlâ sesini.
+                #  Bu hafıza uzun süre gitmeyecekti."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_deeply_03
+                # "'Tekrar,' dedi [partner.GetFirstName] sabah olduğunda.
+                #  [Root.GetFirstName] baktı. Güldü.
+                #  Ve pencereden sızan ilk ışıkta tekrar başladılar."
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# TRANSCENDENT — Unutulmaz gece
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_aftermath_transcendent = {
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_transcendent_01
+                # "[partner.GetFirstName] sabah uyandığında
+                #  bir şeylerin kalıcı olarak değiştiğini hissetti.
+                #  [Root.GetFirstName] hâlâ oradaydı.
+                #  Bu da bir şeydi."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_transcendent_02
+                # "Böyle bir gece anlatılmaz.
+                #  [partner.GetFirstName] deneyecekti — bir gün,
+                #  yıllar sonra belki — ve kelimeler yetmeyecekti.
+                #  O zaman duracaktı. Ve gülümseyecekti."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_after_transcendent_03
+                # "[Root.GetFirstName] aklından bir türlü çıkmıyordu.
+                #  Sabah, öğle, akşam — düşünce geri geldi.
+                #  Tehlikeli bir şeydi bu.
+                #  [partner.GetFirstName] bunu bildi. Ve umursamadı."
+            }
+        }
+        1 = {
+            # Bağımlılık başlangıcı — transcendent + streak
+            trigger = {
+                has_variable = carn_ext_pleasure_streak
+                var:carn_ext_pleasure_streak >= 2
+            }
+            custom_tooltip = {
+                text = carn_ext_after_transcendent_addicted_01
+                # "Bu artık bir alışkanlık oluyordu — tehlikeli,
+                #  tatlı bir alışkanlık. [partner.GetFirstName] ne zaman
+                #  fark etti bunu? Önemli değildi artık.
+                #  Bırakmak istemiyordu."
+            }
+        }
+    }
+}

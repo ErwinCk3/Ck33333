@@ -1,0 +1,513 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — Physical Traits (Yeni Fiziksel Özellikler)
+# File: common/traits/01_carn_ext_physical_traits.txt
+#
+# Gruplar:
+#   1. Erkek Vücut Yapısı   (carn_ext_build_*)
+#   2. Kadın Göğüs Boyutu   (carn_ext_bust_*)
+#   3. Kadın Kalça/Form      (carn_ext_hips_*)
+#   4. Doğurganlık           (carn_ext_fertility_*)  → Carnalitas bağlantılı
+#   5. Libido                (carn_ext_libido_*)
+#   6. Koku/Feromone         (carn_ext_pheromone_*)
+# ==============================================================================
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  BÖLÜM 1 — ERKEK VÜCUT YAPISI
+#  Prowess ile ilişkili. Tier arttıkça savaş + seks stamina bonusu.
+#  Genetik: baba %60, anne %40 taşıyıcı
+# ══════════════════════════════════════════════════════════════════════════════
+
+carn_ext_build_lean = {
+    group = carn_ext_build_group
+    group_equivalence = 1
+
+    icon = trait_carn_ext_build_lean
+    congenital = yes
+    inherit_chance = 40
+
+    flag = carn_ext_build
+    flag = carn_ext_build_tier_1
+
+    # İnce yapı — çevik ama dayanıksız
+    prowess = -1
+    health = -0.1
+
+    # Çekicilik — bazı partnerler ince bedeni tercih eder
+    attraction_opinion = 0
+
+    ruler_designer_cost = -2
+
+    desc = carn_ext_build_lean_desc
+}
+
+carn_ext_build_average = {
+    group = carn_ext_build_group
+    group_equivalence = 2
+
+    icon = trait_carn_ext_build_average
+    congenital = yes
+    inherit_chance = 50
+
+    flag = carn_ext_build
+    flag = carn_ext_build_tier_2
+
+    # Nötr vücut — dengeli
+    prowess = 0
+    health = 0
+
+    attraction_opinion = 0
+
+    ruler_designer_cost = 0
+
+    desc = carn_ext_build_average_desc
+}
+
+carn_ext_build_muscular = {
+    group = carn_ext_build_group
+    group_equivalence = 3
+
+    icon = trait_carn_ext_build_muscular
+    congenital = yes
+    inherit_chance = 25
+
+    flag = carn_ext_build
+    flag = carn_ext_build_tier_3
+
+    # Kaslı yapı — güçlü, stamina bonus
+    prowess = 2
+    health = 0.2
+
+    # Seks sırasında stamina pool genişler (scripted_effects'te kullanılır)
+    flag = carn_ext_build_stamina_bonus
+
+    attraction_opinion = 10
+
+    ruler_designer_cost = 8
+
+    desc = carn_ext_build_muscular_desc
+}
+
+carn_ext_build_massive = {
+    group = carn_ext_build_group
+    group_equivalence = 4
+
+    icon = trait_carn_ext_build_massive
+    congenital = yes
+    inherit_chance = 10
+
+    flag = carn_ext_build
+    flag = carn_ext_build_tier_4
+
+    # Dev yapı — çok güçlü ama hantal
+    prowess = 3
+    health = 0.3
+    diplomacy = -1      # Yıldırıcı görünüm
+
+    flag = carn_ext_build_stamina_bonus
+    flag = carn_ext_build_overwhelming  # Bazı partnerler için "overwhelmed" flag
+
+    attraction_opinion = 12
+
+    ruler_designer_cost = 15
+
+    desc = carn_ext_build_massive_desc
+}
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  BÖLÜM 2 — KADIN GÖĞÜS BOYUTU
+#  Genetik: anne dominant (%65 anne, %35 baba taşıyıcı)
+#  Büyük boyut → partner attraction bonus, emzirme bonusu
+# ══════════════════════════════════════════════════════════════════════════════
+
+carn_ext_bust_small = {
+    group = carn_ext_bust_group
+    group_equivalence = 1
+
+    icon = trait_carn_ext_bust_small
+    congenital = yes
+    inherit_chance = 25
+
+    flag = carn_ext_bust
+    flag = carn_ext_bust_tier_1
+
+    attraction_opinion = 0
+
+    ruler_designer_cost = 0
+
+    desc = carn_ext_bust_small_desc
+}
+
+carn_ext_bust_average = {
+    group = carn_ext_bust_group
+    group_equivalence = 2
+
+    icon = trait_carn_ext_bust_average
+    congenital = yes
+    inherit_chance = 45
+
+    flag = carn_ext_bust
+    flag = carn_ext_bust_tier_2
+
+    attraction_opinion = 0
+
+    ruler_designer_cost = 0
+
+    desc = carn_ext_bust_average_desc
+}
+
+carn_ext_bust_large = {
+    group = carn_ext_bust_group
+    group_equivalence = 3
+
+    icon = trait_carn_ext_bust_large
+    congenital = yes
+    inherit_chance = 22
+
+    flag = carn_ext_bust
+    flag = carn_ext_bust_tier_3
+
+    # Döneme uygun estetik anlayış — avantajlı
+    attraction_opinion = 8
+
+    ruler_designer_cost = 5
+
+    desc = carn_ext_bust_large_desc
+}
+
+carn_ext_bust_ample = {
+    group = carn_ext_bust_group
+    group_equivalence = 4
+
+    icon = trait_carn_ext_bust_ample
+    congenital = yes
+    inherit_chance = 8
+
+    flag = carn_ext_bust
+    flag = carn_ext_bust_tier_4
+
+    # Çok dikkat çekici — hem avantaj hem dezavantaj
+    attraction_opinion = 15
+
+    # Israr eden erkek karakterlerin olayları tetikler (event sisteminde)
+    flag = carn_ext_bust_notable
+
+    ruler_designer_cost = 10
+
+    desc = carn_ext_bust_ample_desc
+}
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  BÖLÜM 3 — KADIN KALÇA/FORM
+#  Genetik: anne dominant (%65 anne, %35 baba taşıyıcı)
+#  Doğurganlık ile ilişkili — geniş kalça = doğum bonusu
+# ══════════════════════════════════════════════════════════════════════════════
+
+carn_ext_hips_slim = {
+    group = carn_ext_hips_group
+    group_equivalence = 1
+
+    icon = trait_carn_ext_hips_slim
+    congenital = yes
+    inherit_chance = 25
+
+    flag = carn_ext_hips
+    flag = carn_ext_hips_tier_1
+
+    # İnce kalça — doğum biraz daha riskli
+    # Carnalitas doğum sistemine bağlanacak (on_actions'ta)
+    flag = carn_ext_hips_birth_risk
+
+    attraction_opinion = 0
+
+    ruler_designer_cost = 0
+
+    desc = carn_ext_hips_slim_desc
+}
+
+carn_ext_hips_curved = {
+    group = carn_ext_hips_group
+    group_equivalence = 2
+
+    icon = trait_carn_ext_hips_curved
+    congenital = yes
+    inherit_chance = 50
+
+    flag = carn_ext_hips
+    flag = carn_ext_hips_tier_2
+
+    attraction_opinion = 8
+
+    ruler_designer_cost = 0
+
+    desc = carn_ext_hips_curved_desc
+}
+
+carn_ext_hips_full = {
+    group = carn_ext_hips_group
+    group_equivalence = 3
+
+    icon = trait_carn_ext_hips_full
+    congenital = yes
+    inherit_chance = 25
+
+    flag = carn_ext_hips
+    flag = carn_ext_hips_tier_3
+
+    # Geniş kalça — doğum daha güvenli, doğurganlık bonusu
+    flag = carn_ext_hips_birth_bonus
+
+    attraction_opinion = 15
+
+    # Pleasure score sisteminde de bonus (scripted_effects'te)
+    flag = carn_ext_hips_pleasure_bonus
+
+    ruler_designer_cost = 8
+
+    desc = carn_ext_hips_full_desc
+}
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  BÖLÜM 4 — DOĞURGANLIK
+#  Carnalitas'ın hamilelik sistemiyle doğrudan entegre.
+#  carn_fertility_* değişkenlerini etkiler.
+#  Genetik: her iki taraf eşit (%50/%50)
+# ══════════════════════════════════════════════════════════════════════════════
+
+carn_ext_fertility_low = {
+    group = carn_ext_fertility_group
+    group_equivalence = 1
+
+    icon = trait_carn_ext_fertility_low
+    congenital = yes
+    inherit_chance = 20
+
+    flag = carn_ext_fertility
+    flag = carn_ext_fertility_tier_1
+
+    # Vanilla CK3 doğurganlık cezası
+    fertility = -0.2
+
+    # Carnalitas doğurganlık modifier'ı (carn_fertility_chance variable)
+    # on_actions'ta set_variable ile uygulanır
+    flag = carn_ext_carnalitas_fertility_low
+
+    ruler_designer_cost = -5
+
+    desc = carn_ext_fertility_low_desc
+}
+
+carn_ext_fertility_normal = {
+    group = carn_ext_fertility_group
+    group_equivalence = 2
+
+    icon = trait_carn_ext_fertility_normal
+    congenital = yes
+    inherit_chance = 60
+
+    flag = carn_ext_fertility
+    flag = carn_ext_fertility_tier_2
+
+    # Nötr — Carnalitas varsayılan değerleri kullanır
+    fertility = 0
+
+    ruler_designer_cost = 0
+
+    desc = carn_ext_fertility_normal_desc
+}
+
+carn_ext_fertility_high = {
+    group = carn_ext_fertility_group
+    group_equivalence = 3
+
+    icon = trait_carn_ext_fertility_high
+    congenital = yes
+    inherit_chance = 20
+
+    flag = carn_ext_fertility
+    flag = carn_ext_fertility_tier_3
+
+    # Yüksek doğurganlık — Carnalitas hamilelik şansını artırır
+    fertility = 0.2
+
+    # Carnalitas'ın carn_pregnant_chance değişkenine bonus
+    flag = carn_ext_carnalitas_fertility_high
+
+    # Çok çocuk — hanedan için avantaj
+    attraction_opinion = 5
+
+    ruler_designer_cost = 8
+
+    desc = carn_ext_fertility_high_desc
+}
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  BÖLÜM 5 — LİBİDO
+#  Hem erkek hem kadın. Lustful trait ile bağlantılı.
+#  Carnalitas arousal sistemiyle entegre.
+#  Genetik: orta güç (%45 her taraf, %10 mutasyon)
+# ══════════════════════════════════════════════════════════════════════════════
+
+carn_ext_libido_low = {
+    group = carn_ext_libido_group
+    group_equivalence = 1
+
+    icon = trait_carn_ext_libido_low
+    congenital = yes
+    inherit_chance = 15
+
+    flag = carn_ext_libido
+    flag = carn_ext_libido_tier_1
+
+    # Düşük libido — uzun süre sekssiz kalabilir
+    # Stress gain yoktur (seks olmadan)
+    stress_gain_mult = -0.05     # Seks olmadan daha az stres
+
+    # Carnalitas arousal sistemi — düşük başlangıç arousal
+    flag = carn_ext_arousal_low
+
+    ruler_designer_cost = -3
+
+    desc = carn_ext_libido_low_desc
+}
+
+carn_ext_libido_average = {
+    group = carn_ext_libido_group
+    group_equivalence = 2
+
+    icon = trait_carn_ext_libido_average
+    congenital = yes
+    inherit_chance = 55
+
+    flag = carn_ext_libido
+    flag = carn_ext_libido_tier_2
+
+    ruler_designer_cost = 0
+
+    desc = carn_ext_libido_average_desc
+}
+
+carn_ext_libido_high = {
+    group = carn_ext_libido_group
+    group_equivalence = 3
+
+    icon = trait_carn_ext_libido_high
+    congenital = yes
+    inherit_chance = 22
+
+    flag = carn_ext_libido
+    flag = carn_ext_libido_tier_3
+
+    # Yüksek libido — seks olmazsa stres artar
+    stress_gain_mult = 0.05
+
+    # Lustful trait ile sinerjisi — ikisi birlikte olursa ekstra efekt
+    flag = carn_ext_arousal_high
+
+    attraction_opinion = 5
+
+    ruler_designer_cost = 5
+
+    desc = carn_ext_libido_high_desc
+}
+
+carn_ext_libido_burning = {
+    group = carn_ext_libido_group
+    group_equivalence = 4
+
+    icon = trait_carn_ext_libido_burning
+    congenital = yes
+    inherit_chance = 8
+
+    flag = carn_ext_libido
+    flag = carn_ext_libido_tier_4
+
+    # Yakıcı libido — aylık seks olmazsa ciddi stres
+    stress_gain_mult = 0.10
+
+    # Periyodik event tetikler (on_monthly_pulse)
+    # Karakter aktif olarak partner arar
+    flag = carn_ext_arousal_burning
+    flag = carn_ext_libido_compulsive
+
+    # Lustful trait sinerji flag'i
+    flag = carn_ext_arousal_high
+
+    # Piety cezası — lustful trait olmadan bile
+    piety_mult = -0.05
+
+    attraction_opinion = 8
+
+    ruler_designer_cost = 10
+
+    desc = carn_ext_libido_burning_desc
+}
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  BÖLÜM 6 — KOKU/FEROMONE
+#  Her iki cinsiyet. Gizli etki — karakter farkında değil.
+#  Opinion ve attraction üzerinde dolaylı etki.
+#  Genetik: zayıf (%30/%30, %40 rastgele)
+# ══════════════════════════════════════════════════════════════════════════════
+
+carn_ext_pheromone_faint = {
+    group = carn_ext_pheromone_group
+    group_equivalence = 1
+
+    icon = trait_carn_ext_pheromone_faint
+    congenital = yes
+    inherit_chance = 30
+
+    flag = carn_ext_pheromone
+    flag = carn_ext_pheromone_tier_1
+
+    # Minimal etki — nötr
+    attraction_opinion = 0
+
+    ruler_designer_cost = 0
+
+    desc = carn_ext_pheromone_faint_desc
+}
+
+carn_ext_pheromone_normal = {
+    group = carn_ext_pheromone_group
+    group_equivalence = 2
+
+    icon = trait_carn_ext_pheromone_normal
+    congenital = yes
+    inherit_chance = 50
+
+    flag = carn_ext_pheromone
+    flag = carn_ext_pheromone_tier_2
+
+    # Hafif cazibe etkisi
+    attraction_opinion = 5
+
+    ruler_designer_cost = 3
+
+    desc = carn_ext_pheromone_normal_desc
+}
+
+carn_ext_pheromone_potent = {
+    group = carn_ext_pheromone_group
+    group_equivalence = 3
+
+    icon = trait_carn_ext_pheromone_potent
+    congenital = yes
+    inherit_chance = 20
+
+    flag = carn_ext_pheromone
+    flag = carn_ext_pheromone_tier_3
+
+    # Güçlü feromone — çekim belirgin şekilde artar
+    attraction_opinion = 12
+
+    # Pleasure score motorunda da bonus (scripted_effects)
+    flag = carn_ext_pheromone_pleasure_bonus
+
+    # Nadir event tetikleyicisi — karşı cinsin dikkatini çeker
+    flag = carn_ext_pheromone_notable
+
+    ruler_designer_cost = 12
+
+    desc = carn_ext_pheromone_potent_desc
+}

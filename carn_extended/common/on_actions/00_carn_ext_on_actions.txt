@@ -1,0 +1,452 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — On Actions
+# File: common/on_actions/00_carn_ext_on_actions.txt
+#
+# Tetikleyiciler:
+#   on_game_start        → Mevcut tüm karakterleri initialize et
+#   on_birth             → Doğan çocuğa genetik miras hesapla ve ata
+#   on_yearly_pulse      → Prowess değişince stamina güncelle
+#   on_combat_end        → Savaş sonrası vücut yapısı etkisi (küçük şans)
+# ==============================================================================
+
+# ──────────────────────────────────────────────────────────────────────────────
+# OYUN BAŞLANGICI
+# Tüm yaşayan yetişkin karakterlere trait'leri ata (henüz yoksa)
+# ──────────────────────────────────────────────────────────────────────────────
+
+on_game_start = {
+    effect = {
+        if = {
+            limit = {
+                has_game_rule = {
+                    rule = carn_ext_physical_traits
+                    option = carn_ext_physical_on
+                }
+            }
+            every_living_character = {
+                limit = {
+                    is_adult = yes
+                    NOT = { has_trait_flag = carn_ext_build }
+                }
+                carn_ext_initialize_character_cbo_safe = yes
+            }
+        }
+    }
+}
+
+on_game_start_after_lobby = {
+    effect = {
+        if = {
+            limit = {
+                has_game_rule = {
+                    rule = carn_ext_physical_traits
+                    option = carn_ext_physical_on
+                }
+            }
+            every_living_character = {
+                limit = {
+                    is_adult = yes
+                    NOT = { has_trait_flag = carn_ext_build }
+                }
+                carn_ext_initialize_character_cbo_safe = yes
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# DOĞUM — ANA TETİKLEYİCİ
+# Root = doğan çocuk
+# scope:mother = anne
+# scope:father = baba (biliniyorsa)
+# ──────────────────────────────────────────────────────────────────────────────
+
+on_birth = {
+    effect = {
+        # Deneyim sayacını sıfırla — doğan masum başlar
+        set_variable = {
+            name = carn_ext_exp_counter
+            value = 0
+        }
+        add_trait = carn_ext_exp_innocent
+
+        # Cinse göre genetik atama — CBO uyumlu versiyon
+        if = {
+            limit = { is_male = yes }
+            carn_ext_inherit_male_traits_cbo_safe = yes
+        }
+        else = {
+            carn_ext_inherit_female_traits_cbo_safe = yes
+        }
+
+        # Her ikisi için ortak trait'ler
+        carn_ext_inherit_shared_traits = yes
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# YILLIK PULSE — Stamina / Prowess Senkronizasyonu
+# Prowess değişince stamina trait'ini güncelle
+# ──────────────────────────────────────────────────────────────────────────────
+
+on_yearly_pulse = {
+    effect = {
+        # Sadece belli bir şans ile çalışsın — her yıl her karakter için
+        # çok ağır olmasın
+        random_list = {
+            85 = { }    # %85 hiçbir şey yapma
+            15 = {      # %15 stamina güncelle
+                limit = { is_adult = yes }
+                carn_ext_sync_stamina_to_prowess = yes
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# KARAKTER YETİŞKİN OLUNCA
+# Çocuklukta alınan trait'leri teyit et, eksikleri ata
+# ──────────────────────────────────────────────────────────────────────────────
+
+on_adulthood_start = {
+    effect = {
+        # Stamina'yı şimdiki prowess'e göre ayarla
+        carn_ext_sync_stamina_to_prowess = yes
+
+        # Libido gene → trait (hidden event ile)
+        trigger_event = {
+            id = carn_ext.0020
+            days = { 3 7 }
+        }
+
+        # Sinerji kontrol
+        trigger_event = {
+            id = carn_ext.0030
+            days = { 7 14 }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# AYLIK PULSE — Libido baskısı ve günlük sayaç
+# ──────────────────────────────────────────────────────────────────────────────
+
+on_monthly_pulse = {
+    effect = {
+        # Sekssizlik sayacını artır
+        if = {
+            limit = {
+                is_adult = yes
+                is_player = yes     # Performans: sadece oyuncu karakteri
+                OR = {
+                    has_trait = carn_ext_libido_high
+                    has_trait = carn_ext_libido_burning
+                }
+            }
+            if = {
+                limit = { has_variable = carn_ext_days_since_sex }
+                change_variable = {
+                    name = carn_ext_days_since_sex
+                    add = 30
+                }
+            }
+            else = {
+                set_variable = {
+                    name = carn_ext_days_since_sex
+                    value = 30
+                }
+            }
+
+            # Libido baskısı event'i tetikle
+            trigger_event = {
+                id = carn_ext.0031
+                days = { 1 5 }
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# CARNALİTAS BAĞLANTISI
+# Carnalitas'ın seks on_action'ına eklenti
+# on_carn_sex_action — Carnalitas her seks eyleminden sonra bunu tetikler
+# Root = aktif karakter, scope:partner = partner
+# ──────────────────────────────────────────────────────────────────────────────
+
+on_carn_sex_action = {
+    effect = {
+        # Sistem aktifse sahne event'ini tetikle
+        if = {
+            limit = {
+                is_player = yes
+                carn_ext_pleasure_system_active = yes
+                is_adult = yes
+                exists = scope:partner
+                scope:partner = { is_adult = yes }
+                # Aynı anda birden fazla tetiklenmesin
+                NOT = {
+                    has_character_flag = carn_ext_scene_running
+                }
+            }
+            add_character_flag = {
+                flag = carn_ext_scene_running
+                days = 2
+            }
+            trigger_event = {
+                id = carn_ext.0100
+                days = { 0 1 }
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# ALDATMA AYLIK KONTROL
+# ──────────────────────────────────────────────────────────────────────────────
+
+on_monthly_pulse = {
+    effect = {
+        if = {
+            limit = {
+                is_adult = yes
+                is_married = yes
+                carn_ext_pleasure_system_active = yes
+                NOT = { has_character_flag = carn_ext_affair_active }
+                NOT = { has_character_flag = carn_ext_affair_cooldown }
+            }
+            # %5 şansla başlangıç kontrolü
+            random_list = {
+                95 = { }
+                5  = {
+                    trigger_event = {
+                        id = carn_ext.0200
+                        days = { 1 5 }
+                    }
+                }
+            }
+        }
+
+        # Aktif affair — aylık buluşma
+        if = {
+            limit = {
+                is_adult = yes
+                has_character_flag = carn_ext_affair_active
+                NOT = { has_character_flag = carn_ext_affair_cooldown }
+            }
+            random_list = {
+                70 = { }
+                30 = {
+                    trigger_event = {
+                        id = carn_ext.0204
+                        days = { 1 7 }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# ENSEST AYLIK KONTROL
+# ──────────────────────────────────────────────────────────────────────────────
+
+on_monthly_pulse = {
+    effect = {
+        if = {
+            limit = {
+                is_adult = yes
+                is_player = yes     # Performans: sadece oyuncu
+                carn_ext_pleasure_system_active = yes
+                NOT = { has_character_flag = carn_ext_incest_active }
+                NOT = { has_character_flag = carn_ext_incest_cooldown }
+                OR = {
+                    has_trait = lustful
+                    has_trait = carn_ext_libido_burning
+                    has_trait = carn_ext_exp_depraved
+                    has_trait = carn_ext_exp_libertine
+                }
+            }
+            # %4 şansla — aldatmadan daha nadir
+            random_list = {
+                96 = { }
+                4  = {
+                    trigger_event = {
+                        id = carn_ext.0300
+                        days = { 1 7 }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# GECE ZİYARETÇİSİ — YILLIK TETİKLEYİCİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+on_yearly_pulse = {
+    effect = {
+        if = {
+            limit = {
+                is_player = yes
+                is_adult = yes
+                is_alive = yes
+                carn_ext_pleasure_system_active = yes
+                NOT = { has_character_flag = carn_ext_nv_active }
+                NOT = { has_character_flag = carn_ext_nv_cooldown }
+                NOT = { is_in_war = yes }
+                any_courtier = {
+                    count >= 5
+                    is_adult = yes
+                }
+            }
+            # Yılda yaklaşık 1-2 kez — %15 şans
+            random_list = {
+                85 = { }
+                15 = {
+                    trigger_event = {
+                        id = carn_ext.0400
+                        days = { 30 180 }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# SAVAŞ YATAĞI — AYLIK TETİKLEYİCİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+on_monthly_pulse = {
+    effect = {
+        if = {
+            limit = {
+                is_player = yes
+                is_adult = yes
+                is_in_war = yes
+                carn_ext_pleasure_system_active = yes
+                NOT = { has_character_flag = carn_ext_wb_active }
+                NOT = { has_character_flag = carn_ext_wb_cooldown }
+                any_prisoner = {
+                    is_adult = yes
+                    is_alive = yes
+                    NOT = { is_close_family_of = prev }
+                }
+            }
+            # %10 şans — savaş boyunca bir kez
+            random_list = {
+                90 = { }
+                10 = {
+                    trigger_event = {
+                        id = carn_ext.0500
+                        days = { 3 14 }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# SARAY SKANDALI — YILLIK TETİKLEYİCİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+on_yearly_pulse = {
+    effect = {
+        if = {
+            limit = {
+                is_player = yes
+                is_adult = yes
+                carn_ext_pleasure_system_active = yes
+                NOT = { has_character_flag = carn_ext_cs_active }
+                NOT = { has_character_flag = carn_ext_cs_cooldown }
+                any_courtier = {
+                    count >= 6
+                    is_adult = yes
+                }
+            }
+            random_list = {
+                80 = { }
+                20 = {
+                    trigger_event = {
+                        id = carn_ext.0600
+                        days = { 30 120 }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# DİN ADAMININ GÜNAHI — YILLIK TETİKLEYİCİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+on_yearly_pulse = {
+    effect = {
+        if = {
+            limit = {
+                is_player = yes
+                is_adult = yes
+                carn_ext_pleasure_system_active = yes
+                NOT = { has_character_flag = carn_ext_cl_active }
+                NOT = { has_character_flag = carn_ext_cl_cooldown }
+                any_courtier = {
+                    is_adult = yes
+                    OR = {
+                        has_trait = celibate
+                        has_trait = devoted
+                        has_trait = zealous
+                    }
+                }
+            }
+            random_list = {
+                82 = { }
+                18 = {
+                    trigger_event = {
+                        id = carn_ext.0700
+                        days = { 30 150 }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# KRALIN FAVORİSİ — YILLIK TETİKLEYİCİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+on_yearly_pulse = {
+    effect = {
+        if = {
+            limit = {
+                is_player = yes
+                is_adult = yes
+                carn_ext_pleasure_system_active = yes
+                NOT = { has_character_flag = carn_ext_fav_active }
+                NOT = { has_character_flag = carn_ext_fav_cooldown }
+                OR = {
+                    exists = liege
+                    AND = {
+                        is_ruler = yes
+                        any_courtier = {
+                            count >= 4
+                            is_adult = yes
+                        }
+                    }
+                }
+            }
+            random_list = {
+                83 = { }
+                17 = {
+                    trigger_event = {
+                        id = carn_ext.0800
+                        days = { 30 120 }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,120 @@
+﻿# ==============================================================================
+# CARNALITAS EXTENDED — Core Events Localization
+# File: localization/english/carn_ext_core_events_l_english.yml
+# ==============================================================================
+
+l_english:
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0010 — Innocent → Curious
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0010.t: "An Awakening"
+ carn_ext.0010.desc: |
+  Something has shifted.
+  #newline
+  [Root.GetFirstName] cannot quite name the feeling — only that the world
+  looks different now. Softer in some places. Sharper in others.
+  The innocence that once came naturally no longer fits
+  quite as comfortably as it once did.
+  #newline
+  There is more to learn. And for the first time, [Root.GetHerHim]
+  finds [Root.GetHerHimself] genuinely curious about all of it.
+
+ carn_ext.0010.a: "There is so much I didn't know..."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0011 — Curious → Experienced
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0011.t: "A Confident Step"
+ carn_ext.0011.desc: |
+  Experience has a way of reshaping a person from the inside out.
+  #newline
+  [Root.GetFirstName] moves differently now — with a quiet confidence
+  that others notice even when they cannot explain it.
+  The fumbling uncertainty of early encounters has given way
+  to something more deliberate, more assured.
+  #newline
+  [Root.GetHeShe] knows what [Root.GetHeShe] wants.
+  And [Root.GetHeShe] knows how to ask for it.
+
+ carn_ext.0011.a: "I know what I want now."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0012 — Experienced → Depraved
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0012.t: "The Line Crossed"
+ carn_ext.0012.desc: |
+  [Root.GetFirstName] is not certain when it happened exactly —
+  when appetite became something darker.
+  #newline
+  The encounters that once satisfied now feel insufficient.
+  The boundaries that once seemed fixed have proven
+  far more flexible than anyone warned.
+  #newline
+  Priests speak of damnation. [Root.GetFirstName] wonders
+  if they have simply never tasted what [Root.GetHeShe] has.
+
+ carn_ext.0012.a: "There is no going back. I would not even if I could."
+ carn_ext.0012.b: "Perhaps I have gone too far. I should be more careful."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0013 — Depraved → Libertine
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0013.t: "Beyond All Shame"
+ carn_ext.0013.desc: |
+  Shame requires a standard one has failed to meet.
+  [Root.GetFirstName] has simply stopped recognising the standard.
+  #newline
+  What others call sin, [Root.GetHeShe] calls philosophy.
+  The flesh is not a cage to be endured — it is an instrument
+  to be mastered, and [Root.GetFirstName] has become
+  something approaching a virtuoso.
+  #newline
+  The gods, if they exist, must surely be watching.
+
+ carn_ext.0013.a: "The law of the body is the only law I honour."
+ carn_ext.0013.b: "Even now... is there a path back to something better?"
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0032 — Burning Libido, 60 gün
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0032.t: "A Hunger That Cannot Wait"
+ carn_ext.0032.desc: |
+  The days have stretched into something unbearable.
+  #newline
+  [Root.GetFirstName] finds [Root.GetHerHimself] distracted at counsel,
+  short-tempered at table, and awake long into the night
+  with a restlessness that has no political solution.
+  #newline
+  The hunger is no longer something that can be reasoned with.
+  It demands satisfaction — and the court is full of possibilities.
+
+ carn_ext.0032.a: "I will find someone tonight. I cannot go on like this."
+ carn_ext.0032.b: "No. I am more than my appetites. I will endure."
+ carn_ext.0032.c: "I will manage this myself, quietly, and tell no one."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0050 — Bağımlılık Başlangıcı
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0050.t: "Something Has Changed"
+ carn_ext.0050.desc: |
+  It is not love — [Root.GetFirstName] is clear-eyed enough to know that.
+  #newline
+  But whatever it is, it has worked its way deeper than expected.
+  The memory of those encounters lingers with a persistence
+  that is becoming difficult to dismiss.
+  #newline
+  [Root.GetFirstName] finds [Root.GetHerHimself] calculating how long
+  until the next meeting. Wondering what [Root.GetHeShe] would do
+  if it never came.
+  #newline
+  That thought is more frightening than [Root.GetHeShe] expected.
+
+ carn_ext.0050.a: "I have never had any defence against this kind of need."
+ carn_ext.0050.b: "This is dangerous. I need to put distance between us."

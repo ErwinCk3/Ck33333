@@ -1,0 +1,220 @@
+﻿# ==============================================================================
+# CARNALITAS EXTENDED — Türkçe Lokalizasyon: Modifier'lar & Game Rules
+# File: localization/turkish/carn_ext_modifiers_l_turkish.yml
+# ==============================================================================
+
+l_turkish:
+
+ # ── SEKS SONRASI DURUM ───────────────────────────────────────────────────────
+
+ carn_ext_afterglow: "Sonraki Işık"
+ carn_ext_afterglow_desc: |
+  Derinden tatmin edici bir karşılaşmanın ardından hâlâ parlıyor.
+  Dünya daha hafif, sabır daha kolay hissettiriyor.
+
+ carn_ext_afterglow_transcendent: "Aşkın Işık"
+ carn_ext_afterglow_transcendent_desc: |
+  Unutulmaz bir gece hem bedende hem akılda iz bıraktı.
+  Bu karşılaşma kalıcı bir iz bırakmış görünüyor.
+
+ carn_ext_trauma_aftermath: "Geçmeyen Travma"
+ carn_ext_trauma_aftermath_desc: |
+  Acı verici ya da istenmeyen bir karşılaşma izini bıraktı.
+  Güven, sonrasındaki günlerde kolayca gelmiyor.
+
+ carn_ext_exhausted_lover: "Tükenmiş"
+ carn_ext_exhausted_lover_desc: |
+  Beden elinden gelenin hepsini verdi.
+  Kılıç bile kaldırmak çaba gibi hissettiriyor.
+
+ # ── BAĞIMLILIK ───────────────────────────────────────────────────────────────
+
+ carn_ext_addicted_to_person: "Arzuya Tutsak"
+ carn_ext_addicted_to_person_desc: |
+  Düşünceler sürekli tek bir kişiye geri dönüyor —
+  dokunuşuna, sesine, varlığına.
+  Başka hiçbir şey tam anlamıyla tatmin etmiyor.
+
+ carn_ext_pleasure_addicted: "Zevke Bağımlı"
+ carn_ext_pleasure_addicted_desc: |
+  Beden hakkını talep ediyor. Düzenli tatmin olmadan
+  odak dağılıyor ve sabır eriyip gidiyor.
+
+ carn_ext_submission_addicted: "Boyun Eğmeye Özlem"
+ carn_ext_submission_addicted_desc: |
+  Kontrolü tamamen bırakmaktan gelen özgün bir huzur var —
+  ve bu huzura duyulan özlem büyüyor.
+
+ # ── LİBİDO BASKISI ──────────────────────────────────────────────────────────
+
+ carn_ext_libido_frustrated: "Bastırılmış Arzu"
+ carn_ext_libido_frustrated_desc: |
+  Çok uzun oldu. Bu açlık artık ruh halinde ve davranışlarda
+  görünmeye başlıyor — ve gözler gitmemeleri gereken yerlere takılıyor.
+
+ carn_ext_libido_burning_frustrated: "Yanan Hayal Kırıklığı"
+ carn_ext_libido_burning_frustrated_desc: |
+  Bu ihtiyacı saklamak giderek güçleşiyor —
+  ve pervasız kararlar giderek daha cazip görünüyor.
+
+ # ── SİNERJİ MODİFİERLERİ ────────────────────────────────────────────────────
+
+ carn_ext_virile: "Güçlü"
+ carn_ext_virile_desc: |
+  Bedensel güç ve yoğun yaşam enerjisinin nadir bir birleşimi.
+  Bu karakter ham ve manyetik bir enerji yayıyor.
+
+ carn_ext_irresistible: "Karşı Konulmaz"
+ carn_ext_irresistible_desc: |
+  Bu kişi hakkındaki bir şey aklın önüne geçiyor.
+  Diğerleri neden çekildiğini tam olarak bilmeden kendini kaptırıyor.
+
+ carn_ext_legendary_lover: "Efsanevi Aşık"
+ carn_ext_legendary_lover_desc: |
+  Olağanüstü yetenekler ve tükenmez dayanıklılık hakkındaki söylentiler
+  yatak odasının çok ötesine yayılmış.
+
+ # ── SKANDAL MODİFİERLERİ ────────────────────────────────────────────────────
+
+ carn_ext_heard_by_court: "Duyuldu"
+ carn_ext_heard_by_court_desc: |
+  Özel odadan gelen sesler istenenden daha uzağa taşındı.
+  Hizmetkarlar fısıldaşıyor.
+
+ carn_ext_active_scandal: "Skandal Davranış"
+ carn_ext_active_scandal_desc: |
+  Söylenti saray içinde ve ötesine yayıldı.
+  Bu karakter her yerde gözler tarafından izleniyor — her zaman nazikçe değil.
+
+ # ── DOĞURGANLIK SİNERJİ ─────────────────────────────────────────────────────
+
+ carn_ext_highly_fertile: "Olağanüstü Doğurgan"
+ carn_ext_highly_fertile_desc: |
+  Doğa alışılmışın dışında cömert davranmış. Çocuklar kolayca geliyor
+  ve her doğum çoğundan daha az risk taşıyor.
+
+ carn_ext_difficult_bearer: "Zor Doğuran"
+ carn_ext_difficult_bearer_desc: |
+  Gebe kalmak çoğu kadına göre daha zor ve doğum
+  yüksek risk taşıyor. Hekimler dikkat tavsiye ediyor.
+
+ # ══════════════════════════════════════════════════════
+ # GAME RULES
+ # ══════════════════════════════════════════════════════
+
+ carn_ext_content_level: "İçerik Seviyesi"
+ carn_ext_content_level_desc: "Sahne açıklamalarının ve diyalogların açıklık derecesini kontrol eder."
+
+ carn_ext_content_soft: "Zarif"
+ carn_ext_content_soft_desc: "Mekanikler aktif ama sahne metinleri kısa ve açık saçık değil. Dirty talk devre dışı."
+
+ carn_ext_content_full: "Tam"
+ carn_ext_content_full_desc: "Tüm içerik etkin. Açık sahne açıklamaları, dirty talk ve tüm diyalog seçenekleri."
+
+ carn_ext_physical_traits: "Fiziksel Trait Sistemi"
+ carn_ext_physical_traits_desc: "Tüm karakterler için vücut trait'i atamasını etkinleştirir."
+
+ carn_ext_physical_on: "Etkin"
+ carn_ext_physical_on_desc: "Tüm fiziksel trait'ler doğumda atanır ve oynanışı etkiler."
+
+ carn_ext_physical_off: "Devre Dışı"
+ carn_ext_physical_off_desc: "Fiziksel trait'ler atanmaz. Yalnızca Carnalitas temel trait'leri kullanılır."
+
+ carn_ext_show_body_traits: "Trait Görünürlüğü"
+ carn_ext_show_body_traits_desc: "Karakter penceresinde fiziksel trait ikonlarını kimin görebileceğini kontrol eder."
+
+ carn_ext_show_traits_all: "Tüm Karakterler"
+ carn_ext_show_traits_all_desc: "Fiziksel trait'ler tüm karakterler için görünür."
+
+ carn_ext_show_traits_self: "Yalnızca Oyuncu"
+ carn_ext_show_traits_self_desc: "Fiziksel trait'ler yalnızca kendi karakterin için görünür."
+
+ carn_ext_show_traits_hidden: "Gizli"
+ carn_ext_show_traits_hidden_desc: "Trait'ler aktif ama karakter penceresinde görünmez."
+
+ carn_ext_genetics: "Genetik Miras"
+ carn_ext_genetics_desc: "Fiziksel trait'lerin ebeveynlerden çocuklara nasıl geçtiği."
+
+ carn_ext_genetics_realistic: "Gerçekçi"
+ carn_ext_genetics_realistic_desc: "Tam miras motoru. Baba ~%55, anne taşıyıcı ~%35, büyükbaba etkisi ~%10. Ortalamaya çekilme geçerli."
+
+ carn_ext_genetics_simple: "Basit"
+ carn_ext_genetics_simple_desc: "Trait'ler küçük rastgele varyansla her iki ebeveynin ortalamasından alınır. Büyükbaba etkisi yok."
+
+ carn_ext_genetics_off: "Rastgele"
+ carn_ext_genetics_off_desc: "Tüm trait'ler doğumda rastgele atanır, soy göz ardı edilir."
+
+ carn_ext_grandparent_effect: "Büyükbaba Etkisi"
+ carn_ext_grandparent_effect_desc: "Trait'lerin bir nesil atlayabilmesine izin verir."
+
+ carn_ext_grandparent_on: "Etkin"
+ carn_ext_grandparent_off: "Devre Dışı"
+
+ carn_ext_experience_system: "Deneyim Sistemi"
+ carn_ext_experience_system_desc: "Karakterler zamanla cinsel deneyim kazanır ve yeni seçenekler açılır."
+
+ carn_ext_exp_on: "Etkin"
+ carn_ext_exp_off: "Devre Dışı"
+
+ carn_ext_exp_rate: "Deneyim Hızı"
+ carn_ext_exp_rate_desc: "Karakterlerin deneyim kademelerinde ne kadar hızlı ilerlediği."
+
+ carn_ext_exp_rate_slow: "Yavaş"
+ carn_ext_exp_rate_slow_desc: "Libertine'e ulaşmak için bir ömür boyu karşılaşma gerekir. Gerçekçi tempo."
+
+ carn_ext_exp_rate_normal: "Normal"
+ carn_ext_exp_rate_normal_desc: "Varsayılan ilerleme hızı."
+
+ carn_ext_exp_rate_fast: "Hızlı"
+ carn_ext_exp_rate_fast_desc: "Deneyim kademeleri hızla açılır. Kısa oynanışlar için daha iyi."
+
+ carn_ext_pleasure_system: "Zevk Skoru Sistemi"
+ carn_ext_pleasure_system_desc: "Fiziksel trait'lere, deneyime ve uyuma göre karşılaşma kalitesini hesaplar."
+
+ carn_ext_pleasure_on: "Tam"
+ carn_ext_pleasure_on_desc: "Opinion efektleri, modifier'lar ve afterglow ile tam hesaplama."
+
+ carn_ext_pleasure_simple: "Basit"
+ carn_ext_pleasure_simple_desc: "Yalnızca stres azalması uygulanır. Opinion efektleri yok."
+
+ carn_ext_pleasure_off: "Devre Dışı"
+ carn_ext_pleasure_off_desc: "Yalnızca Carnalitas temel sistemi kullanılır."
+
+ carn_ext_libido_pressure: "Libido Baskısı"
+ carn_ext_libido_pressure_desc: "Yüksek ve Yakıcı Libido karakterleri uzun sekssizlik dönemlerinde stres biriktirir."
+
+ carn_ext_libido_pressure_on: "Etkin"
+ carn_ext_libido_pressure_on_desc: "Yüksek libidolu karakterler düzenli yakınlık olmadan artan stres yaşar."
+
+ carn_ext_libido_pressure_off: "Devre Dışı"
+ carn_ext_libido_pressure_off_desc: "Libido trait'leri yalnızca zevk skoru hesaplamasını etkiler."
+
+ carn_ext_addiction_system: "Bağımlılık Sistemi"
+ carn_ext_addiction_system_desc: "Tekrarlanan aşkın karşılaşmalardan sonra karakterler duygusal veya fiziksel bağımlılık geliştirebilir."
+
+ carn_ext_addiction_on: "Etkin"
+ carn_ext_addiction_off: "Devre Dışı"
+
+ carn_ext_court_gossip: "Saray Dedikodusu"
+ carn_ext_court_gossip_desc: "Olağanüstü gürültülü ya da skandal karşılaşmalar saray üyeleri tarafından duyularak söylenti zincirleri başlatabilir."
+
+ carn_ext_gossip_on: "Etkin"
+ carn_ext_gossip_off: "Devre Dışı"
+
+ carn_ext_synergy_modifiers: "Sinerji Modifier'ları"
+ carn_ext_synergy_modifiers_desc: "Belirli trait kombinasyonları kalıcı bonuslar sağlar."
+
+ carn_ext_synergy_on: "Etkin"
+ carn_ext_synergy_off: "Devre Dışı"
+
+ carn_ext_ai_behavior: "Yapay Zeka Davranışı"
+ carn_ext_ai_behavior_desc: "Yapay zeka karakterlerin modun sistemlerini aktif olarak kullanıp kullanmayacağını kontrol eder."
+
+ carn_ext_ai_active: "Aktif"
+ carn_ext_ai_active_desc: "Yapay zeka karakterler libido baskısı yaşar, partner arar ve event'leri tetikler."
+
+ carn_ext_ai_passive: "Pasif"
+ carn_ext_ai_passive_desc: "Yapay zeka karakterler trait alır ama baskı veya arama event'lerini tetiklemez."
+
+ carn_ext_ai_off: "Kapalı"
+ carn_ext_ai_off_desc: "Yapay zeka karakterler yalnızca trait alır. Event davranışı yok."

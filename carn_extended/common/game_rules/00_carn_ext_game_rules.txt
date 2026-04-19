@@ -1,0 +1,197 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — Game Rules
+# File: common/game_rules/00_carn_ext_game_rules.txt
+#
+# Oyun başlamadan önce ayarlanabilen toggle'lar.
+# Her kural bir sistemi tamamen açar veya kapatır.
+# Script dosyalarında: has_game_rule = { rule = X option = Y } ile kontrol edilir.
+# ==============================================================================
+
+# ──────────────────────────────────────────────────────────────────────────────
+# İÇERİK SEVİYESİ
+# Tüm sistemi etkileyen ana anahtar.
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_content_level = {
+    default = carn_ext_content_full
+
+    # Yumuşak — açık sahneler yok, sadece gameplay mekanikleri
+    carn_ext_content_soft = {
+        # Trait'ler ve opinion'lar çalışır
+        # Diyalog ve sahne metinleri kısaltılır
+        # Dirty talk devre dışı
+    }
+
+    # Tam — her şey açık
+    carn_ext_content_full = {
+        # Tüm sistemler aktif
+        # Dirty talk dahil
+        # Tüm sahne metinleri
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# FİZİKSEL TRAİT SİSTEMİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_physical_traits = {
+    default = carn_ext_physical_on
+
+    # Açık — tüm fiziksel trait'ler aktif
+    carn_ext_physical_on = {}
+
+    # Kapalı — trait'ler atanmaz, sadece Carnalitas'ın kendi sistemi
+    carn_ext_physical_off = {}
+}
+
+# Karakter profilinde fiziksel trait ikonlarını göster/gizle
+carn_ext_show_body_traits = {
+    default = carn_ext_show_traits_all
+
+    # Herkese göster
+    carn_ext_show_traits_all = {}
+
+    # Sadece oyuncunun kendi karakterine göster
+    carn_ext_show_traits_self = {}
+
+    # Gizle — trait'ler çalışır ama görünmez
+    carn_ext_show_traits_hidden = {}
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# GENETİK MİRAS SİSTEMİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_genetics = {
+    default = carn_ext_genetics_realistic
+
+    # Gerçekçi — tam miras motoru (baba/anne/büyükbaba, ortalamaya çekilme)
+    carn_ext_genetics_realistic = {}
+
+    # Basit — sadece ebeveyn ortalaması, varyans yok
+    carn_ext_genetics_simple = {}
+
+    # Kapalı — tamamen rastgele atama
+    carn_ext_genetics_off = {}
+}
+
+# Büyükbaba etkisi aç/kapat
+carn_ext_grandparent_effect = {
+    default = carn_ext_grandparent_on
+
+    carn_ext_grandparent_on = {}
+    carn_ext_grandparent_off = {}
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# DENEYİM SİSTEMİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_experience_system = {
+    default = carn_ext_exp_on
+
+    # Açık — exp counter artar, tier'lar değişir
+    carn_ext_exp_on = {}
+
+    # Kapalı — herkes başlangıç tier'ında kalır
+    carn_ext_exp_off = {}
+}
+
+# Deneyim artış hızı
+carn_ext_exp_rate = {
+    default = carn_ext_exp_rate_normal
+
+    # Yavaş — tier atlamak çok zaman alır (realistik)
+    carn_ext_exp_rate_slow = {}
+
+    # Normal
+    carn_ext_exp_rate_normal = {}
+
+    # Hızlı — deneyimi çabuk kazanmak isteyenler için
+    carn_ext_exp_rate_fast = {}
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# PLEASURE SCORE SİSTEMİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_pleasure_system = {
+    default = carn_ext_pleasure_on
+
+    # Açık — tam hesaplama, outcome opinion ve modifier'ları aktif
+    carn_ext_pleasure_on = {}
+
+    # Basit — sadece stres azalması, opinion efektleri yok
+    carn_ext_pleasure_simple = {}
+
+    # Kapalı — Carnalitas'ın kendi sistemi kullanılır
+    carn_ext_pleasure_off = {}
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# LİBİDO BASKIN SİSTEMİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_libido_pressure = {
+    default = carn_ext_libido_pressure_on
+
+    # Açık — yüksek libidolu karakterler sekssiz kaldıkça stres alır
+    carn_ext_libido_pressure_on = {}
+
+    # Kapalı — libido trait'leri sadece pleasure score'u etkiler
+    carn_ext_libido_pressure_off = {}
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# BAĞIMLILIK SİSTEMİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_addiction_system = {
+    default = carn_ext_addiction_on
+
+    carn_ext_addiction_on = {}
+    carn_ext_addiction_off = {}
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# SKANDAL & SARAY DUYMA SİSTEMİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_court_gossip = {
+    default = carn_ext_gossip_on
+
+    # Açık — yüksek pleasure skoru saray tarafından duyulabilir
+    carn_ext_gossip_on = {}
+
+    # Kapalı — her şey özel kalır
+    carn_ext_gossip_off = {}
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# SİNERJİ MODİFİERLERİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_synergy_modifiers = {
+    default = carn_ext_synergy_on
+
+    carn_ext_synergy_on = {}
+    carn_ext_synergy_off = {}
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# AI DAVRANIŞI
+# NPC karakterlerin sistemi aktif kullanıp kullanmayacağı
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_ai_behavior = {
+    default = carn_ext_ai_active
+
+    # Aktif — NPC'ler de libido baskısı yaşar, partner arar
+    carn_ext_ai_active = {}
+
+    # Pasif — NPC'lerde sadece trait atama çalışır, event'ler tetiklenmez
+    carn_ext_ai_passive = {}
+
+    # Kapalı — AI hiçbir şekilde sistemi kullanmaz
+    carn_ext_ai_off = {}
+}

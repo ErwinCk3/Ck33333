@@ -1,0 +1,157 @@
+﻿# ==============================================================================
+# CARNALITAS EXTENDED — Scene Events Localization
+# File: localization/english/carn_ext_scene_events_l_english.yml
+# ==============================================================================
+
+l_english:
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0100 — Ana Sahne
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0100.t: "A Night Together"
+
+ carn_ext.0100.desc_dominant: |
+  [Root.GetFirstName] made the first move — deliberate, unhurried.
+  #newline
+  There was no question about who was in charge tonight.
+  #newline#newline
+  [Root.GetFirstName] approached [Scope:partner.GetFirstName]
+  with the calm confidence of someone who has never needed to ask twice.
+
+ carn_ext.0100.desc_submissive: |
+  [Root.GetFirstName] came to [Scope:partner.GetFirstName] quietly —
+  not with words, but with presence. A willingness.
+  #newline#newline
+  Whatever [Scope:partner.GetFirstName] wanted tonight,
+  [Root.GetFirstName] would provide. That was understood.
+
+ carn_ext.0100.desc_romantic: |
+  The evening had lingered between them for hours
+  before either made a move.
+  #newline#newline
+  When [Root.GetFirstName] finally reached for
+  [Scope:partner.GetFirstName], it felt less like a beginning
+  and more like something that had already been decided.
+
+ carn_ext.0100.desc_desperate: |
+  It had been too long. Far too long.
+  #newline#newline
+  [Root.GetFirstName] did not plan this — the body does not plan,
+  it simply arrives. And here [Root.GetHeShe] was,
+  at [Scope:partner.GetFirstName]'s door,
+  with very little left in the way of pride.
+
+ carn_ext.0100.desc_cold: |
+  There was no pretence of romance.
+  #newline#newline
+  [Root.GetFirstName] and [Scope:partner.GetFirstName] knew their duty.
+  They performed it without ceremony,
+  without warmth, without words they did not mean.
+
+ carn_ext.0100.desc_default: |
+  The night found them together, as nights sometimes do.
+  What passed between them was their own affair —
+  and the walls of the chamber kept their counsel.
+
+ # Seçenekler
+ carn_ext.0100.transcendent: "A night I will never forget."
+ carn_ext.0100.deeply: "That was exactly what I needed."
+ carn_ext.0100.satisfied: "A good night."
+ carn_ext.0100.unsatisfied: "I expected more than this..."
+ carn_ext.0100.traumatic: "I am only waiting for morning."
+ carn_ext.0100.default: "So be it."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0110 — Sonuç Özeti
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0110.t: "The Morning After"
+
+ carn_ext.0110.desc_transcendent: |
+  Morning came slowly, as if the night itself was reluctant to end.
+  #newline#newline
+  [Root.GetFirstName] lay still for a long time, watching the light
+  change across the ceiling. Something had shifted — quietly,
+  permanently, in the way that only a handful of nights
+  in a lifetime manage to shift things.
+  #newline#newline
+  [Scope:partner.GetFirstName] was still there.
+  That was worth something.
+
+ carn_ext.0110.desc_deeply: |
+  [Root.GetFirstName] woke with a rare feeling of genuine contentment.
+  #newline#newline
+  Not joy, exactly — something quieter and more durable than joy.
+  The kind of satisfaction that settles into the bones
+  and does not leave quickly.
+
+ carn_ext.0110.desc_satisfied: |
+  A decent night. [Root.GetFirstName] felt rested — properly rested —
+  for the first time in a while.
+  #newline#newline
+  [Scope:partner.GetFirstName] was good company. That was enough.
+
+ carn_ext.0110.desc_unsatisfied: |
+  [Root.GetFirstName] stared at the ceiling for a while
+  before getting up. Something was missing — some spark
+  that never quite arrived.
+  #newline#newline
+  They would not speak of it. These things rarely were spoken of.
+
+ carn_ext.0110.desc_traumatic: |
+  Sleep did not come easily.
+  #newline#newline
+  [Root.GetFirstName] lay in the dark and said nothing,
+  thought nothing, tried to think nothing.
+  Morning came eventually. It always did.
+  #newline#newline
+  Whether that was a comfort or just a fact was not yet clear.
+
+ carn_ext.0110.desc_default: |
+  The night passed. Morning came.
+  [Root.GetFirstName] dressed and returned to the day's business.
+
+ carn_ext.0110.ok: "A new day begins."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0111 — Çok Tur
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0111.t: "Not Yet"
+
+ carn_ext.0111.desc: |
+  The night was far from over.
+  #newline#newline
+  [Root.GetFirstName] showed no signs of exhaustion.
+  If anything, the opposite was true.
+  #newline#newline
+  [Scope:partner.GetFirstName] met [Root.GetHisHer] eyes
+  across the darkened room. The question was unspoken.
+  The answer did not need to be.
+
+ carn_ext.0111.continue: "The night is still young..."
+ carn_ext.0111.stop: "That is enough for one night."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0060 — Saray Duydu
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0060.t: "Overheard"
+
+ carn_ext.0060.desc: |
+  Servants talk. Guards talk. Even walls, it sometimes seems, talk.
+  #newline#newline
+  What passed between [Root.GetFirstName] and
+  [Scope:partner.GetFirstName] last night was meant to be private.
+  It was not, entirely, private.
+  #newline#newline
+  By midmorning, [Root.GetFirstName] could see it in the eyes of
+  the courtiers — that particular mixture of amusement,
+  judgment, and barely concealed envy.
+  #newline#newline
+  The court knows.
+
+ carn_ext.0060.a: "So the walls have ears. Noted."
+ carn_ext.0060.b: "Let them know. I have nothing to hide."
+ carn_ext.0060.c: "Someone will pay for spreading this."

@@ -1,0 +1,187 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — CBO Uyumluluk Efektleri
+# File: common/scripted_effects/03_carn_ext_cbo_compat.txt
+#
+# CBO trait'lerini pleasure score motoruna bağlar.
+# on_birth ve initialize'da CBO kontrolü yapar.
+# ==============================================================================
+
+# ──────────────────────────────────────────────────────────────────────────────
+# KARAKTER BAŞLANGIÇ — CBO UYUMLU VERSİYON
+# Mevcut carn_ext_initialize_character'ı override eder
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_initialize_character_cbo_safe = {
+
+    # Deneyim — CBO ile çakışmaz, her zaman atanır
+    if = {
+        limit = {
+            NOT = { has_trait_flag = carn_ext_experience }
+            is_adult = yes
+        }
+        add_trait = carn_ext_exp_innocent
+        set_variable = {
+            name = carn_ext_exp_counter
+            value = 0
+        }
+    }
+
+    # Stamina — CBO ile çakışmaz
+    if = {
+        limit = { NOT = { has_trait_flag = carn_ext_stamina } }
+        carn_ext_sync_stamina_to_prowess = yes
+    }
+
+    # Vücut yapısı — SADECE CBO kurulu değilse veya CBO atamamışsa
+    if = {
+        limit = { carn_ext_should_assign_build = yes }
+        carn_ext_random_assign_build = yes
+    }
+
+    # Erkek boyut — CBO ile çakışmaz (farklı sistem)
+    if = {
+        limit = {
+            is_male = yes
+            NOT = { has_trait_flag = carn_ext_male_size }
+        }
+        carn_ext_random_assign_male_size = yes
+    }
+
+    # Kadın anatomi — CBO ile çakışmaz
+    if = {
+        limit = {
+            is_female = yes
+            NOT = { has_trait_flag = carn_ext_fem_anatomy }
+        }
+        carn_ext_random_assign_fem_anatomy = yes
+    }
+
+    # Libido, feromone, doğurganlık — çakışmaz
+    if = {
+        limit = {
+            is_female = yes
+            NOT = { has_trait_flag = carn_ext_fertility }
+        }
+        carn_ext_random_assign_fertility = yes
+    }
+    if = {
+        limit = { NOT = { has_trait_flag = carn_ext_pheromone } }
+        carn_ext_random_assign_pheromone = yes
+    }
+    # Libido gene adulthood'da atanır — burada değil
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# PLEASURE SCORE — CBO KÖPRÜ HESAPLAMASI
+# 02_carn_ext_pleasure_extended.txt'e ek olarak çalışır
+# CBO trait'lerini pleasure score'a dahil eder
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_cbo_pleasure_bridge = {
+
+    # CBO kurulu VE karakter CBO vücut trait'ine sahipse
+    if = {
+        limit = {
+            carn_ext_cbo_installed = yes
+        }
+
+        # CBO Athletic/Muscular → bizim kaslı bonusu gibi davransın
+        if = {
+            limit = { carn_ext_cbo_is_muscular_equivalent = yes }
+            change_variable = {
+                name = carn_ext_pleasure_score
+                add = 1
+            }
+            # Partner de görsel etkileniyorsa
+            $PARTNER$ = {
+                if = {
+                    limit = {
+                        NOT = { has_trait = carn_ext_libido_low }
+                    }
+                    prev = {
+                        change_variable = {
+                            name = carn_ext_pleasure_score
+                            add = 1
+                        }
+                    }
+                }
+            }
+        }
+
+        # CBO Large/Massive → bizim dev bonusu gibi davransın
+        if = {
+            limit = { carn_ext_cbo_is_massive_equivalent = yes }
+            change_variable = {
+                name = carn_ext_pleasure_score
+                add = 2
+            }
+        }
+
+        # CBO Slender → bizim ince cezası gibi davransın
+        # (stamina zaten düşük — ek ceza vermiyoruz)
+
+        # Partner CBO trait'leri
+        $PARTNER$ = {
+            if = {
+                limit = { carn_ext_cbo_is_muscular_equivalent = yes }
+                prev = {
+                    change_variable = {
+                        name = carn_ext_pleasure_score
+                        add = 1
+                    }
+                }
+            }
+            if = {
+                limit = { carn_ext_cbo_is_massive_equivalent = yes }
+                prev = {
+                    change_variable = {
+                        name = carn_ext_pleasure_score
+                        add = 1
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# ON_BIRTH — CBO UYUMLU GENETİK MIRAS
+# CBO kendi on_birth'ine müdahale eder
+# Bizimki çakışmaması için sadece CBO'nun atamadığı trait'leri atar
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_inherit_male_traits_cbo_safe = {
+    # Boyut — her zaman (CBO'nun sistemi değil)
+    carn_ext_inherit_size = yes
+
+    # Stamina — adulthood'da senkronize edilir
+    add_trait = carn_ext_stamina_average
+
+    # Vücut yapısı — SADECE CBO yoksa veya atamamışsa
+    if = {
+        limit = { carn_ext_should_assign_build = yes }
+        carn_ext_inherit_build = yes
+    }
+    # CBO varsa vücut yapısı CBO tarafından yönetilir — müdahale etme
+}
+
+carn_ext_inherit_female_traits_cbo_safe = {
+    # Anatomi — her zaman
+    carn_ext_inherit_fem_anatomy = yes
+
+    # Göğüs ve kalça — her zaman (CBO bunları yönetmiyor)
+    carn_ext_inherit_bust = yes
+    carn_ext_inherit_hips = yes
+
+    # Doğurganlık — her zaman
+    carn_ext_inherit_fertility = yes
+
+    # Stamina
+    add_trait = carn_ext_stamina_average
+
+    # Vücut yapısı — SADECE CBO yoksa
+    if = {
+        limit = { carn_ext_should_assign_build = yes }
+        carn_ext_inherit_build = yes
+    }
+}

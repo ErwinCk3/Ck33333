@@ -1,0 +1,99 @@
+﻿# ==============================================================================
+# CARNALITAS EXTENDED — Modifier Localization
+# File: localization/english/carn_ext_modifiers_l_english.yml
+# ==============================================================================
+
+l_english:
+
+ # ── SEKS SONRASI DURUM ───────────────────────────────────────────────────────
+
+ carn_ext_afterglow: "Afterglow"
+ carn_ext_afterglow_desc: |
+  Still glowing from a deeply satisfying encounter.
+  The world feels lighter, and patience comes more easily.
+
+ carn_ext_afterglow_transcendent: "Transcendent Afterglow"
+ carn_ext_afterglow_transcendent_desc: |
+  An unforgettable night lingers in body and mind alike.
+  Something about this encounter has left a permanent mark.
+
+ carn_ext_trauma_aftermath: "Lingering Trauma"
+ carn_ext_trauma_aftermath_desc: |
+  A painful or unwanted encounter has left its mark.
+  Trust does not come easily in the days that follow.
+
+ carn_ext_exhausted_lover: "Exhausted"
+ carn_ext_exhausted_lover_desc: |
+  The body has given everything it had.
+  Even lifting a sword feels like an effort.
+
+ # ── BAĞIMLILIK ───────────────────────────────────────────────────────────────
+
+ carn_ext_addicted_to_person: "Consumed by Desire"
+ carn_ext_addicted_to_person_desc: |
+  Thoughts keep returning to one particular person —
+  their touch, their voice, their presence.
+  Nothing else quite satisfies.
+
+ carn_ext_pleasure_addicted: "Addicted to Pleasure"
+ carn_ext_pleasure_addicted_desc: |
+  The flesh demands its due. Without regular satisfaction,
+  focus frays and patience dissolves.
+
+ carn_ext_submission_addicted: "Craving Submission"
+ carn_ext_submission_addicted_desc: |
+  There is a specific kind of peace that only comes from
+  surrendering control entirely — and the craving for it grows.
+
+ # ── LİBİDO BASKISI ──────────────────────────────────────────────────────────
+
+ carn_ext_libido_frustrated: "Frustrated Desire"
+ carn_ext_libido_frustrated_desc: |
+  It has been too long. The hunger is beginning to show
+  in mood and manner — and eyes that linger where they shouldn't.
+
+ carn_ext_libido_burning_frustrated: "Burning Frustration"
+ carn_ext_libido_burning_frustrated_desc: |
+  The need is becoming difficult to hide — and harder still
+  to ignore. Reckless decisions feel increasingly appealing.
+
+ # ── SİNERJİ MODİFİERLERİ ────────────────────────────────────────────────────
+
+ carn_ext_virile: "Virile"
+ carn_ext_virile_desc: |
+  A rare combination of physical power and burning vitality.
+  This character radiates a raw, magnetic energy.
+
+ carn_ext_irresistible: "Irresistible"
+ carn_ext_irresistible_desc: |
+  Something about this person bypasses reason entirely.
+  Others find themselves drawn in without quite knowing why.
+
+ carn_ext_legendary_lover: "Legendary Lover"
+ carn_ext_legendary_lover_desc: |
+  Rumours of exceptional gifts and inexhaustible endurance
+  have spread far beyond the bedchamber.
+
+ # ── SKANDAL MODİFİERLERİ ────────────────────────────────────────────────────
+
+ carn_ext_heard_by_court: "Overheard"
+ carn_ext_heard_by_court_desc: |
+  The sounds from the private chambers carried further
+  than intended. Servants are whispering.
+
+ carn_ext_active_scandal: "Scandalous Conduct"
+ carn_ext_active_scandal_desc: |
+  Word has spread through the court and beyond.
+  Eyes follow this character everywhere — not always kindly.
+
+ # ── DOĞURGANLIK SİNERJİ ─────────────────────────────────────────────────────
+
+ carn_ext_highly_fertile: "Exceptionally Fertile"
+ carn_ext_highly_fertile_desc: |
+  Nature has been uncommonly generous. Children come readily,
+  and each birth carries less risk than most.
+
+ carn_ext_difficult_bearer: "Difficult Bearer"
+ carn_ext_difficult_bearer_desc: |
+  Conception is harder than for most, and childbirth
+  carries elevated risk. Physicians advise caution.

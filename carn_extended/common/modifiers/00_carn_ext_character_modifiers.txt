@@ -1,0 +1,200 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — Character Modifiers
+# File: common/modifiers/00_carn_ext_character_modifiers.txt
+#
+# Seks sonrası, bağımlılık, libido ve fiziksel özellik modifierleri.
+# Karakterin stat'larını geçici veya kalıcı olarak etkiler.
+# ==============================================================================
+
+# ──────────────────────────────────────────────────────────────────────────────
+# SEKS SONRASI DURUM MODİFİERLERİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Afterglow — derin tatmin sonrası
+# Pleasure score 7+ olunca aktif olur
+carn_ext_afterglow = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_exp_experienced.dds"
+
+    # Stres azalması ve iyi ruh hali
+    stress_loss_mult = 0.15
+    monthly_lifestyle_experience_gain_mult = 0.05
+
+    # Diplomasi kolaylaşır — mutlu insan
+    diplomacy = 1
+
+    # Sağlık hafif artış
+    health = 0.1
+}
+
+# Transcendent afterglow — unutulmaz gece sonrası
+# Pleasure score 10+ olunca aktif olur (60 gün)
+carn_ext_afterglow_transcendent = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_exp_libertine.dds"
+
+    stress_loss_mult = 0.25
+    monthly_lifestyle_experience_gain_mult = 0.10
+    diplomacy = 2
+    health = 0.15
+
+    # Diğer karakterlere daha çekici görünür
+    attraction_opinion = 5
+}
+
+# Travma sonrası — traumatic skor
+# Uzun süre devam eder, stress artırır
+carn_ext_trauma_aftermath = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_stamina_weak.dds"
+
+    stress_gain_mult = 0.20
+    health = -0.2
+    diplomacy = -1
+    intrigue = 1        # Hayatta kalmak için sezgi gelişir
+}
+
+# Yorgunluk — stamina_weak karakter çok uzun sevişince
+carn_ext_exhausted_lover = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_stamina_weak.dds"
+
+    prowess = -2
+    health = -0.1
+    stress_gain_mult = 0.10
+
+    # 7 gün sürer — event'te atanır
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# BAĞIMLILIK MODİFİERLERİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Bağımlılık başlangıcı — belirli bir kişiye
+carn_ext_addicted_to_person = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_libido_burning.dds"
+
+    # O kişi olmadan stres artışı (event ile kontrol edilir)
+    stress_gain_mult = 0.15
+
+    # Ama o kişiyle olunca güçlü stres azalması
+    # (bu efekt encounter event'inde manuel eklenir)
+
+    intrigue = -1       # Dikkat dağınıklığı
+    diplomacy = -1
+}
+
+# Genel zevk bağımlılığı
+carn_ext_pleasure_addicted = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_libido_burning.dds"
+
+    stress_gain_mult = 0.20
+    piety_mult = -0.10
+
+    # Aylık partner arama davranışı tetikler (on_monthly_pulse)
+}
+
+# Submission bağımlılığı — boyun eğmekten zevk almak
+carn_ext_submission_addicted = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_exp_depraved.dds"
+
+    stress_gain_mult = 0.15
+    diplomacy = -2      # Dominant karakterlere karşı pasif
+    intrigue = -1
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# LİBİDO BASKI MODİFİERLERİ
+# Uzun süre sekssiz kalan yüksek libidolu karakterler
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Yüksek libido — uzun sekssizlik (1 ay+)
+carn_ext_libido_frustrated = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_libido_high.dds"
+
+    stress_gain_mult = 0.10
+    diplomacy = -1
+    intrigue = 1        # Fırsat kollar
+}
+
+# Burning libido — uzun sekssizlik (1 ay+) — daha şiddetli
+carn_ext_libido_burning_frustrated = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_libido_burning.dds"
+
+    stress_gain_mult = 0.25
+    diplomacy = -2
+    intrigue = 2
+    piety_mult = -0.05
+
+    # 2 ay dolunca özel event tetikler (reckless behavior)
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# FİZİKSEL ÖZELLİK SİNERJİ MODİFİERLERİ
+# Belirli trait kombinasyonları aktif olduğunda verilen bonuslar
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Kaslı + yüksek libido kombinasyonu
+carn_ext_virile = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_build_muscular.dds"
+
+    prowess = 1
+    health = 0.1
+    attraction_opinion = 8
+    fertility = 0.05
+}
+
+# Feromone + hassas anatomi kombinasyonu
+carn_ext_irresistible = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_pheromone_potent.dds"
+
+    attraction_opinion = 10
+    diplomacy = 1       # İnsanlar ona yardım etmek ister
+}
+
+# Legendary boyut + endless stamina kombinasyonu
+carn_ext_legendary_lover = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_size_legendary.dds"
+
+    attraction_opinion = 15
+    # Özel diyalog seçeneklerini açar (event'lerde kontrol edilir)
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# SKANDAL MODİFİERLERİ
+# Mahkemede dedikodu yayılınca
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Sarayda seks sesi duyuldu
+carn_ext_heard_by_court = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_exp_depraved.dds"
+
+    # Tüm saray üyeleri opinion modifier alır (event'te individually uygulanır)
+    piety_mult = -0.05
+
+    # 30 gün sürer — sonra unutulur (ya da büyür)
+}
+
+# Aktif skandal — herkese duyuldu
+carn_ext_active_scandal = {
+    icon = "gfx/interface/icons/traits/body_traits/trait_carn_ext_exp_libertine.dds"
+
+    piety_mult = -0.15
+    prestige_mult = -0.10
+    diplomacy = -2
+
+    # 90 gün — çok ciddi
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# DOĞURGANLIK SİNERJİ MODİFİERLERİ
+# Carnalitas hamilelik sistemine bağlanır
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Yüksek doğurganlık + geniş kalça kombinasyonu
+carn_ext_highly_fertile = {
+    fertility = 0.15
+    health = 0.1
+}
+
+# Düşük doğurganlık + ince kalça — ek risk
+carn_ext_difficult_bearer = {
+    fertility = -0.10
+    health = -0.1
+}

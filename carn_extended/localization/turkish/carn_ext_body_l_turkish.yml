@@ -1,0 +1,231 @@
+﻿# ==============================================================================
+# CARNALITAS EXTENDED — Türkçe Lokalizasyon: Vücut Trait'leri
+# File: localization/turkish/carn_ext_body_l_turkish.yml
+# ==============================================================================
+
+l_turkish:
+
+ # ── Panel ───────────────────────────────────────────────────────────────────
+ CARN_EXT_BODY_PANEL_TITLE: "Fiziksel Özellikler"
+ CARN_EXT_SIZE_LABEL: "Büyüklük"
+ CARN_EXT_FEM_LABEL: "Anatomi"
+ CARN_EXT_STAMINA_LABEL: "Stamina"
+ CARN_EXT_EXP_LABEL: "Deneyim"
+
+ # ── ERKEK BOYUT TRAİT'LERİ ──────────────────────────────────────────────────
+
+ carn_ext_eunuch: "Hadım"
+ carn_ext_eunuch_desc: |
+  Bu adam hadım edilmiş — doğal kapasitesinden yoksun bırakılmış.
+  Çocuk sahibi olamaz ve yakınlığı tatmin edici kılan fiziksel
+  özelliklere sahip değildir.
+  #newline
+  #italic "Bıçağın aldığını hiçbir hekim geri veremez."#!
+
+ carn_ext_size_tiny: "Mütevazı Erkeklik"
+ carn_ext_size_tiny_desc: |
+  Doğa cömert davranmamış. Partnerleri nadiren tam olarak tatmin olmuş ayrılır;
+  beceri ve özveri eksikliği telafi edebilir.
+  #newline
+  #italic "Önemli olan kılıç değil, kılıcı kullanan..."#!
+  #newline
+  #bold Zevk Bonusu:#! #negative -2#!
+
+ carn_ext_size_small: "Mütevazı"
+ carn_ext_size_small_desc: |
+  Ortalamanın altında, ama çarpıcı biçimde değil.
+  Çoğu partner açıkça şikayet etmez; ama sessizce daha fazlasını isteyebilir.
+  #newline
+  #bold Zevk Bonusu:#! #neutral +0#!
+
+ carn_ext_size_average: "Ortalama"
+ carn_ext_size_average_desc: |
+  Ne dikkat çekici ne de eksik — çoğu partneri
+  kolaylıkla tatmin eden, tam yerinde bir donanım.
+  #newline
+  #bold Zevk Bonusu:#! #positive +1#!
+
+ carn_ext_size_large: "İyi Donanımlı"
+ carn_ext_size_large_desc: |
+  Doğanın cömert bir hediyesi. Partnerler onu hayranlıkla anar
+  ve yatak odasındaki ünü kendisinden önce gelir.
+  #newline
+  #bold Zevk Bonusu:#! #positive +2#!
+  #newline
+  #bold Çekim:#! #positive +10 cazibe#!
+
+ carn_ext_size_huge: "Etkileyici Donanım"
+ carn_ext_size_huge_desc: |
+  Partnerleri nefessiz bırakan nadir ve heybetli bir donanım.
+  Deneyimsiz aşıklar başta bunaltıcı bulabilir.
+  #newline
+  #bold Zevk Bonusu:#! #positive +3#!
+  #newline
+  #negative Uyarı:#! Deneyimsiz partnerler için ağrıya yol açabilir.
+
+ carn_ext_size_legendary: "Efsanevi Donanım"
+ carn_ext_size_legendary_desc: |
+  Fısıltılı dedikodular ve açılan gözlerle anlatılan efsane.
+  Çok az partner bunu deneyim olmadan kaldırabilir —
+  ama kaldırabilenler bu geceyi asla unutmaz.
+  #newline
+  #bold Zevk Bonusu:#! #positive +4#! (deneyimli partnerlerle)
+  #newline
+  #negative Uyarı:#! #negative -3 ağrı cezası#! deneyimsiz aşıklarda.
+
+ # ── KADIN ANATOMİ TRAİT'LERİ ────────────────────────────────────────────────
+
+ carn_ext_fem_sensitive: "Son Derece Hassas"
+ carn_ext_fem_sensitive_desc: |
+  Bedeni en hafif dokunuşa bile olağanüstü yoğunlukta tepki verir.
+  Zevk kolaylıkla gelir — bazen bunaltıcı biçimde.
+  #newline
+  #bold Zevk Çarpanı:#! #positive ×2 alınan zevk#!
+  #newline
+  #italic "En hafif okşayışta titredi."#!
+
+ carn_ext_fem_tight: "Sıkı Yapı"
+ carn_ext_fem_tight_desc: |
+  Çoğu partnerin son derece zevkli bulduğu dar ve iyi oturan
+  bir anatomi; ama büyük partnerler zorlu gelebilir.
+  #newline
+  #bold Partner Zevki:#! #positive +10 cazibe#!
+
+ carn_ext_fem_average: "Ortalama Anatomi"
+ carn_ext_fem_average_desc: |
+  Ne özellikle dikkat çekici ne de eksik — çoğu partnere
+  rahatça uyan bir anatomi.
+
+ carn_ext_fem_experienced: "Alışkın"
+ carn_ext_fem_experienced_desc: |
+  Deneyim, bedenini hem kendisi hem partnerleri için
+  derinden rahat kılacak biçimde şekillendirmiş.
+  #newline
+  #italic Bu trait doğuştan değil, deneyimle kazanılır.#!
+
+ carn_ext_fem_insatiable: "Doyumsuz"
+ carn_ext_fem_insatiable_desc: |
+  Zevke duyduğu iştah sınırsız görünür. Partnerler onu tatmin etmek için
+  ciddi bir stamina getirmelidir — hatta o zaman bile daha fazlasını isteyebilir.
+  #newline
+  #negative Gereksinim:#! #bold Stamina: Güçlü#! veya üzeri partner.
+
+ # ── STAMINA TRAİT'LERİ ──────────────────────────────────────────────────────
+
+ carn_ext_stamina_weak: "Zayıf Stamina"
+ carn_ext_stamina_weak_desc: |
+  İstek var, ama beden çabucak yoruluyor.
+  Karşılaşmalar kısa ve tatminsiz kalma eğilimindedir.
+  #newline
+  #bold Zevk Bonusu:#! #negative -1#!
+  #newline
+  Süre: #negative 1 tur#!
+
+ carn_ext_stamina_average: "Ortalama Stamina"
+ carn_ext_stamina_average_desc: |
+  Makul bir bünye — çoğu karşılaşmayı mahcup olmadan tamamlayacak kadar.
+  #newline
+  Süre: #neutral 2 tur#!
+
+ carn_ext_stamina_strong: "Güçlü Stamina"
+ carn_ext_stamina_strong_desc: |
+  Güçlü bir bünyeye sahip. Karşılaşmaları çoğu insandan çok daha uzun
+  sürdürebilir ve partnerlerini tam anlamıyla tatmin eder.
+  #newline
+  #bold Zevk Bonusu:#! #positive +1#!
+  #newline
+  Süre: #positive 3+ tur#!
+
+ carn_ext_stamina_endless: "Efsanevi Dayanıklılık"
+ carn_ext_stamina_endless_desc: |
+  Doğaüstü sınırda yorulmaz bir aşık.
+  Birden fazla seans kapasitesi dahilindedir
+  ve partner nadiren daha fazlasını ister.
+  #newline
+  #bold Zevk Bonusu:#! #positive +2#!
+  #newline
+  Açar: #positive Çok Tur event'leri#!
+
+ # ── DENEYİM TRAİT'LERİ ──────────────────────────────────────────────────────
+
+ carn_ext_exp_innocent: "Masum"
+ carn_ext_exp_innocent_desc: |
+  Yatak odasında çok az ya da hiç deneyim yok.
+  Karşılaşmalar beceriksiz ve kısa olabilir — ama içten.
+  #newline
+  #italic "Deneyimsizliğin kendine has bir cazibesi var..."#!
+  #newline
+  #bold Deneyim sayacı:#! 0–5
+
+ carn_ext_exp_curious: "Meraklı"
+ carn_ext_exp_curious_desc: |
+  Bedenin neler yapabileceğini anlamaya başlıyor.
+  Hâlâ öğreniyor ama umut verici ve gerçek bir hevesle dolu.
+  #newline
+  Açar: #positive Ek diyalog seçenekleri#!
+  #newline
+  #bold Deneyim sayacı:#! 6–15
+
+ carn_ext_exp_experienced: "Deneyimli Aşık"
+ carn_ext_exp_experienced_desc: |
+  Zevki nasıl vereceğini ve alacağını bilen, kendinden emin bir aşık.
+  Partnerler nadiren tatminsiz ayrılır.
+  #newline
+  Açar: #positive Dirty talk diyalog seçenekleri#!
+  #newline
+  #bold Zevk Bonusu:#! #positive +2#!
+  #newline
+  #bold Deneyim sayacı:#! 16–30
+
+ carn_ext_exp_depraved: "Yozlaşmış"
+ carn_ext_exp_depraved_desc: |
+  Deneyim iştahı körükledi, iştah da yozlaşmayı.
+  Bu karakter bedensel zevkin en uç noktalarını keşfetti
+  ve daha fazlasına açtır.
+  #newline
+  Açar: #positive Gelişmiş sahne seçenekleri#!
+  #newline
+  #bold Zevk Bonusu:#! #positive +3#!
+  #newline
+  #negative Dindarlık:#! Yılda -%5
+
+ carn_ext_exp_libertine: "Libertine"
+ carn_ext_exp_libertine_desc: |
+  Yozlaşmanın ötesinde — gerçek bir beden filozofu.
+  Hiçbir şey bu karakteri şaşırtmaz. Her karşılaşma
+  uzman bir kesinlik ve doyumsuz bir açlıkla yaşanır.
+  #newline
+  Açar: #positive Tüm diyalog seçenekleri, bağımlılık event'leri#!
+  #newline
+  #bold Zevk Bonusu:#! #positive +4#!
+  #newline
+  #negative Dindarlık:#! Yılda -%10
+  #newline
+  #negative Bağımlılık Riski:#! Aktif
+
+ # ── PLEASURE OUTCOME BAŞLIKLARI ──────────────────────────────────────────────
+
+ CARN_EXT_OUTCOME_TRAUMATIC: "Unutulmak İstenen Bir Gece"
+ CARN_EXT_OUTCOME_UNSATISFIED: "Eksik Kaldı"
+ CARN_EXT_OUTCOME_SATISFIED: "Tatmin Oldu"
+ CARN_EXT_OUTCOME_DEEPLY: "Derinden Tatmin"
+ CARN_EXT_OUTCOME_TRANSCENDENT: "Unutulmaz Bir Gece"
+
+ CARN_EXT_OUTCOME_TRAUMATIC_DESC: "Karşılaşma, zamanın kolayca iyileştiremeyeceği bir yara bıraktı."
+ CARN_EXT_OUTCOME_UNSATISFIED_DESC: "Bir şeyler eksikti. İkisi de birbirinin gözüne düzgün bakamayacak."
+ CARN_EXT_OUTCOME_SATISFIED_DESC: "Keyifli ve tatmin edici bir karşılaşma. İkisi de memnun dinleniyor."
+ CARN_EXT_OUTCOME_DEEPLY_DESC: "Olağanüstü bir karşılaşma. Anı haftalarca sürecek."
+ CARN_EXT_OUTCOME_TRANSCENDENT_DESC: "Nadir ve olağanüstü bir şey. Asla unutulmayacak bir gece."
+
+ # ── OPİNİON MODİFİER ADLARI ──────────────────────────────────────────────────
+
+ carn_ext_opinion_traumatic: "Travmatik Deneyim"
+ carn_ext_opinion_bad_lover: "Hayal Kırıklığı Yaratan Aşık"
+ carn_ext_opinion_unsatisfied: "Tatminsiz Bırakıldı"
+ carn_ext_opinion_deep_satisfaction: "Derinden Tatmin Eden Aşık"
+ carn_ext_opinion_transcendent: "Unutulmaz Aşık"
+
+ # ── MODIFIER ADLARI ──────────────────────────────────────────────────────────
+
+ carn_ext_afterglow: "Sonraki Işık"
+ carn_ext_afterglow_desc: "Derinden tatmin edici bir karşılaşmanın verdiği dinginlikle parlıyor. Stres uzak hissettiriyor."

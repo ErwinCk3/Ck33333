@@ -1,0 +1,445 @@
+﻿# ==============================================================================
+# CARNALITAS EXTENDED — Incest Events Localization
+# File: localization/english/carn_ext_incest_l_english.yml
+# ==============================================================================
+
+l_english:
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0301 — Yasak Düşünce
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0301.t: "A Thought That Should Not Exist"
+
+ carn_ext.0301.desc_sibling: |
+  They have shared everything — a childhood, a name, a bloodline.
+  [Root.GetFirstName] knows every scar, every habit, every laugh.
+  #newline#newline
+  Last night was different. [Root.GetHeShe] cannot say
+  exactly when it changed. Somewhere between the firelight
+  and the late hour and the particular way
+  [Scope:carn_ext_incest_partner_id.GetFirstName] had looked at
+  [Root.GetHimHer] — really looked —
+  #newline#newline
+  There was a thought. Unbidden. Unwanted.
+  #newline#newline
+  And now it will not leave.
+
+ carn_ext.0301.desc_child: |
+  [Root.GetFirstName] watched
+  [Scope:carn_ext_incest_partner_id.GetFirstName] across the hall —
+  this person [Root.GetHeShe] had held as an infant,
+  had taught to ride, had worried over through every fever —
+  and felt something that made no sense at all.
+  #newline#newline
+  It was not paternal. Not parental. Something else entirely.
+  Something that belonged nowhere near a parent's heart.
+  #newline#newline
+  [Root.GetFirstName] put it away immediately.
+  But it had been there. Undeniably there.
+
+ carn_ext.0301.desc_parent: |
+  [Root.GetFirstName] has always admired
+  [Scope:carn_ext_incest_partner_id.GetFirstName].
+  Has always wanted [Root.GetHisHer] approval,
+  [Root.GetHisHer] attention, [Root.GetHisHer] regard.
+  #newline#newline
+  Perhaps that is where this comes from —
+  a childhood longing for closeness that has,
+  in the strange alchemy of adulthood,
+  transformed into something quite different.
+  #newline#newline
+  Quite different and entirely impossible.
+  #newline#newline
+  [Root.GetFirstName] knows this.
+
+ carn_ext.0301.desc_default: |
+  [Root.GetFirstName] and
+  [Scope:carn_ext_incest_partner_id.GetFirstName]
+  have known each other all their lives.
+  #newline#newline
+  That was supposed to make everything simple.
+  It was not, apparently, making anything simple.
+
+ carn_ext.0301.reject: "No. I will force this thought out and never allow it back."
+ carn_ext.0301.ignore: "It means nothing. A passing darkness. I will ignore it."
+ carn_ext.0301.accept_internal: "I cannot name it. But I cannot deny it either."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0302 — Tesadüfi Temas
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0302.t: "An Accidental Touch"
+
+ carn_ext.0302.desc_sibling: |
+  It was nothing. Reaching for the same book.
+  A hand brushing a hand in the corridor, a moment of steadying
+  when the floor was uneven.
+  #newline#newline
+  [Root.GetFirstName] felt it from crown to sole.
+  #newline#newline
+  [Scope:carn_ext_incest_partner_id.GetFirstName] did not pull away
+  immediately. That was the thing.
+  [Root.GetHeShe] did not pull away immediately.
+
+ carn_ext.0302.desc_child: |
+  [Scope:carn_ext_incest_partner_id.GetFirstName] fell asleep
+  against [Root.GetHisHer] shoulder — tired from travel,
+  comfortable in the way only family can be comfortable.
+  #newline#newline
+  [Root.GetFirstName] did not move.
+  Should have. Did not.
+  Sat very still and tried not to think about
+  what [Root.GetHeShe] was thinking about.
+
+ carn_ext.0302.desc_parent: |
+  A hand on [Root.GetHisHer] shoulder — reassuring,
+  habitual. [Root.GetFirstName] had received that gesture
+  a thousand times.
+  #newline#newline
+  Tonight it landed differently.
+  Tonight [Root.GetFirstName] turned into it, slightly,
+  without meaning to.
+  #newline#newline
+  And [Scope:carn_ext_incest_partner_id.GetFirstName]
+  noticed. [Root.GetHeShe] could see it in [Root.GetHisHer] eyes —
+  the small surprise, and then something else,
+  something that was not quite surprise.
+
+ carn_ext.0302.desc_default: |
+  For one moment, proximity became something else.
+  [Root.GetFirstName] cannot explain it precisely.
+  Only that [Root.GetHeShe] noticed, and
+  [Scope:carn_ext_incest_partner_id.GetFirstName] noticed,
+  and neither of them spoke.
+
+ carn_ext.0302.retreat: "Forgive me. That was nothing — a clumsiness."
+ carn_ext.0302.linger: "Nothing was said. But something changed."
+ carn_ext.0302.prolong: "I did not pull away. Neither did they."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0303 — Gece Konuşması
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0303.t: "Late, and Alone Together"
+
+ carn_ext.0303.desc_sibling: |
+  Everyone else had gone to bed.
+  #newline#newline
+  [Root.GetFirstName] and
+  [Scope:carn_ext_incest_partner_id.GetFirstName] sat by the fire —
+  the way they had a hundred times before. The same room.
+  The same silence. And yet nothing at all the same.
+  #newline#newline
+  [Scope:carn_ext_incest_partner_id.GetFirstName] said,
+  very quietly, without looking up:
+  #newline
+  #italic "I know you have been avoiding me."#!
+  #newline#newline
+  [Root.GetFirstName] did not deny it.
+  There was no point. They had always been able
+  to read each other.
+
+ carn_ext.0303.desc_child: |
+  [Scope:carn_ext_incest_partner_id.GetFirstName] asked
+  [Root.GetHimHer] to stay after the others had left.
+  #newline#newline
+  A simple request — there was business to discuss,
+  an estate matter, a correspondence.
+  [Root.GetFirstName] found [Root.GetHimHer]self listening
+  to very little of what was said.
+  #newline#newline
+  Watching, instead. The way the light moved.
+  The familiar face made strange by too much attention.
+
+ carn_ext.0303.desc_parent: |
+  [Root.GetFirstName] sought [Root.GetHimHer] out deliberately.
+  Could not have said why, exactly. Only that the evening
+  felt unbearable at a distance and might be
+  slightly more bearable up close.
+  #newline#newline
+  They talked for a long time about nothing important.
+  The conversation was a surface.
+  Something else moved underneath it,
+  unacknowledged, careful, present.
+
+ carn_ext.0303.desc_default: |
+  The hour was late. The room was quiet.
+  All the usual barriers — company, daylight, propriety —
+  were absent.
+  #newline#newline
+  [Root.GetFirstName] and
+  [Scope:carn_ext_incest_partner_id.GetFirstName]
+  sat together, and the silence between them
+  held more than silence.
+
+ carn_ext.0303.silence: "This conversation is over. It never happened."
+ carn_ext.0303.acknowledge: "You know what I feel. I think you feel it too."
+ carn_ext.0303.approach: "I said nothing. I simply moved closer."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0304 — İtiraf
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0304.t: "Said Aloud"
+
+ carn_ext.0304.desc_sibling: |
+  [Root.GetFirstName] said it. The words existed
+  now in the air between them, irreversible.
+  #newline#newline
+  [Scope:carn_ext_incest_partner_id.GetFirstName] went very still.
+  The fire crackled. Somewhere outside, a horse shifted in its stall.
+  #newline#newline
+  Then [Root.GetHeShe] looked up.
+  And [Root.GetFirstName] understood, from the expression on
+  [Root.GetHisHer] face, that [Root.GetHeShe] had been
+  waiting for this. Perhaps longer than [Root.GetFirstName] had.
+
+ carn_ext.0304.desc_child: |
+  [Root.GetFirstName] had rehearsed nothing.
+  The words came out simply, without ceremony:
+  #newline
+  #italic "I feel something I should not feel. For you."#!
+  #newline#newline
+  [Scope:carn_ext_incest_partner_id.GetFirstName]
+  looked at [Root.GetHimHer] for a long time
+  without speaking.
+  #newline#newline
+  When [Root.GetHeShe] finally answered, [Root.GetHisHer] voice
+  was very careful. Very quiet.
+  And it was not a refusal.
+
+ carn_ext.0304.desc_parent: |
+  [Root.GetFirstName] could not look at [Root.GetHimHer]
+  while saying it.
+  #newline#newline
+  The words were inadequate — they sounded absurd
+  even to [Root.GetHisHer] own ears. But they were true.
+  That was the worst part. They were completely, undeniably true.
+  #newline#newline
+  [Scope:carn_ext_incest_partner_id.GetFirstName]
+  did not laugh. Did not leave.
+  Set down what [Root.GetHeShe] was holding
+  and turned to face [Root.GetHimHer] fully.
+
+ carn_ext.0304.desc_default: |
+  [Root.GetFirstName] said it. Not elegantly.
+  Not with any of the careful language one uses
+  at court for delicate matters.
+  #newline#newline
+  Just plainly, and honestly, and with
+  nowhere left to hide.
+
+ carn_ext.0304.rejected: "This was madness. Forgive me — I beg you, forget this."
+ carn_ext.0304.accepted: "And [Scope:carn_ext_incest_partner_id.GetFirstName] did not look away."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0305 — İlk Kez
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0305.t: "The Threshold"
+
+ carn_ext.0305.desc_sibling: |
+  There was a moment when it could still have been stopped.
+  [Root.GetFirstName] was aware of it — the last point
+  at which the world might remain as it had always been.
+  #newline#newline
+  [Scope:carn_ext_incest_partner_id.GetFirstName]'s hand
+  was in [Root.GetHisHer] own. They had grown up together.
+  Had fought, had laughed, had known each other with
+  the absolute intimacy of shared blood and shared memory.
+  #newline#newline
+  Now there was this. Something entirely different.
+  Something that would change every memory that came before it.
+  #newline#newline
+  [Root.GetFirstName] did not stop. Neither did [Root.GetHeShe].
+
+ carn_ext.0305.desc_child: |
+  [Root.GetFirstName] had made a thousand decisions in [Root.GetHisHer] life.
+  Armies committed. Treaties signed. Dynasties shaped.
+  #newline#newline
+  None of them felt as heavy as this one.
+  None of them felt as inevitable, either.
+  #newline#newline
+  [Scope:carn_ext_incest_partner_id.GetFirstName] looked at
+  [Root.GetHimHer] — not as a child looks at a parent.
+  Something far older than that. Something entirely human.
+  #newline#newline
+  [Root.GetFirstName] could not have walked away.
+  [Root.GetHeShe] will carry that for the rest of
+  [Root.GetHisHer] life — the knowledge that [Root.GetHeShe]
+  could not have walked away.
+
+ carn_ext.0305.desc_parent: |
+  All [Root.GetFirstName]'s life, [Root.GetHeShe] had looked
+  to [Scope:carn_ext_incest_partner_id.GetFirstName]
+  for guidance. For certainty. For the security of being known.
+  #newline#newline
+  What happened in that room was all of those things,
+  and something that had no name in any language
+  [Root.GetFirstName] had ever been taught.
+  #newline#newline
+  It should not have felt like coming home.
+  It should not have felt like that at all.
+
+ carn_ext.0305.desc_default: |
+  Everything [Root.GetFirstName] had been raised to believe,
+  every law of God and man and family —
+  [Root.GetHeShe] set it aside.
+  #newline#newline
+  For a night. For a person.
+  For something that [Root.GetHeShe] could not have
+  explained and did not try to.
+
+ carn_ext.0305.transcendent: "God forgive me. I am not sorry."
+ carn_ext.0305.deeply: "Wrong as it is — this is the most real thing I have felt."
+ carn_ext.0305.guilt: "What have I done. What have we done."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0306 — Sabah — Suçluluk
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0306.t: "The Morning After"
+
+ carn_ext.0306.desc: |
+  Morning came with a clarity that night had refused to offer.
+  #newline#newline
+  [Root.GetFirstName] lay still and looked at the ceiling
+  and thought about what had happened with the cold precision
+  of someone inventorying a catastrophe.
+  #newline#newline
+  The person sleeping beside [Root.GetHimHer] was
+  [Scope:carn_ext_incest_partner_id.GetFirstName].
+  [Root.GetHisHer] own blood.
+  [Root.GetHisHer] own family.
+  #newline#newline
+  The words arranged themselves in [Root.GetHisHer] head
+  with the finality of verdict: #italic there is no going back from this.#!
+
+ carn_ext.0306.deny_self: "This did not happen. I will make myself believe that."
+ carn_ext.0306.seek_penance: "I must confess. Whatever the cost."
+ carn_ext.0306.accept_guilt: "I know what I am. I will carry it."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0307 — Gizli Bağ
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0307.t: "Our Impossible Secret"
+
+ carn_ext.0307.desc_sibling: |
+  They had always been close. Everyone knew that.
+  The closeness had been unremarkable — siblings, after all.
+  #newline#newline
+  Now it was a disguise. The same conversations,
+  the same easy familiarity, the same shared history —
+  all of it now a screen behind which something entirely
+  different lived.
+  #newline#newline
+  [Root.GetFirstName] found [Root.GetHimHer]self grateful,
+  for the first time, for the very ordinariness
+  of what they had always been to each other.
+  It was excellent cover.
+
+ carn_ext.0307.desc_child: |
+  The strange thing was how little had changed, outwardly.
+  Parent and child — the roles had not shifted.
+  The gestures were the same. The words were the same.
+  #newline#newline
+  But underneath, in the private architecture of their knowing —
+  everything was different. Everything was new.
+  And no one could see it but them.
+
+ carn_ext.0307.desc_parent: |
+  [Root.GetFirstName] had always wanted
+  [Scope:carn_ext_incest_partner_id.GetFirstName]'s full attention.
+  Had always felt, in some inarticulate way,
+  slightly outside the circle of [Root.GetHisHer] complete regard.
+  #newline#newline
+  That was not the problem anymore.
+
+ carn_ext.0307.desc_default: |
+  The secret bound them in a way that nothing else had.
+  Not blood, not duty, not shared history —
+  this particular secret, held between exactly two people
+  in all the world.
+  #newline#newline
+  [Root.GetFirstName] had not anticipated
+  how much weight it would have. How permanent it would feel.
+
+ carn_ext.0307.embrace: "This secret is ours alone. Let it stay that way."
+ carn_ext.0307.end: "I have to end this. Whatever it costs me."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0309 — Din Cezası
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0309.t: "Discovered"
+
+ carn_ext.0309.desc: |
+  Someone knows.
+  #newline#newline
+  [Root.GetFirstName] cannot trace exactly how —
+  a servant who lingered, a door left unlocked,
+  a face that showed too much at the wrong moment.
+  #newline#newline
+  However it happened, it has happened.
+  The word has reached ears it should not have reached.
+  Ears that are obligated, by faith and by law,
+  to act on what they know.
+  #newline#newline
+  The consequences are moving now, with the slow
+  and terrible momentum of institutional justice.
+  There is no stopping them. There is only
+  deciding how to face them.
+
+ carn_ext.0309.accept: "I will face what comes. There is nothing else to do."
+ carn_ext.0309.flee: "I cannot be here when the reckoning arrives."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0310 — Kültürel Meşruiyet
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0310.t: "What Faith Permits"
+
+ carn_ext.0310.desc: |
+  [Root.GetFirstName] had expected guilt. Shame. The grinding weight
+  of transgression.
+  #newline#newline
+  Instead, [Root.GetHisHer] faith offered something unexpected:
+  permission. Or at the very least, silence where condemnation
+  might have been.
+  #newline#newline
+  Among [Root.GetHisHer] people, what [Root.GetHeShe] has done
+  is not the same thing as it would be elsewhere.
+  The calculus is different here. Blood and dynasty
+  are intertwined in ways that other faiths refuse to acknowledge.
+  #newline#newline
+  [Root.GetFirstName] found, to [Root.GetHisHer] own surprise,
+  that [Root.GetHeShe] was grateful.
+
+ carn_ext.0310.accept: "My faith does not condemn this. That is enough."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0311 — Inbred Çocuk Riski
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0311.t: "Blood of Blood"
+
+ carn_ext.0311.desc: |
+  [Root.GetFirstName] had not allowed [Root.GetHimHer]self
+  to think about this. The night had demanded other considerations.
+  #newline#newline
+  But the body does not observe the same exemptions
+  that passion demands.
+  #newline#newline
+  If [Scope:carn_ext_incest_partner_id.GetFirstName]
+  were to conceive — and shared blood does not prevent conception,
+  whatever its other consequences —
+  the child would carry in its very bones the record
+  of what [Root.GetFirstName] has done.
+  #newline#newline
+  Some things cannot be hidden. Some things write themselves
+  into flesh and blood and cannot be erased.
+
+ carn_ext.0311.worried: "If there is a child — what will it carry?"
+ carn_ext.0311.fatalistic: "What will be, will be. I cannot undo what I have done."

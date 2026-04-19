@@ -1,0 +1,361 @@
+﻿# ==============================================================================
+# CARNALITAS EXTENDED — Savaş Yatağı Lokalizasyonu
+# File: localization/english/carn_ext_story_wb_l_english.yml
+# ==============================================================================
+
+l_english:
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0501 — Esir Alındı
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0501.t: "A Prisoner of Note"
+
+ carn_ext.0501.desc_female_prisoner: |
+  The battle was over. The field was being cleared.
+  And then [Root.GetFirstName] noticed [Scope:carn_ext_wb_prisoner.GetFirstName].
+  #newline#newline
+  She was standing among the other prisoners —
+  not cowering, not weeping, simply standing
+  with the particular stillness of someone who has decided
+  to be afraid later, in private, where no one can use it against her.
+  #newline#newline
+  An enemy. A prisoner. [Root.GetFirstName] had taken dozens.
+  #newline#newline
+  This one was different. [Root.GetHeShe] could not have said why
+  and did not try. [Root.GetHeShe] simply stood and looked
+  a moment longer than was strictly necessary.
+
+ carn_ext.0501.desc_male_prisoner: |
+  He had not gone down easily. Three of [Root.GetFirstName]'s
+  men had needed to put him on his knees,
+  and even kneeling he looked like someone
+  who was temporarily inconvenienced, not defeated.
+  #newline#newline
+  [Root.GetFirstName] stood in front of him
+  and [Scope:carn_ext_wb_prisoner.GetFirstName] looked up —
+  not with fear, not with pleading, but with
+  a calm, assessing gaze that said very clearly:
+  #italic I am memorising your face.#!
+  #newline#newline
+  An enemy. [Root.GetFirstName] reminded [Root.GetHimHer]self of this.
+  An enemy who was, nonetheless, looking at [Root.GetHimHer]
+  with considerable attention.
+
+ carn_ext.0501.desc_default: |
+  Among the prisoners taken that day,
+  one stood apart — not by rank, not by bearing, but by
+  something less nameable.
+  #newline#newline
+  [Root.GetFirstName] noticed.
+  [Root.GetFirstName] noticed, and then spent some time
+  pretending not to have noticed.
+
+ carn_ext.0501.standard: "Process them for ransom. Nothing special."
+ carn_ext.0501.examine: "Wait. Bring this one to me separately."
+ carn_ext.0501.special: "Keep this prisoner close to my tent."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0502 — Ziyaret
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0502.t: "The Second Look"
+
+ carn_ext.0502.desc_female: |
+  [Root.GetFirstName] told [Root.GetHimHer]self it was
+  a practical visit. Questions about enemy positions.
+  Intelligence. Legitimate military business.
+  #newline#newline
+  [Scope:carn_ext_wb_prisoner.GetFirstName] looked at [Root.GetHimHer]
+  from the moment [Root.GetHeShe] entered,
+  and [Root.GetFirstName] forgot entirely
+  what [Root.GetHisHer] legitimate military business had been.
+  #newline#newline
+  They sat across a small table — a candle between them,
+  the sounds of camp outside — and talked.
+  About the war, at first. Then about other things.
+  #newline#newline
+  [Root.GetFirstName] stayed longer than [Root.GetHeShe] had planned.
+
+ carn_ext.0502.desc_male: |
+  [Scope:carn_ext_wb_prisoner.GetFirstName] had been given
+  reasonable quarters for a prisoner — not comfortable,
+  but not cruel. He had made the space his own in ways
+  that [Root.GetFirstName] noticed and did not comment on.
+  #newline#newline
+  He rose when [Root.GetFirstName] entered —
+  not from deference, [Root.GetFirstName] thought,
+  but from something older and more instinctive.
+  #newline#newline
+  "My captor," he said. Neutrally. Almost warmly.
+  "I wondered when you'd come back."
+
+ carn_ext.0502.retreat: "This is not what I am here for. I should go."
+ carn_ext.0502.talk: "We talked. About the war, at first. Then about other things."
+ carn_ext.0502.touch: "I reached out. Touched their face. Enemy. Beautiful enemy."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0503 — Kaçma Girişimi
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0503.t: "Caught"
+
+ carn_ext.0503.desc: |
+  They had made it halfway to the tree line.
+  Not far enough.
+  #newline#newline
+  [Root.GetFirstName]'s guards brought
+  [Scope:carn_ext_wb_prisoner.GetFirstName] back
+  with efficient, impersonal efficiency —
+  and deposited [Root.GetHimHer] in front of
+  [Root.GetFirstName] in the grey light before dawn.
+  #newline#newline
+  [Scope:carn_ext_wb_prisoner.GetFirstName] was breathing hard.
+  A cut on [Root.GetHisHer] cheekbone. Mud on [Root.GetHisHer] hands.
+  Looking at [Root.GetFirstName] with an expression that
+  contained no apology whatsoever.
+  #newline#newline
+  [Root.GetFirstName] felt, obscurely, something that was
+  not quite anger. Something more complicated than anger.
+
+ carn_ext.0503.punish: "This will not go unpunished."
+ carn_ext.0503.understand: "Why? You were not being mistreated."
+ carn_ext.0503.release_early: "Go. I will not chase you."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0504 — Teklif
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0504.t: "An Offer"
+
+ carn_ext.0504.desc_default: |
+  [Scope:carn_ext_wb_prisoner.GetFirstName] had clearly
+  been thinking. [Root.GetFirstName] could see it —
+  the careful preparation behind the casual manner.
+  #newline#newline
+  "I have something you want," [Root.GetHeShe] said.
+  "You have something I want. There may be an arrangement."
+  #newline#newline
+  [Root.GetFirstName] waited. Interested,
+  despite every instinct that said not to be.
+
+ carn_ext.0504.desc_high_tension: |
+  They had been circling this for days.
+  Both of them knew it.
+  #newline#newline
+  [Scope:carn_ext_wb_prisoner.GetFirstName] looked at
+  [Root.GetFirstName] with the directness of someone
+  who has decided that subtlety has had its chance
+  and failed.
+  #newline#newline
+  "You want me," [Root.GetHeShe] said.
+  Simple. Declarative. Absolutely certain.
+  "I am not going home either way.
+  At least this way we both get something."
+
+ carn_ext.0504.reject: "Are you attempting to bribe me with yourself?"
+ carn_ext.0504.information: "What information?"
+ carn_ext.0504.offer_self: "You knew exactly what you were saying."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0505 — Kırılma Noktası
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0505.t: "The Point of No Return"
+
+ carn_ext.0505.desc_breaking: |
+  [Root.GetFirstName] has been a commander long enough
+  to know what the point of no return looks like.
+  Has ridden toward it in battle a dozen times —
+  that moment when turning back becomes
+  more dangerous than going forward.
+  #newline#newline
+  This felt exactly like that.
+  #newline#newline
+  [Scope:carn_ext_wb_prisoner.GetFirstName] was close enough
+  that [Root.GetFirstName] could hear [Root.GetHisHer] breathing.
+  Outside, the camp made its ordinary night sounds —
+  fires, horses, the distant voice of a watch being changed.
+  #newline#newline
+  Inside the tent: just the two of them.
+  Just this.
+
+ carn_ext.0505.desc_female_tension: |
+  She had stopped pretending to be afraid of [Root.GetHimHer].
+  [Root.GetFirstName] wasn't sure when that had happened.
+  #newline#newline
+  They sat across from each other in the lamplight —
+  captor and prisoner, enemy and enemy —
+  and [Scope:carn_ext_wb_prisoner.GetFirstName] looked at
+  [Root.GetHimHer] as if [Root.GetHeShe] were trying to
+  make a decision about something.
+  #newline#newline
+  Then she made it.
+
+ carn_ext.0505.desc_male_tension: |
+  [Scope:carn_ext_wb_prisoner.GetFirstName] had not tried
+  to escape again. [Root.GetFirstName] had noticed this.
+  #newline#newline
+  Tonight he had looked at [Root.GetHimHer] for a long moment
+  and then said, very quietly:
+  "You keep coming back."
+  #newline#newline
+  [Root.GetFirstName] did not answer.
+  There was no answer that would have been better than silence.
+
+ carn_ext.0505.desc_low_tension: |
+  Something had built between them over these days —
+  slowly, inexorably, the way pressure builds
+  before a storm.
+  #newline#newline
+  Tonight it broke.
+
+ carn_ext.0505.stop: "No. Whatever this is — it stops here."
+ carn_ext.0505.dominant: "You are my prisoner. And tonight you are mine."
+ carn_ext.0505.mutual: "I cannot explain this. I cannot stop it."
+ carn_ext.0505.prisoner_takes_lead: "'I want you,' they said. To me. Plainly."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0506 — Çadır Gecesi
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0506.t: "The Tent"
+
+ carn_ext.0506.desc_dominant: |
+  The war had made [Root.GetFirstName] many things.
+  Harder than [Root.GetHeShe] had been.
+  More certain. More willing to take what [Root.GetHeShe] wanted.
+  #newline#newline
+  [Root.GetHeShe] wanted this.
+  #newline#newline
+  [Scope:carn_ext_wb_prisoner.GetFirstName] did not look
+  like someone who intended to resist.
+  Something in their eyes — not surrender exactly.
+  Something chosen. Something offered freely
+  behind the facade of captivity.
+  #newline#newline
+  [Root.GetFirstName] did not question it.
+  The tent flap fell. The lamp burned low.
+  Outside: a war. Inside: something else entirely.
+
+ carn_ext.0506.desc_prisoner_leads: |
+  [Root.GetFirstName] had expected to be in command.
+  Was surprised to find, shortly, that [Root.GetHeShe] was not.
+  #newline#newline
+  [Scope:carn_ext_wb_prisoner.GetFirstName] moved with
+  the quiet confidence of someone who has decided exactly
+  what [Root.GetHeShe] wants and exactly how to get it.
+  Prisoner in name only, in that tent, that night.
+  #newline#newline
+  [Root.GetFirstName] did not object. Would not have been
+  able to say, honestly, that [Root.GetHeShe] wanted to.
+
+ carn_ext.0506.desc_mutual: |
+  There was no ceremony. No negotiation.
+  Just two people in a tent in the middle of a war,
+  with all the context of that stripped away,
+  finding that what remained was — this.
+  #newline#newline
+  Enemy. Captor. Prisoner.
+  None of those words were quite accurate anymore.
+  [Root.GetFirstName] could not have said what the accurate words were.
+  Only that the inaccurate ones had stopped feeling relevant.
+
+ carn_ext.0506.transcendent: "In a war tent. With an enemy. The best night I can remember."
+ carn_ext.0506.deeply: "Come morning, I still did not want them to leave."
+ carn_ext.0506.guilty: "An enemy. Gods help me. What have I done?"
+ carn_ext.0506.default: "War does things to people. This is one of those things."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0507 — Savaş Bitti / Karar Vakti
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0507.t: "The War Ends"
+
+ carn_ext.0507.desc_war_ended: |
+  The war was over. Peace — of a kind — had arrived.
+  #newline#newline
+  Which meant [Scope:carn_ext_wb_prisoner.GetFirstName]
+  was no longer quite a prisoner.
+  The legal ground had shifted.
+  The definitions that had made this simple —
+  captor, captive, the clarity of chains —
+  were dissolving.
+  #newline#newline
+  [Root.GetFirstName] looked at [Scope:carn_ext_wb_prisoner.GetFirstName]
+  and tried to decide what to do with something
+  that had started as war and become, in the nights since,
+  something else entirely.
+
+ carn_ext.0507.desc_still_war: |
+  The war was not yet over.
+  But something had shifted between them anyway —
+  some informal armistice that existed
+  only inside the tent, only in the hours after dark,
+  only between two people who were officially enemies
+  and had privately stopped being.
+  #newline#newline
+  Sooner or later, a decision would need to be made.
+
+ carn_ext.0507.release: "Go. The war is over. So is this."
+ carn_ext.0507.keep: "Come back with me. Not as a prisoner."
+ carn_ext.0507.ransom: "Politics is politics. Take the ransom."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0508 — Yanında Tut
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0508.t: "What Comes After"
+
+ carn_ext.0508.desc: |
+  [Scope:carn_ext_wb_prisoner.GetFirstName] had said nothing
+  for a long moment after the offer was made.
+  #newline#newline
+  Then: "Your court."
+  #newline#newline
+  Not a question. [Root.GetFirstName] nodded.
+  #newline#newline
+  "And you." Again, not a question. An inventory.
+  Something being weighed and assessed
+  with the careful practicality of someone
+  who has learned not to hope too quickly.
+  #newline#newline
+  "Yes," said [Root.GetFirstName].
+  #newline#newline
+  [Scope:carn_ext_wb_prisoner.GetFirstName] looked out
+  of the tent at the departing war, at the road ahead,
+  at whatever version of the future was arranging itself
+  in the middle distance.
+  Then looked back.
+  #newline#newline
+  "All right," [Root.GetHeShe] said.
+
+ carn_ext.0508.accept: "An enemy who became something I cannot name."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0509 — Esir Öldü
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0509.t: "Gone"
+
+ carn_ext.0509.desc: |
+  [Root.GetFirstName] heard it from a captain —
+  delivered in the flat, efficient language of war,
+  the way deaths are delivered in war,
+  without weight or ceremony.
+  #newline#newline
+  [Scope:carn_ext_wb_prisoner.GetFirstName].
+  Dead. In the fighting.
+  #newline#newline
+  [Root.GetFirstName] stood for a moment.
+  The captain waited, then moved on — there were other reports,
+  other names, other deaths, the ordinary business of aftermath.
+  #newline#newline
+  [Root.GetFirstName] stood a moment longer.
+  Tried to find the appropriate response to the death of a prisoner.
+  Found something rather different instead.
+  #newline#newline
+  Said nothing. Went back to work.
+
+ carn_ext.0509.grieve: "Mourning an enemy. Strange. Necessary."
+ carn_ext.0509.soldier: "War takes people. This is what war does."

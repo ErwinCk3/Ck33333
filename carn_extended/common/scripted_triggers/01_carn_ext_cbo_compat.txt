@@ -1,0 +1,81 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — CBO Uyumluluk Katmanı
+# File: common/scripted_triggers/01_carn_ext_cbo_compat.txt
+#
+# CBO (Character Body Overhaul) kurulu mu kontrol eder.
+# CBO varsa → CBO trait'lerine bağlan, bizim atamamızı devre dışı bırak
+# CBO yoksa → Bizim sistemimiz tam aktif
+#
+# CBO Trait ID'leri (bilinen):
+#   cbo_body_slender, cbo_body_average, cbo_body_athletic, cbo_body_muscular
+#   cbo_body_large (bazı versiyonlarda)
+# ==============================================================================
+
+# ──────────────────────────────────────────────────────────────────────────────
+# CBO TESPİT TRİGGER'I
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_cbo_installed = {
+    # CBO'nun bilinen trait'lerinden biri varsa kurulu sayarız
+    OR = {
+        trait_exists = cbo_body_slender
+        trait_exists = cbo_body_athletic
+        trait_exists = cbo_body_muscular
+        # CBO flag'i (bazı versiyonlar set eder)
+        exists = flag:cbo_framework_active
+    }
+}
+
+# CBO vücut yapısı atadı mı bu karaktere?
+carn_ext_cbo_has_body_trait = {
+    OR = {
+        has_trait = cbo_body_slender
+        has_trait = cbo_body_average
+        has_trait = cbo_body_athletic
+        has_trait = cbo_body_muscular
+        has_trait = cbo_body_large
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# VÜCUT YAPISI ATAMASI GEREKLİ Mİ?
+# CBO varsa ve zaten atamışsa bizim atamamız çalışmaz
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_should_assign_build = {
+    NOT = { has_trait_flag = carn_ext_build }   # Bizim trait'imiz yoksa
+    OR = {
+        NOT = { carn_ext_cbo_installed = yes }  # CBO kurulu değilse
+        NOT = { carn_ext_cbo_has_body_trait = yes } # CBO atamamışsa
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# CBO → CARN_EXT KÖPRÜ TRİGGER'LARI
+# CBO trait'lerini bizim pleasure score motoruna bağlar
+# ──────────────────────────────────────────────────────────────────────────────
+
+# CBO "athletic" → bizim "muscular" gibi davransın
+carn_ext_cbo_is_muscular_equivalent = {
+    OR = {
+        has_trait = cbo_body_athletic
+        has_trait = cbo_body_muscular
+        has_trait = carn_ext_build_muscular   # Bizimki
+    }
+}
+
+# CBO "muscular/large" → bizim "massive" gibi davransın
+carn_ext_cbo_is_massive_equivalent = {
+    OR = {
+        has_trait = cbo_body_large
+        has_trait = carn_ext_build_massive    # Bizimki
+    }
+}
+
+# CBO "slender" → bizim "lean" gibi davransın
+carn_ext_cbo_is_lean_equivalent = {
+    OR = {
+        has_trait = cbo_body_slender
+        has_trait = carn_ext_build_lean       # Bizimki
+    }
+}

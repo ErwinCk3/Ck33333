@@ -1,0 +1,269 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — Diyalog Motoru: Katman 1 — Yaklaşma
+# File: common/scripted_effects/dialogue/01_carn_ext_dialogue_approach.txt
+#
+# Her yaklaşma tutumuna göre metin seçer.
+# Kullanım: carn_ext_dialogue_approach = { ATTITUDE = dominant }
+#
+# ATTITUDE seçenekleri:
+#   dominant    — karakter kontrol altında, emir verir
+#   submissive  — karakter boyun eğiyor, izin istiyor
+#   romantic    — duygusal, nazik, şiirsel
+#   desperate   — libido baskısı yüksek, ihtiyaç hissediyor
+#   forbidden   — yasak ilişki, suçluluk + istek karışımı
+#   cold        — duygusuz, mekanik, siyasi
+# ==============================================================================
+
+carn_ext_dialogue_approach_dominant = {
+    # Dominant karakter yaklaşıyor
+    # Root = yaklaşan, scope:partner = hedef
+    random_list = {
+        1 = {
+            # Emir tonu
+            custom_tooltip = {
+                text = carn_ext_approach_dominant_01
+                # "[Root.GetFirstName] yaklaştı, sesi alçak ve kesin:
+                #  'Bu gece benim her isteğimi yerine getireceksin.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_dominant_02
+                # "Kapıyı kapattı. Sesi neredeyse fısıltıydı — ama emir buyuruyordu:
+                #  'Diz çök. Şimdi.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_dominant_03
+                # "'Sen benim ne olduğumu biliyorsun,' dedi [Root.GetFirstName].
+                #  'Ve bu gece bunun ne anlama geldiğini hatırlatacağım.'"
+            }
+        }
+        1 = {
+            # Lustful trait varsa ek seçenek
+            trigger = { has_trait = lustful }
+            custom_tooltip = {
+                text = carn_ext_approach_dominant_lustful_01
+                # "Gözleri [partner.GetFirstName]'i baştan aşağı süzdü.
+                #  'Ne kadar bekleyebileceğimi sanıyorsun?'"
+            }
+        }
+        1 = {
+            # Legendary boyut varsa ek seçenek
+            trigger = { has_trait = carn_ext_size_legendary }
+            custom_tooltip = {
+                text = carn_ext_approach_dominant_legendary_01
+                # "'Daha önce böyle bir geceyi hiç yaşamadın,' dedi sakin bir özgüvenle.
+                #  'Ama unutmayacaksın.'"
+            }
+        }
+    }
+}
+
+carn_ext_dialogue_approach_submissive = {
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_submissive_01
+                # "'Lütfen...' diye fısıldadı [partner.GetFirstName].
+                #  'Nazik olun bu gece.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_submissive_02
+                # "Gözlerini kaldırmadan konuştu:
+                #  'Size nasıl razı olabileceğimi söyleyin. Her şeyi yapabilirim.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_submissive_03
+                # "Sesi titriyordu ama kararlıydı:
+                #  'Söz veriyorum. İyi bir [Root.GetIsMaleDesc] olacağım bu gece.'"
+            }
+        }
+        1 = {
+            # Deneyimsiz submissive
+            trigger = {
+                OR = {
+                    has_trait = carn_ext_exp_innocent
+                    has_trait = carn_ext_exp_curious
+                }
+            }
+            custom_tooltip = {
+                text = carn_ext_approach_submissive_innocent_01
+                # "Kızarmış yanaklarla fısıldadı:
+                #  'Bu konuda pek... deneyimim yok. Ama öğrenmek istiyorum.'"
+            }
+        }
+        1 = {
+            # Depraved/libertine submissive — çok farklı ton
+            trigger = {
+                OR = {
+                    has_trait = carn_ext_exp_depraved
+                    has_trait = carn_ext_exp_libertine
+                }
+            }
+            custom_tooltip = {
+                text = carn_ext_approach_submissive_depraved_01
+                # "Gülümsedi — bilgece, neredeyse aç gözlü:
+                #  'Bugün siz yönetiyorsunuz. Nereye götürmek isterseniz.'"
+            }
+        }
+    }
+}
+
+carn_ext_dialogue_approach_romantic = {
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_romantic_01
+                # "'Sizi bu gece çok özledim,' dedi [Root.GetFirstName] sessizce.
+                #  'Kelimelerle anlatamıyorum ama belki gösterebilirim.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_romantic_02
+                # "Yüzüne uzandı, parmakları yavaşça yanağına değdi:
+                #  'Geceyi bize ait kılalım. Başka kimse yok — sadece biz.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_romantic_03
+                # "'Her gün yanınızdayım,' dedi.
+                #  'Ama bu gece... bu gece gerçekten yanınızda olmak istiyorum.'"
+            }
+        }
+        1 = {
+            # Yüksek opinion — daha güçlü aşk tonu
+            trigger = {
+                opinion = { target = scope:partner  value >= 60 }
+            }
+            custom_tooltip = {
+                text = carn_ext_approach_romantic_deep_01
+                # "'Bilmiyorum bunu nasıl söyleyeceğimi,' dedi, sesi kısık:
+                #  'Sizi seviyorum. Ve bu gece bunu hissettirmek istiyorum.'"
+            }
+        }
+        1 = {
+            # Afterglow modifier varsa — tekrarlanan sevişme
+            trigger = {
+                has_character_modifier = carn_ext_afterglow
+            }
+            custom_tooltip = {
+                text = carn_ext_approach_romantic_again_01
+                # "Sabah henüz gelmemişti. [Root.GetFirstName] dönüp baktı —
+                #  'Bir kez daha,' diye fısıldadı. 'Lütfen.'"
+            }
+        }
+    }
+}
+
+carn_ext_dialogue_approach_desperate = {
+    # Libido baskısı yüksek karakter
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_desperate_01
+                # "Sesi normalden gerilmiş çıktı:
+                #  'Bu ihtiyacı bastırmak artık imkânsız. Biliyorum ki... biliyorum.
+                #   Ama sizi görmek yeterli değil artık.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_desperate_02
+                # "Uzun süre bekledi. Sonunda konuştu — alçak, neredeyse utanarak:
+                #  'Çok uzun zaman oldu. Siz olmasaydınız eğer...
+                #   Neyse. Buradayım. Sizi istiyorum. Bu kadar.'"
+            }
+        }
+        1 = {
+            trigger = { has_trait = carn_ext_libido_burning }
+            custom_tooltip = {
+                text = carn_ext_approach_desperate_burning_01
+                # "[Root.GetFirstName] neredeyse özür diler gibi yaklaştı:
+                #  'Kendimi tutamıyorum. Sizi görünce her düşünce siliniyor.
+                #   Bu gece... lütfen.'"
+            }
+        }
+    }
+}
+
+carn_ext_dialogue_approach_forbidden = {
+    # Yasak ilişki — ensest, evli, köle, din adamı vb.
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_forbidden_01
+                # "Uzun süre konuşmadı. Sadece baktı.
+                #  Sonunda sesi kısık çıktı: 'Bunu yapmamalıyız. Her ikimiz de biliyoruz.
+                #  Ama durduramıyorum kendimi.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_forbidden_02
+                # "'Eğer birisi görürse...' diye başladı, durdu.
+                #  Sonra başını salladı sanki pes etmiş gibi:
+                #  'Umursamıyorum. Şu an tek umursadığım sensin.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_forbidden_03
+                # "Fısıltısı neredeyse kayboldu odada:
+                #  'Tanrı beni affetsin. Sen [partner_relation]sın.
+                #   Ve ben yine de buradayım.'"
+            }
+        }
+        1 = {
+            # Güçlü suçluluk — celibate veya dini trait
+            trigger = {
+                OR = {
+                    has_trait = celibate
+                    has_trait = devoted
+                    piety >= 500
+                }
+            }
+            custom_tooltip = {
+                text = carn_ext_approach_forbidden_pious_01
+                # "Yıllar süren dualar, yeminler, kefaret...
+                #  Hepsi bu an eridi.
+                #  'Tanrım,' dedi yalnızca. Ve adım attı.'"
+            }
+        }
+    }
+}
+
+carn_ext_dialogue_approach_cold = {
+    # Soğuk, siyasi, mekanik — zorunlu ilişki
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_cold_01
+                # "Herhangi bir şey söylemedi.
+                #  Sadece kapıyı kapattı. Yüzü, dışarıda bıraktığı
+                #  hanedanlık meselelerinden farksızdı."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_cold_02
+                # "'Bir varis gerekiyor,' dedi düz bir sesle.
+                #  'Bu... bunu kolaylaştırır.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_approach_cold_03
+                # "Kısa, soğuk: 'Eşinizim. Bu görevdir.
+                #  İkimiz de biliriz bunu.'"
+            }
+        }
+    }
+}

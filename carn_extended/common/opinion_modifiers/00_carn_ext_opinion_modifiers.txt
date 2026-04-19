@@ -1,0 +1,145 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — Opinion Modifiers
+# File: common/opinion_modifiers/00_carn_ext_opinion_modifiers.txt
+#
+# Pleasure score sonuçlarından gelen opinion değişimleri.
+# İlişki dinamikleri, çekim ve travma efektleri.
+# ==============================================================================
+
+# ──────────────────────────────────────────────────────────────────────────────
+# PLEASURE OUTCOME OPİNİON'LARI
+# Seks sonrası partnerler arasında oluşan geçici/kalıcı görüşler
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Travmatik deneyim — uzun süreli olumsuz etki
+carn_ext_opinion_traumatic = {
+    opinion = -30
+    months = 120        # 10 yıl — derin iz bırakır
+}
+
+# Kötü sevişen — kısa süreli hayal kırıklığı
+carn_ext_opinion_bad_lover = {
+    opinion = -10
+    months = 24
+}
+
+# Tatminsiz bırakma — hafif ve kısa
+carn_ext_opinion_unsatisfied = {
+    opinion = -5
+    months = 12
+}
+
+# Derin tatmin — orta vadeli olumlu etki
+carn_ext_opinion_deep_satisfaction = {
+    opinion = 15
+    months = 36
+}
+
+# Unutulmaz gece — uzun süreli, güçlü bağ
+carn_ext_opinion_transcendent = {
+    opinion = 25
+    months = 60         # 5 yıl
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# FİZİKSEL CAZIBE OPİNİON'LARI
+# Trait'lere göre karakterler arası doğal çekim
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Fiziksel açıdan çok çekici bulma
+carn_ext_opinion_physically_attracted = {
+    opinion = 10
+    months = 0          # Kalıcı — trait değişmeden gitmez
+}
+
+# Potent feromone etkisi — kendini tutamama
+carn_ext_opinion_pheromone_drawn = {
+    opinion = 8
+    months = 0
+}
+
+# Vücut yapısı hayranlığı (massive/muscular)
+carn_ext_opinion_body_admiration = {
+    opinion = 6
+    months = 0
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# İLİŞKİ DİNAMİĞİ OPİNİON'LARI
+# Zamanla gelişen bağlar, bağımlılık, kıskançlık
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Bağımlılık başlangıcı — o karaktere özlem
+carn_ext_opinion_addicted_to = {
+    opinion = 20
+    months = 0          # Bağımlılık trait'i kaldırılana kadar sürer
+}
+
+# Kıskançlık — partnerini başkasıyla görünce
+carn_ext_opinion_jealousy = {
+    opinion = -15
+    months = 18
+}
+
+# Aldatılmış eş — sessiz kin
+carn_ext_opinion_betrayed_spouse = {
+    opinion = -40
+    months = 0          # Affedilene kadar sürer
+}
+
+# Aldatılan eş — açık düşmanlık (ifşa ettikten sonra)
+carn_ext_opinion_scorned = {
+    opinion = -60
+    months = 0
+}
+
+# Gizli aşk — yasak ilişkiden gelen güçlü bağ
+carn_ext_opinion_secret_bond = {
+    opinion = 30
+    months = 0
+}
+
+# Ensest bağı — yasak ama güçlü (ayrı mod dosyasında kullanılacak)
+carn_ext_opinion_forbidden_bond = {
+    opinion = 35
+    months = 0
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# BOYUT / FİZİKSEL UYUMSUZLUK OPİNİON'LARI
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Boyut uyumu mükemmel — kalıcı pozitif
+carn_ext_opinion_perfect_fit = {
+    opinion = 12
+    months = 0
+}
+
+# Acı verici deneyim (legendary size + inexperienced)
+carn_ext_opinion_overwhelmed_painful = {
+    opinion = -20
+    months = 36
+}
+
+# Boyut hayal kırıklığı
+carn_ext_opinion_size_disappointed = {
+    opinion = -8
+    months = 12
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# MAHKEME DEDIKODU OPİNİON'LARI
+# Seks sesi duyulunca veya scandal patlarsa
+# ──────────────────────────────────────────────────────────────────────────────
+
+# Saray seksini duydu — merak ve dedikodu
+carn_ext_opinion_court_gossip_subject = {
+    opinion = -5
+    months = 12
+}
+
+# Skandal merkezindeki kişi hakkında
+carn_ext_opinion_scandalous_reputation = {
+    opinion = -10
+    months = 24
+}

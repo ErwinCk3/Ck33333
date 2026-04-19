@@ -1,0 +1,383 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — Pleasure Score Motoru Ek Hesaplamalar
+# File: common/scripted_effects/02_carn_ext_pleasure_extended.txt
+#
+# Faz 2'de eklenen yeni fiziksel trait'leri pleasure score'a bağlar.
+# Ana motor (00_carn_ext_body_effects.txt) bunu zincirin sonunda çağırır.
+#
+# Eklenen trait grupları:
+#   - Vücut yapısı (build)
+#   - Göğüs boyutu (bust)
+#   - Kalça/form (hips)
+#   - Libido
+#   - Feromone
+#   - Doğurganlık (dolaylı — stamina tüketimi üzerinden)
+# ==============================================================================
+
+# ──────────────────────────────────────────────────────────────────────────────
+# ANA GENİŞLETİLMİŞ HESAPLAMA
+# carn_ext_calculate_pleasure'ın sonunda çağrılır
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_calculate_pleasure_extended = {
+
+    # ── VÜCUT YAPISI BONUSLARI ────────────────────────────────────────────────
+    # Kaslı/dev vücut — stamina bonusunu güçlendirir, partner üzerinde etki
+
+    if = {
+        limit = { has_trait = carn_ext_build_muscular }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = 1
+        }
+        # Partner'a görsel çekim bonusu
+        $PARTNER$ = {
+            if = {
+                limit = {
+                    NOT = { has_trait = carn_ext_libido_low }
+                }
+                prev = {
+                    change_variable = {
+                        name = carn_ext_pleasure_score
+                        add = 1
+                    }
+                }
+            }
+        }
+    }
+
+    if = {
+        limit = { has_trait = carn_ext_build_massive }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = 2
+        }
+        $PARTNER$ = {
+            if = {
+                limit = {
+                    NOT = { has_trait = carn_ext_libido_low }
+                }
+                prev = {
+                    change_variable = {
+                        name = carn_ext_pleasure_score
+                        add = 1
+                    }
+                }
+            }
+        }
+        # Dev yapı + doyumsuz partner — mükemmel eşleşme
+        if = {
+            limit = {
+                $PARTNER$ = { has_trait = carn_ext_fem_insatiable }
+            }
+            change_variable = {
+                name = carn_ext_pleasure_score
+                add = 1
+            }
+        }
+    }
+
+    # İnce yapı — stamina zaten düşük, ek ceza yok
+    # (stamina hesaplaması bunu zaten kapıyor)
+
+    # ── PARTNER VÜCUT YAPISI ETKİSİ ───────────────────────────────────────────
+    $PARTNER$ = {
+        if = {
+            limit = { has_trait = carn_ext_build_muscular }
+            prev = {
+                change_variable = {
+                    name = carn_ext_pleasure_score
+                    add = 1
+                }
+            }
+        }
+        if = {
+            limit = { has_trait = carn_ext_build_massive }
+            prev = {
+                change_variable = {
+                    name = carn_ext_pleasure_score
+                    add = 1
+                }
+            }
+        }
+    }
+
+    # ── GÖĞÜS BOYUTU (Partner üzerinden) ─────────────────────────────────────
+    # Erkek aktör + kadın partner için geçerli
+
+    if = {
+        limit = {
+            is_male = yes
+            NOT = { has_trait = carn_ext_eunuch }
+        }
+        $PARTNER$ = {
+            if = {
+                limit = { has_trait = carn_ext_bust_large }
+                prev = {
+                    change_variable = {
+                        name = carn_ext_pleasure_score
+                        add = 1
+                    }
+                }
+            }
+            if = {
+                limit = { has_trait = carn_ext_bust_ample }
+                prev = {
+                    change_variable = {
+                        name = carn_ext_pleasure_score
+                        add = 2
+                    }
+                }
+            }
+        }
+    }
+
+    # Kadın aktör + erkek partner — partner'ın göğüs yoktur
+    # Ama kadının kendi göğüs boyutu partnerin çekimini etkiler (opinion üzerinden zaten var)
+
+    # ── KALÇA/FORM ────────────────────────────────────────────────────────────
+    # Geniş kalça = daha kolay pozisyon, daha yüksek pleasure
+
+    if = {
+        limit = {
+            is_male = yes
+            NOT = { has_trait = carn_ext_eunuch }
+        }
+        $PARTNER$ = {
+            if = {
+                limit = { has_trait = carn_ext_hips_full }
+                prev = {
+                    change_variable = {
+                        name = carn_ext_pleasure_score
+                        add = 2
+                    }
+                }
+            }
+            if = {
+                limit = { has_trait = carn_ext_hips_curved }
+                prev = {
+                    change_variable = {
+                        name = carn_ext_pleasure_score
+                        add = 1
+                    }
+                }
+            }
+        }
+    }
+
+    # Kadın aktör — kendi kalçası partner deneyimini etkiler
+    if = {
+        limit = { is_female = yes }
+        if = {
+            limit = { has_trait = carn_ext_hips_full }
+            change_variable = {
+                name = carn_ext_pleasure_score
+                add = 1
+            }
+        }
+    }
+
+    # ── LİBİDO SİNERJİSİ ─────────────────────────────────────────────────────
+    # Yüksek libido + uygun partner = güçlü deneyim
+
+    if = {
+        limit = { has_trait = carn_ext_libido_high }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = 1
+        }
+    }
+
+    if = {
+        limit = { has_trait = carn_ext_libido_burning }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = 2
+        }
+        # Burning libido + uzun sekssizlik = extra yoğun
+        if = {
+            limit = {
+                has_variable = carn_ext_days_since_sex
+                var:carn_ext_days_since_sex >= 30
+            }
+            change_variable = {
+                name = carn_ext_pleasure_score
+                add = 1
+            }
+        }
+    }
+
+    # Düşük libido — daha az zevk
+    if = {
+        limit = { has_trait = carn_ext_libido_low }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = -1
+        }
+    }
+
+    # Partner libidosu
+    $PARTNER$ = {
+        if = {
+            limit = { has_trait = carn_ext_libido_burning }
+            prev = {
+                change_variable = {
+                    name = carn_ext_pleasure_score
+                    add = 1
+                }
+            }
+        }
+        if = {
+            limit = { has_trait = carn_ext_libido_low }
+            prev = {
+                change_variable = {
+                    name = carn_ext_pleasure_score
+                    add = -1
+                }
+            }
+        }
+    }
+
+    # ── FEROMONE BONUSU ───────────────────────────────────────────────────────
+    # Güçlü feromone — hem aktörde hem partnerde
+
+    if = {
+        limit = { has_trait = carn_ext_pheromone_potent }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = 1
+        }
+    }
+    if = {
+        limit = { has_trait = carn_ext_pheromone_normal }
+        # Çok küçük etki — sadece mükemmel uyumda ekler
+        if = {
+            limit = {
+                $PARTNER$ = { has_trait = carn_ext_pheromone_potent }
+            }
+            change_variable = {
+                name = carn_ext_pleasure_score
+                add = 1
+            }
+        }
+    }
+
+    $PARTNER$ = {
+        if = {
+            limit = { has_trait = carn_ext_pheromone_potent }
+            prev = {
+                change_variable = {
+                    name = carn_ext_pleasure_score
+                    add = 1
+                }
+            }
+        }
+    }
+
+    # Çift güçlü feromone — iki taraf da potent
+    if = {
+        limit = {
+            has_trait = carn_ext_pheromone_potent
+            $PARTNER$ = { has_trait = carn_ext_pheromone_potent }
+        }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = 1
+        }
+    }
+
+    # ── LUSTFUL + YÜKSEK LİBİDO SİNERJİSİ ───────────────────────────────────
+
+    if = {
+        limit = {
+            has_trait = lustful
+            OR = {
+                has_trait = carn_ext_libido_high
+                has_trait = carn_ext_libido_burning
+            }
+        }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = 1
+        }
+    }
+
+    # ── DOYUMSUZ PARTNER + ENDLESS STAMINA ───────────────────────────────────
+    # Daha önce uyumsuzluk cezası veriyorduk
+    # Uyumlu halde ise büyük bonus
+
+    if = {
+        limit = {
+            $PARTNER$ = { has_trait = carn_ext_fem_insatiable }
+            has_trait = carn_ext_stamina_endless
+        }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = 3
+        }
+    }
+
+    # ── VİRİLE MODİFİER SİNERJİSİ ────────────────────────────────────────────
+    if = {
+        limit = { has_character_modifier = carn_ext_virile }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = 1
+        }
+    }
+
+    # ── IRRESISTIBLE MODİFİER ────────────────────────────────────────────────
+    if = {
+        limit = { has_character_modifier = carn_ext_irresistible }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = 1
+        }
+    }
+    $PARTNER$ = {
+        if = {
+            limit = { has_character_modifier = carn_ext_irresistible }
+            prev = {
+                change_variable = {
+                    name = carn_ext_pleasure_score
+                    add = 1
+                }
+            }
+        }
+    }
+
+    # ── LEGENDARY LOVER MODİFİER ─────────────────────────────────────────────
+    if = {
+        limit = { has_character_modifier = carn_ext_legendary_lover }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = 2
+        }
+    }
+
+    # ── AFTERGLOW DURUMU ─────────────────────────────────────────────────────
+    # Afterglow'dayken tekrar seks — biraz daha yüksek
+    if = {
+        limit = { has_character_modifier = carn_ext_afterglow }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = 1
+        }
+    }
+    if = {
+        limit = { has_character_modifier = carn_ext_afterglow_transcendent }
+        change_variable = {
+            name = carn_ext_pleasure_score
+            add = 2
+        }
+    }
+
+    # ── SKORUN ÜSTTEN SINIRLANDIRILMASI ─────────────────────────────────────
+    # Teorik maksimum çok yüksek olabilir
+    # Transcendent için 10+ yeterli, 15+ fazla anlamsız
+    clamp_variable = {
+        name = carn_ext_pleasure_score
+        min = -10
+        max = 13
+    }
+}

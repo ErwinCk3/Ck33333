@@ -1,0 +1,212 @@
+## ==============================================================================
+## CARNALITAS EXTENDED — Character Window Body Panel
+## File: gui/carn_ext_character_panel.gui
+##
+## Karakter penceresinde trait'lerin altına eklenen özel panel.
+## Her trait grubunu görsel çubuk + ikon + tooltip ile gösterir.
+## ==============================================================================
+
+types CarnExtBodyTypes
+{
+	## ─── Ana panel container ───────────────────────────────────────────────
+	type carn_ext_body_panel = widget {
+		size = { 350 180 }
+
+		## Arka plan kutusu
+		widget = {
+			size = { 100% 100% }
+			background = {
+				using = Background_Area_Dark
+				alpha = 0.85
+			}
+			margin = { 4 4 }
+		}
+
+		## Başlık
+		text_label_center = {
+			name = "body_panel_title"
+			size = { 100% 18 }
+			position = { 0 4 }
+			text = "CARN_EXT_BODY_PANEL_TITLE"
+			default_format = "#header"
+			fontsize = 12
+		}
+
+		## Ayırıcı çizgi
+		line = {
+			position = { 10 24 }
+			size = { 330 1 }
+			color = { 0.4 0.3 0.2 0.6 }
+		}
+
+		## İçerik — dikey liste
+		vbox = {
+			position = { 8 28 }
+			spacing = 4
+
+			## ── ERKEK BOYUT SATIRI ──────────────────────────────────────
+			carn_ext_stat_row = {
+				name = "size_row"
+				visible = "[Character.IsMale]"
+
+				icon_texture = "gfx/interface/icons/traits/body_traits/trait_carn_ext_size_average.dds"
+				label_key = "CARN_EXT_SIZE_LABEL"
+
+				## Dinamik ikon — trait'e göre değişir
+				item_tooltip = "[Character.GetCarnExtSizeDescription]"
+			}
+
+			## ── KADIN ANATOMİ SATIRI ────────────────────────────────────
+			carn_ext_stat_row = {
+				name = "fem_anatomy_row"
+				visible = "[Character.IsFemale]"
+
+				icon_texture = "gfx/interface/icons/traits/body_traits/trait_carn_ext_fem_average.dds"
+				label_key = "CARN_EXT_FEM_LABEL"
+			}
+
+			## ── STAMINA SATIRI ──────────────────────────────────────────
+			carn_ext_stat_row = {
+				name = "stamina_row"
+				icon_texture = "gfx/interface/icons/traits/body_traits/trait_carn_ext_stamina_average.dds"
+				label_key = "CARN_EXT_STAMINA_LABEL"
+			}
+
+			## ── DENEYİM SATIRI ──────────────────────────────────────────
+			carn_ext_stat_row = {
+				name = "experience_row"
+				icon_texture = "gfx/interface/icons/traits/body_traits/trait_carn_ext_exp_innocent.dds"
+				label_key = "CARN_EXT_EXP_LABEL"
+			}
+		}
+	}
+
+	## ─── Tek stat satırı (yeniden kullanılabilir bileşen) ─────────────────
+	type carn_ext_stat_row = widget {
+		size = { 334 30 }
+
+		## Trait ikonu (34x34)
+		icon = {
+			name = "stat_icon"
+			size = { 30 30 }
+			position = { 0 0 }
+			texture = "[CarnExtStatRow.GetIconTexture]"
+			tooltip = "[CarnExtStatRow.GetTooltip]"
+			tooltip_type = "mouse"
+
+			## Hover efekti
+			using = Mask_Rough_Edges
+			alpha = 0.95
+			highlight_icon = {
+				using = ButtonHighlight
+			}
+		}
+
+		## İsim etiketi
+		text_label_left = {
+			name = "stat_label"
+			size = { 100 14 }
+			position = { 36 2 }
+			text = "[CarnExtStatRow.GetLabel]"
+			default_format = "#weak"
+			fontsize = 11
+		}
+
+		## Tier göstergesi — 6 küçük kare (● ● ● ○ ○ ○)
+		hbox = {
+			name = "tier_dots"
+			position = { 36 17 }
+			spacing = 3
+
+			# 6 kutu — aktif olanlar dolu, pasifler boş
+			carn_ext_tier_dot = { dot_index = 1 }
+			carn_ext_tier_dot = { dot_index = 2 }
+			carn_ext_tier_dot = { dot_index = 3 }
+			carn_ext_tier_dot = { dot_index = 4 }
+			carn_ext_tier_dot = { dot_index = 5 }
+			carn_ext_tier_dot = { dot_index = 6 }
+		}
+
+		## Sayısal değer (sağ taraf)
+		text_label_right = {
+			name = "stat_value"
+			size = { 80 14 }
+			position = { 250 8 }
+			text = "[CarnExtStatRow.GetValueString]"
+			default_format = "#value"
+			fontsize = 11
+		}
+	}
+
+	## ─── Tier nokta indikatörü ────────────────────────────────────────────
+	type carn_ext_tier_dot = widget {
+		size = { 10 10 }
+
+		icon = {
+			size = { 100% 100% }
+			## Aktif tier: dolu nokta, pasif: boş nokta
+			texture = "[CarnExtTierDot.IsActive|
+				'gfx/interface/icons/traits/body_traits/dot_filled.dds'|
+				'gfx/interface/icons/traits/body_traits/dot_empty.dds'
+			]"
+		}
+	}
+
+	## ─── Pleasure score sonuç popup'ı ────────────────────────────────────
+	## Seks sonrası kısa süre görünür
+	type carn_ext_pleasure_popup = widget {
+		name = "carn_ext_pleasure_popup"
+		size = { 280 80 }
+		position = { 760 600 }	## Ekranın sağ alt köşesi
+
+		alpha = 0.0
+		## Fade-in animasyonu
+		animation = {
+			trigger_on_create = yes
+			value = alpha
+			duration = 0.5
+			target_value = 1.0
+		}
+		## 5 saniye sonra fade-out
+		animation = {
+			start_time = 5.0
+			value = alpha
+			duration = 1.0
+			target_value = 0.0
+		}
+
+		background = {
+			using = Background_Area
+			alpha = 0.9
+		}
+
+		## İkon (sonuca göre renk)
+		icon = {
+			name = "result_icon"
+			size = { 40 40 }
+			position = { 8 20 }
+			texture = "[CarnExtPleasurePopup.GetResultIcon]"
+		}
+
+		## Başlık (sonuç kategorisi)
+		text_label_center = {
+			name = "result_title"
+			size = { 220 20 }
+			position = { 52 10 }
+			text = "[CarnExtPleasurePopup.GetResultTitle]"
+			default_format = "#header"
+			fontsize = 14
+		}
+
+		## Açıklama
+		text_label_center = {
+			name = "result_desc"
+			size = { 220 40 }
+			position = { 52 30 }
+			text = "[CarnExtPleasurePopup.GetResultDesc]"
+			default_format = "#italic"
+			fontsize = 11
+			multiline = yes
+		}
+	}
+}

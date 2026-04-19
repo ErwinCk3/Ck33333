@@ -1,0 +1,206 @@
+﻿# ==============================================================================
+# CARNALITAS EXTENDED — Localization (Physical Traits)
+# File: localization/english/carn_ext_physical_l_english.yml
+# ==============================================================================
+
+l_english:
+
+ # ══════════════════════════════════════════════════════
+ # ERKEK VÜCUT YAPISI
+ # ══════════════════════════════════════════════════════
+
+ carn_ext_build_lean: "Lean Build"
+ carn_ext_build_lean_desc: |
+  A slender, wiry frame — light on its feet and quick in movement,
+  though not built for prolonged exertion.
+  #newline
+  #bold Prowess:#! #negative -1#!
+  #newline
+  #italic "Like a greyhound — swift, but not a workhorse."#!
+
+ carn_ext_build_average: "Average Build"
+ carn_ext_build_average_desc: |
+  A balanced physique, neither remarkable nor lacking.
+  Well-suited to the demands of court and campaign alike.
+
+ carn_ext_build_muscular: "Muscular Build"
+ carn_ext_build_muscular_desc: |
+  A powerful, well-developed frame that commands attention
+  in both the great hall and the bedchamber.
+  #newline
+  #bold Prowess:#! #positive +2#!
+  #newline
+  #bold Stamina Bonus:#! Active in intimate encounters.
+  #newline
+  #bold Attraction:#! #positive +10#!
+
+ carn_ext_build_massive: "Massive Build"
+ carn_ext_build_massive_desc: |
+  A truly imposing physique — walls of muscle and bone
+  that can be as intimidating as any blade.
+  Partners may find themselves overwhelmed.
+  #newline
+  #bold Prowess:#! #positive +3#!
+  #newline
+  #bold Attraction:#! #positive +12#!
+  #newline
+  #negative Diplomacy:#! -1 (intimidating presence)
+
+ # ══════════════════════════════════════════════════════
+ # KADIN GÖĞÜS BOYUTU
+ # ══════════════════════════════════════════════════════
+
+ carn_ext_bust_small: "Modest Bust"
+ carn_ext_bust_small_desc: |
+  A slender, understated figure. Graceful and unencumbered —
+  some find this refined elegance deeply appealing.
+
+ carn_ext_bust_average: "Average Bust"
+ carn_ext_bust_average_desc: |
+  A well-proportioned figure, pleasing to the eye
+  without drawing undue attention.
+
+ carn_ext_bust_large: "Full Bust"
+ carn_ext_bust_large_desc: |
+  A generous, eye-catching figure that turns heads at court.
+  An asset in diplomacy and intimacy alike.
+  #newline
+  #bold Attraction:#! #positive +8#!
+
+ carn_ext_bust_ample: "Ample Bust"
+ carn_ext_bust_ample_desc: |
+  A truly remarkable figure — rarely overlooked in any room.
+  Her presence commands attention whether she wishes it or not.
+  #newline
+  #bold Attraction:#! #positive +15#!
+  #newline
+  #italic May attract unwanted attention as often as welcome admiration.#!
+
+ # ══════════════════════════════════════════════════════
+ # KADIN KALÇA/FORM
+ # ══════════════════════════════════════════════════════
+
+ carn_ext_hips_slim: "Slender Hips"
+ carn_ext_hips_slim_desc: |
+  A narrow, elegant frame — graceful in movement,
+  though childbirth carries somewhat greater risk.
+  #newline
+  #negative Childbirth Risk:#! Slightly elevated.
+
+ carn_ext_hips_curved: "Curved Figure"
+ carn_ext_hips_curved_desc: |
+  A well-balanced, shapely figure considered the ideal
+  of feminine beauty in most courts.
+  #newline
+  #bold Attraction:#! #positive +8#!
+
+ carn_ext_hips_full: "Full Figure"
+ carn_ext_hips_full_desc: |
+  Wide, generous hips that speak of vitality and health.
+  Poets and physicians alike consider this a mark of exceptional
+  fertility and strength.
+  #newline
+  #bold Attraction:#! #positive +15#!
+  #newline
+  #bold Childbirth:#! #positive Reduced risk#!
+  #newline
+  #bold Intimacy Bonus:#! Active in encounter calculations.
+
+ # ══════════════════════════════════════════════════════
+ # DOĞURGANLIK
+ # ══════════════════════════════════════════════════════
+
+ carn_ext_fertility_low: "Low Fertility"
+ carn_ext_fertility_low_desc: |
+  Conception comes rarely and with difficulty.
+  Physicians have little remedy for what nature withholds.
+  #newline
+  #bold Fertility:#! #negative -20%#!
+  #newline
+  #italic Carnalitas pregnancy chance reduced.#!
+
+ carn_ext_fertility_normal: "Normal Fertility"
+ carn_ext_fertility_normal_desc: |
+  A healthy, typical capacity for bearing children.
+  Neither a blessing nor a curse — simply nature's standard.
+
+ carn_ext_fertility_high: "High Fertility"
+ carn_ext_fertility_high_desc: |
+  Exceptionally fertile — her womb quickens readily,
+  and her children come in abundance. Dynasties are built
+  on such women.
+  #newline
+  #bold Fertility:#! #positive +20%#!
+  #newline
+  #italic Carnalitas pregnancy chance significantly increased.#!
+  #newline
+  #bold Dynasty Benefit:#! Attraction #positive +5#!
+
+ # ══════════════════════════════════════════════════════
+ # LİBİDO
+ # ══════════════════════════════════════════════════════
+
+ carn_ext_libido_low: "Low Libido"
+ carn_ext_libido_low_desc: |
+  The pleasures of the flesh hold little sway here.
+  This character can go months without intimacy
+  and scarcely notice its absence.
+  #newline
+  #bold Stress without sex:#! #positive Reduced#!
+
+ carn_ext_libido_average: "Average Libido"
+ carn_ext_libido_average_desc: |
+  A healthy, balanced appetite for intimacy —
+  neither obsessive nor indifferent.
+
+ carn_ext_libido_high: "High Libido"
+ carn_ext_libido_high_desc: |
+  A strong appetite for carnal pleasure. Extended periods
+  of abstinence begin to wear on this character's mood
+  and composure.
+  #newline
+  #bold Stress without sex:#! #negative Increased#!
+  #newline
+  #italic Works in synergy with the Lustful trait.#!
+
+ carn_ext_libido_burning: "Burning Desire"
+ carn_ext_libido_burning_desc: |
+  An almost compulsive hunger for intimacy. Without regular
+  satisfaction, this character becomes irritable, distracted,
+  and prone to reckless decisions.
+  #newline
+  #bold Monthly stress without sex:#! #negative Significant#!
+  #newline
+  #bold Piety:#! #negative -5% per year#!
+  #newline
+  #negative May actively seek partners when unsatisfied.#!
+
+ # ══════════════════════════════════════════════════════
+ # KOKU/FEROMONE
+ # ══════════════════════════════════════════════════════
+
+ carn_ext_pheromone_faint: "Faint Aura"
+ carn_ext_pheromone_faint_desc: |
+  A subtle, almost imperceptible natural scent —
+  neither a disadvantage nor a notable asset.
+  #newline
+  #italic "There is something about them... I cannot quite say what."#!
+
+ carn_ext_pheromone_normal: "Natural Allure"
+ carn_ext_pheromone_normal_desc: |
+  A pleasant, naturally appealing presence that others
+  find subtly attractive, though they may not know why.
+  #newline
+  #bold Attraction:#! #positive +5#!
+
+ carn_ext_pheromone_potent: "Potent Pheromones"
+ carn_ext_pheromone_potent_desc: |
+  An almost intoxicating natural presence. Those who spend
+  time near this character find themselves inexplicably drawn in —
+  a pull that bypasses reason entirely.
+  #newline
+  #bold Attraction:#! #positive +12#!
+  #newline
+  #bold Intimacy Bonus:#! Active in encounter calculations.
+  #newline
+  #italic May occasionally trigger special approach events.#!

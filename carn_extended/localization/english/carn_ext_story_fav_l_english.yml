@@ -1,0 +1,361 @@
+﻿# ==============================================================================
+# CARNALITAS EXTENDED — Kral'ın Favorisi Lokalizasyonu
+# File: localization/english/carn_ext_story_fav_l_english.yml
+# ==============================================================================
+
+l_english:
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0801 — Sen Favori Olmak İstiyorsun
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0801.t: "The Ruler's Eye"
+
+ carn_ext.0801.desc_male_ruler: |
+  [Root.GetFirstName] had been watching
+  [Scope:carn_ext_fav_ruler_id.GetFirstName] for some time —
+  not with admiration, exactly. Something more calculating.
+  #newline#newline
+  The ruler's favour was a currency.
+  Everyone at court understood this.
+  What they did with that understanding differed wildly —
+  some pretended it didn't exist, some spent years collecting it
+  in small, careful amounts, some burned through it
+  in a single spectacular bid.
+  #newline#newline
+  [Root.GetFirstName] had decided on a different approach.
+  Closer. More personal. More certain.
+  #newline#newline
+  It required a particular kind of courage —
+  or perhaps a particular kind of ambition.
+  [Root.GetFirstName] was not sure which [Root.GetHeShe] had.
+  Perhaps both.
+
+ carn_ext.0801.desc_female_ruler: |
+  She ruled with the kind of authority that had been
+  earned rather than inherited — the kind that came from
+  outlasting everyone who doubted her,
+  and there had been many who doubted her.
+  #newline#newline
+  [Root.GetFirstName] had watched
+  [Scope:carn_ext_fav_ruler_id.GetFirstName] for weeks.
+  Had noticed the moments when the ruler's gaze
+  moved past protocol into something more personal.
+  Had catalogued them with the care of someone
+  who understands that the first step
+  is knowing where to step.
+  #newline#newline
+  The second step was [Root.GetFirstName]'s to take.
+
+ carn_ext.0801.reject: "This game has rules I'm not willing to play by."
+ carn_ext.0801.approach: "I will make myself visible. Make myself necessary."
+ carn_ext.0801.aggressive: "Subtlety takes time I don't intend to spend."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0802 — Biri Senin Favorin Olmak İstiyor
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0802.t: "An Offer Without Words"
+
+ carn_ext.0802.desc_female_aspirant: |
+  [Root.GetFirstName] had noticed [Scope:carn_ext_fav_aspirant_id.GetFirstName]
+  the way one notices weather — gradually, then all at once.
+  #newline#newline
+  She had been careful. The approach was measured, deniable,
+  constructed entirely of small things that could each be explained
+  innocently and together explained nothing innocent at all.
+  A look held a moment too long. A request for private counsel.
+  A gift left without a note.
+  #newline#newline
+  She was, [Root.GetFirstName] thought, either very good at this
+  or genuinely felt something.
+  The distinction mattered less than it should have.
+  The offer was being made. The question was the answer.
+
+ carn_ext.0802.desc_male_aspirant: |
+  [Scope:carn_ext_fav_aspirant_id.GetFirstName]'s ambitions
+  were obvious to anyone paying attention.
+  What was less obvious — what [Root.GetFirstName]
+  had not expected — was that they included this.
+  #newline#newline
+  He had made his position clear with the efficient directness
+  of someone who has decided that time spent being indirect
+  is time not spent being useful.
+  #newline#newline
+  [Root.GetFirstName] considered the offer.
+  It was, in several respects, not uninteresting.
+
+ carn_ext.0802.reject: "I don't need a favourite. Keep your distance."
+ carn_ext.0802.consider: "Interesting. Tell me more about what you're proposing."
+ carn_ext.0802.accept: "Yes. Come tonight."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0803 — Yakınlaşma
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0803.t: "Closer"
+
+ carn_ext.0803.desc_up: |
+  The approach had to be careful. [Root.GetFirstName] understood
+  this instinctively — the wrong move and the door closed,
+  possibly permanently.
+  #newline#newline
+  But the right move, made at the right moment,
+  with the right degree of willingness and the right degree
+  of restraint — that was an art.
+  [Root.GetFirstName] had decided to treat it as one.
+
+ carn_ext.0803.desc_down: |
+  The court was watching. It always was.
+  Every gesture calculated by a hundred pairs of eyes,
+  every private moment noted and filed
+  in the collective memory of people
+  with nothing better to do than notice.
+  #newline#newline
+  [Root.GetFirstName] did not particularly mind being watched.
+  [Root.GetFirstName] minded being watched by the wrong people.
+
+ carn_ext.0803.retreat: "I've reconsidered. This is not the path I want."
+ carn_ext.0803.gift: "A gift. Nothing elaborate. Just a reminder that I'm here."
+ carn_ext.0803.night_visit: "Enough waiting. Tonight I make the move."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0804 — İlk Gece
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0804.t: "The Inner Chamber"
+
+ carn_ext.0804.desc_up: |
+  The summons came in the evening, delivered by a servant
+  who said nothing and needed to say nothing.
+  [Root.GetFirstName] had been waiting for it.
+  #newline#newline
+  The ruler's private chambers were smaller than expected.
+  More human. [Root.GetFirstName] had imagined something grand,
+  something that matched the public face of power.
+  #newline#newline
+  Instead: a fire, two chairs, and
+  [Scope:carn_ext_fav_ruler_id.GetFirstName]
+  looking at [Root.GetHimHer] with an expression
+  that was not the expression of a ruler.
+  Something considerably more direct.
+  #newline#newline
+  "I've been thinking about you," [Root.GetHeShe] said.
+  #newline#newline
+  [Root.GetFirstName] understood that this was
+  both a statement and a question.
+  [Root.GetHeShe] answered it accordingly.
+
+ carn_ext.0804.desc_down_female: |
+  [Scope:carn_ext_fav_aspirant_id.GetFirstName]
+  came as summoned, at the appointed hour, without hesitation.
+  #newline#newline
+  That steadiness — that willingness to arrive without
+  the social camouflage most people required —
+  was the first thing that impressed [Root.GetFirstName].
+  #newline#newline
+  The rest of the evening provided further evidence
+  in the same direction.
+
+ carn_ext.0804.desc_down_male: |
+  He arrived without ceremony. Good.
+  [Root.GetFirstName] had no interest in ceremony tonight.
+  #newline#newline
+  What followed was, in its way, straightforward —
+  two adults, a clear understanding, a private room.
+  [Root.GetFirstName] had been uncertain what to expect.
+  [Root.GetHeShe] revised those expectations considerably
+  before the night was over.
+
+ carn_ext.0804.transcendent: "Power and pleasure at once. I could get used to this."
+ carn_ext.0804.deeply: "A promising beginning. There is more to learn here."
+ carn_ext.0804.political: "Pleasure is a by-product. Power is the point."
+ carn_ext.0804.default: "The game has begun."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0805 — Rakip Çıktı
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0805.t: "Competition"
+
+ carn_ext.0805.desc_up: |
+  [Root.GetFirstName] had expected this. At court, someone always
+  notices what someone else has and decides they want it.
+  #newline#newline
+  [Scope:carn_ext_fav_rival_id.GetFirstName] had been watching.
+  Had identified the shape of the arrangement.
+  And had decided, with the particular boldness of someone
+  who has nothing to lose, to make a counter-offer.
+  #newline#newline
+  [Root.GetFirstName] became aware of this
+  when [Root.GetHeShe] noticed the ruler watching
+  [Scope:carn_ext_fav_rival_id.GetFirstName]
+  in a way that felt familiar. Uncomfortably familiar.
+
+ carn_ext.0805.desc_down: |
+  It had not occurred to [Root.GetFirstName] until now
+  that the position [Root.GetHeShe] occupied could be challenged.
+  That was, in retrospect, naive.
+  #newline#newline
+  Positions at court are always challenged.
+  That is the nature of courts.
+  #newline#newline
+  [Scope:carn_ext_fav_rival_id.GetFirstName] was looking at
+  [Root.GetFirstName]'s favourite with an expression
+  that [Root.GetFirstName] recognised from the inside.
+
+ carn_ext.0805.crush: "I will destroy this rival before they become a problem."
+ carn_ext.0805.compete: "Let me remind everyone why they chose me first."
+ carn_ext.0805.retreat: "The game costs too much. I am done."
+ carn_ext.0805.share: "Perhaps there is a third way. Let us all negotiate."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0806 — Rekabet Sahnesi
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0806.t: "The Contest"
+
+ carn_ext.0806.desc_intrigue: |
+  [Root.GetFirstName] had spent time on this.
+  The right information in the right ears.
+  The right silences in the right moments.
+  The careful, deliberate work of making someone
+  look unreliable without ever appearing to try.
+  #newline#newline
+  [Scope:carn_ext_fav_rival_id.GetFirstName] never saw
+  exactly what had happened. That was the point.
+
+ carn_ext.0806.desc_physical: |
+  There is a kind of competition that cannot be won
+  with intelligence or politics.
+  #newline#newline
+  [Root.GetFirstName] understood this.
+  Made no attempt to disguise what [Root.GetHeShe] was doing.
+  Simply reminded, with clarity and some thoroughness,
+  exactly what [Root.GetHeShe] offered that no one else could.
+
+ carn_ext.0806.desc_share: |
+  The proposal had surprised everyone, including
+  [Root.GetFirstName] slightly.
+  #newline#newline
+  But when both parties are competitive and both parties
+  are willing, the most efficient solution
+  is sometimes also the most unconventional one.
+  #newline#newline
+  What followed was, [Root.GetFirstName] reflected afterward,
+  one of the more memorable evenings of [Root.GetHisHer] career.
+
+ carn_ext.0806.won: "I won. The position is mine."
+ carn_ext.0806.lost: "I lost. For now."
+ carn_ext.0806.assassination: "My rival has decided this is a war."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0807 — Güvenilir Favori
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0807.t: "Secured"
+
+ carn_ext.0807.desc_up: |
+  The position, [Root.GetFirstName] had discovered,
+  came with things that were not visible from outside it.
+  #newline#newline
+  Access. Information. The particular quality of attention
+  that a ruler gives to someone they trust with
+  both their secrets and their body.
+  #newline#newline
+  [Root.GetFirstName] had wanted power.
+  [Root.GetHeShe] had not anticipated exactly how much of it
+  would arrive, and in what form.
+  #newline#newline
+  [Root.GetFirstName] made a private inventory of it.
+  Considered how to use it carefully.
+  Considered how to keep it.
+
+ carn_ext.0807.desc_down: |
+  A favourite, [Root.GetFirstName] had discovered,
+  is also a responsibility.
+  #newline#newline
+  [Scope:carn_ext_fav_aspirant_id.GetFirstName]
+  had settled into the position with the ease
+  of someone who has found something they were looking for.
+  [Root.GetFirstName] watched this and felt something
+  that was simultaneously satisfying and slightly dangerous.
+  #newline#newline
+  People who feel found are very loyal.
+  They are also capable of very strong feelings
+  when the arrangement changes.
+  #newline#newline
+  [Root.GetFirstName] would need to be thoughtful about that.
+
+ carn_ext.0807.embrace: "Power is most complete when it is also personal."
+ carn_ext.0807.careful: "This is worth having. I must not lose it carelessly."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0808 — Rakip Kazandı
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0808.t: "Displaced"
+
+ carn_ext.0808.desc: |
+  It happened the way these things happen at court —
+  gradually and then suddenly.
+  No announcement, no confrontation.
+  Just the slow withdrawal of a particular quality of attention,
+  and then the clear, public evidence of where that attention
+  had relocated.
+  #newline#newline
+  [Root.GetFirstName] stood at the edge of a gathering
+  and watched [Scope:carn_ext_fav_rival_id.GetFirstName]
+  occupy the space that [Root.GetHeShe] had held.
+  #newline#newline
+  It was, [Root.GetFirstName] decided, instructive.
+  [Root.GetHeShe] intended to be instructed by it
+  and to act accordingly.
+
+ carn_ext.0808.accept: "Lost this round. Not the war."
+ carn_ext.0808.revenge: "That rival will regret this."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0809 — Hükümdar Bıktı
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0809.t: "Out of Favour"
+
+ carn_ext.0809.desc: |
+  The cooling was gradual. [Root.GetFirstName] noticed it
+  before [Root.GetHeShe] was ready to name it —
+  the slightly shorter audiences, the slightly longer
+  intervals between summons, the quality of the ruler's gaze
+  shifting from warm to merely civil.
+  #newline#newline
+  Rulers are not constant in their favourites.
+  This is, [Root.GetFirstName] reflected, one of those facts
+  that is well known in the abstract
+  and still manages to be surprising in the particular.
+
+ carn_ext.0809.accept: "The game ends here. For now."
+ carn_ext.0809.fight: "I am not ready to be replaced."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0810 — Suikast Girişimi
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0810.t: "A Sharp Message"
+
+ carn_ext.0810.desc: |
+  The attempt was not subtle. That told [Root.GetFirstName]
+  something about [Scope:carn_ext_fav_rival_id.GetFirstName]'s
+  state of mind — desperation makes people imprecise.
+  #newline#newline
+  [Root.GetFirstName] survived it. This was the most important fact.
+  The second most important fact was that [Root.GetHeShe] now knew
+  exactly how seriously [Root.GetHisHer] rival
+  intended to pursue this.
+  #newline#newline
+  A court is not always safe.
+  [Root.GetFirstName] had perhaps forgotten that,
+  briefly, in the pleasure of the position.
+  [Root.GetHeShe] would not forget it again.
+
+ carn_ext.0810.survive: "I survived. Now they will answer for this."
+ carn_ext.0810.flee: "This position is not worth my life."

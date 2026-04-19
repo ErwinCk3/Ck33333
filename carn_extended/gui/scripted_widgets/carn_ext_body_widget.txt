@@ -1,0 +1,36 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — GUI Scripted Widget
+# File: gui/scripted_widgets/carn_ext_body_widget.txt
+#
+# Karakter penceresine "Fiziksel Özellikler" paneli ekler.
+# CK3'ün scripted_widgets sistemi kullanılır — window_character.gui'yi
+# doğrudan değiştirmez, uyumluluk korunur.
+# ==============================================================================
+
+carn_ext_body_widget = {
+	# Bu widget'ı karakter penceresinin alt kısmına inject et
+	# Trigger: karakter paneli açıkken görünür
+	
+	# Sadece oyuncunun kendisi veya "bilinen" karakterler için göster
+	visible = {
+		OR = {
+			is_player = yes
+			opinion = { target = root value >= -100 }
+		}
+		# Gizlilik ayarı — game rule kontrolü
+		NOT = {
+			has_game_rule = carn_ext_hide_body_stats
+		}
+		# CBO portrait panel ile çakışmayı önle
+		# CBO kendi widget'ını aynı alana ekliyorsa bizimkini gizle
+		NOT = {
+			AND = {
+				exists = flag:cbo_framework_active
+				has_game_rule = {
+					rule = carn_ext_physical_traits
+					option = carn_ext_physical_off
+				}
+			}
+		}
+	}
+}

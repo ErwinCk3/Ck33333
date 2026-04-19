@@ -1,0 +1,1009 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — Hikaye: Kral'ın Favorisi
+# File: events/carn_ext_story_favorite.txt
+#
+# Namespace: carn_ext
+#
+# Event Listesi:
+#   carn_ext.0800 — Yıllık tetikleyici (hidden)
+#   carn_ext.0801 — Aşama 1A: Sen favori olmak istiyorsun
+#   carn_ext.0802 — Aşama 1B: Biri senin favorin olmak istiyor
+#   carn_ext.0803 — Aşama 2: Yakınlaşma
+#   carn_ext.0804 — Aşama 3: Favori oldu — ilk gece
+#   carn_ext.0805 — Aşama 4: Rakip çıktı
+#   carn_ext.0806 — Aşama 4B: Kıskançlık sahnesi
+#   carn_ext.0807 — Aşama 5A: Güvenilir favori
+#   carn_ext.0808 — Aşama 5B: Rakip kazandı
+#   carn_ext.0809 — Aşama 5C: Hükümdar bıktı
+#   carn_ext.0810 — Aşama 5D: Suikast girişimi
+# ==============================================================================
+
+namespace = carn_ext
+
+# ──────────────────────────────────────────────────────────────────────────────
+# YILLIK TETİKLEYİCİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+character_event = {
+    id = carn_ext.0800
+    hidden = yes
+
+    trigger = {
+        is_player = yes
+        is_adult = yes
+        is_alive = yes
+        carn_ext_pleasure_system_active = yes
+        NOT = { has_character_flag = carn_ext_fav_active }
+        NOT = { has_character_flag = carn_ext_fav_cooldown }
+    }
+
+    immediate = {
+        # İki senaryo — oyuncu liege'inde mi yoksa kendi sarayında mı?
+        random_list = {
+            # Sen favori olmak istiyorsun — liege varsa
+            50 = {
+                trigger = {
+                    exists = liege
+                    liege = {
+                        is_adult = yes
+                        is_alive = yes
+                        NOT = { this = root }
+                    }
+                }
+                liege = {
+                    save_scope_as = carn_ext_fav_ruler
+                }
+                root = {
+                    add_character_flag = carn_ext_fav_direction_up
+                    add_character_flag = carn_ext_fav_active
+                    set_variable = {
+                        name = carn_ext_fav_ruler_id
+                        value = scope:carn_ext_fav_ruler
+                    }
+                    trigger_event = {
+                        id = carn_ext.0801
+                        days = { 7 30 }
+                    }
+                }
+            }
+            # Biri senin favorin olmak istiyor — kendi sarayında
+            50 = {
+                trigger = {
+                    is_ruler = yes
+                    any_courtier = {
+                        is_adult = yes
+                        NOT = { is_spouse_of = prev }
+                    }
+                }
+                random_courtier = {
+                    limit = {
+                        is_adult = yes
+                        NOT = { is_spouse_of = prev }
+                        NOT = { is_close_family_of = prev }
+                    }
+                    weight = {
+                        base = 1
+                        modifier = {
+                            add = 3
+                            has_trait = ambitious
+                        }
+                        modifier = {
+                            add = 2
+                            has_trait = lustful
+                        }
+                        modifier = {
+                            add = 2
+                            has_trait = carn_ext_pheromone_potent
+                        }
+                        modifier = {
+                            add = 1
+                            has_trait = carn_ext_libido_high
+                        }
+                    }
+                    save_scope_as = carn_ext_fav_aspirant
+                }
+                root = {
+                    add_character_flag = carn_ext_fav_direction_down
+                    add_character_flag = carn_ext_fav_active
+                    set_variable = {
+                        name = carn_ext_fav_aspirant_id
+                        value = scope:carn_ext_fav_aspirant
+                    }
+                    trigger_event = {
+                        id = carn_ext.0802
+                        days = { 7 30 }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# AŞAMA 1A — SEN FAVORİ OLMAK İSTİYORSUN
+# ──────────────────────────────────────────────────────────────────────────────
+
+character_event = {
+    id = carn_ext.0801
+    title = carn_ext.0801.t
+    desc = {
+        triggered_desc = {
+            trigger = {
+                var:carn_ext_fav_ruler_id = { is_female = yes }
+            }
+            desc = carn_ext.0801.desc_female_ruler
+        }
+        desc = carn_ext.0801.desc_male_ruler
+    }
+    theme = seduction
+
+    left_portrait = {
+        character = root
+        animation = personality_bold
+    }
+    right_portrait = {
+        character = scope:carn_ext_fav_ruler
+        animation = personality_content
+    }
+
+    trigger = {
+        is_player = yes
+        has_character_flag = carn_ext_fav_active
+        has_character_flag = carn_ext_fav_direction_up
+        has_variable = carn_ext_fav_ruler_id
+        var:carn_ext_fav_ruler_id = { is_alive = yes }
+    }
+
+    option = {
+        # Reddet — bu oyuna girmeyeceğim
+        name = carn_ext.0801.reject
+        remove_character_flag = carn_ext_fav_active
+        remove_character_flag = carn_ext_fav_direction_up
+        remove_variable = carn_ext_fav_ruler_id
+        add_character_flag = {
+            flag = carn_ext_fav_cooldown
+            days = 365
+        }
+        add_piety = 10
+    }
+
+    option = {
+        # Yaklaş — dikkatini çek
+        name = carn_ext.0801.approach
+        set_variable = {
+            name = carn_ext_fav_tension
+            value = 1
+        }
+        trigger_event = {
+            id = carn_ext.0803
+            days = { 14 30 }
+        }
+        stress_impact = { base = -5 }
+    }
+
+    option = {
+        # Agresif yaklaşım — hızlı ilerle
+        name = carn_ext.0801.aggressive
+        trigger = {
+            OR = {
+                has_trait = lustful
+                has_trait = ambitious
+                has_trait = carn_ext_exp_depraved
+                has_trait = carn_ext_exp_libertine
+            }
+        }
+        set_variable = {
+            name = carn_ext_fav_tension
+            value = 3
+        }
+        trigger_event = {
+            id = carn_ext.0803
+            days = { 3 7 }
+        }
+        add_piety = -15
+        stress_impact = { base = -8 }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# AŞAMA 1B — BİRİ SENİN FAVORİN OLMAK İSTİYOR
+# ──────────────────────────────────────────────────────────────────────────────
+
+character_event = {
+    id = carn_ext.0802
+    title = carn_ext.0802.t
+    desc = {
+        triggered_desc = {
+            trigger = {
+                var:carn_ext_fav_aspirant_id = { is_female = yes }
+            }
+            desc = carn_ext.0802.desc_female_aspirant
+        }
+        desc = carn_ext.0802.desc_male_aspirant
+    }
+    theme = seduction
+
+    left_portrait = {
+        character = root
+        animation = personality_bold
+    }
+    right_portrait = {
+        character = scope:carn_ext_fav_aspirant
+        animation = personality_bold
+    }
+
+    trigger = {
+        is_player = yes
+        has_character_flag = carn_ext_fav_active
+        has_character_flag = carn_ext_fav_direction_down
+        has_variable = carn_ext_fav_aspirant_id
+        var:carn_ext_fav_aspirant_id = { is_alive = yes }
+    }
+
+    option = {
+        # Reddet — bu tür ilişki istemiyorum
+        name = carn_ext.0802.reject
+        remove_character_flag = carn_ext_fav_active
+        remove_character_flag = carn_ext_fav_direction_down
+        remove_variable = carn_ext_fav_aspirant_id
+        add_character_flag = {
+            flag = carn_ext_fav_cooldown
+            days = 365
+        }
+    }
+
+    option = {
+        # Değerlendir — ilgin var
+        name = carn_ext.0802.consider
+        set_variable = {
+            name = carn_ext_fav_tension
+            value = 1
+        }
+        trigger_event = {
+            id = carn_ext.0803
+            days = { 7 14 }
+        }
+        stress_impact = { base = -3 }
+    }
+
+    option = {
+        # Kabul et — favori sistemi başlıyor
+        name = carn_ext.0802.accept
+        trigger = {
+            OR = {
+                has_trait = lustful
+                has_trait = carn_ext_libido_high
+                has_trait = carn_ext_exp_depraved
+            }
+        }
+        set_variable = {
+            name = carn_ext_fav_tension
+            value = 3
+        }
+        trigger_event = {
+            id = carn_ext.0804
+            days = { 3 7 }
+        }
+        add_piety = -10
+        stress_impact = { base = -8 }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# AŞAMA 2 — YAKLAŞMA
+# ──────────────────────────────────────────────────────────────────────────────
+
+character_event = {
+    id = carn_ext.0803
+    title = carn_ext.0803.t
+    desc = {
+        triggered_desc = {
+            trigger = { has_character_flag = carn_ext_fav_direction_up }
+            desc = carn_ext.0803.desc_up
+        }
+        desc = carn_ext.0803.desc_down
+    }
+    theme = seduction
+
+    left_portrait = {
+        character = root
+        animation = personality_bold
+    }
+
+    trigger = {
+        is_player = yes
+        has_character_flag = carn_ext_fav_active
+    }
+
+    option = {
+        # Geri çekil
+        name = carn_ext.0803.retreat
+        remove_character_flag = carn_ext_fav_active
+        remove_character_flag = carn_ext_fav_direction_up
+        remove_character_flag = carn_ext_fav_direction_down
+        add_character_flag = {
+            flag = carn_ext_fav_cooldown
+            days = 365
+        }
+        add_piety = 10
+        stress_impact = { base = 5 }
+    }
+
+    option = {
+        # Hediye gönder / özel ilgi göster
+        name = carn_ext.0803.gift
+        change_variable = {
+            name = carn_ext_fav_tension
+            add = 1
+        }
+        trigger_event = {
+            id = carn_ext.0804
+            days = { 14 30 }
+        }
+        add_gold = -30
+        stress_impact = { base = -3 }
+    }
+
+    option = {
+        # Gece ziyareti — direkt adım
+        name = carn_ext.0803.night_visit
+        trigger = {
+            OR = {
+                has_trait = lustful
+                has_trait = ambitious
+                has_trait = carn_ext_libido_burning
+                var:carn_ext_fav_tension >= 2
+            }
+        }
+        change_variable = {
+            name = carn_ext_fav_tension
+            add = 2
+        }
+        trigger_event = {
+            id = carn_ext.0804
+            days = { 1 3 }
+        }
+        add_piety = -15
+        stress_impact = { base = -8 }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# AŞAMA 3 — FAVORİ OLDU — İLK GECE
+# ──────────────────────────────────────────────────────────────────────────────
+
+character_event = {
+    id = carn_ext.0804
+    title = carn_ext.0804.t
+    desc = {
+        triggered_desc = {
+            trigger = { has_character_flag = carn_ext_fav_direction_up }
+            desc = carn_ext.0804.desc_up
+        }
+        triggered_desc = {
+            trigger = {
+                has_character_flag = carn_ext_fav_direction_down
+                var:carn_ext_fav_aspirant_id = { is_female = yes }
+            }
+            desc = carn_ext.0804.desc_down_female
+        }
+        desc = carn_ext.0804.desc_down_male
+    }
+    theme = seduction
+    override_background = { reference = throne_room }
+
+    left_portrait = {
+        character = root
+        animation = personality_bold
+    }
+
+    trigger = {
+        is_player = yes
+        has_character_flag = carn_ext_fav_active
+    }
+
+    immediate = {
+        # Yön'e göre partner belirle
+        if = {
+            limit = { has_character_flag = carn_ext_fav_direction_up }
+            # Oyuncu submissive — hükümdar dominant
+            carn_ext_run_scene = {
+                PARTNER = var:carn_ext_fav_ruler_id
+                ATTITUDE = submissive
+            }
+            # Güç farkı bonusu
+            change_variable = {
+                name = carn_ext_pleasure_score
+                add = 2
+            }
+            # Hükümdardan opinion kazanımı
+            var:carn_ext_fav_ruler_id = {
+                add_opinion = {
+                    target = root
+                    modifier = carn_ext_opinion_deep_satisfaction
+                }
+            }
+            add_opinion = {
+                target = var:carn_ext_fav_ruler_id
+                modifier = carn_ext_opinion_secret_bond
+            }
+        }
+        else = {
+            # Oyuncu dominant — favori submissive
+            carn_ext_run_scene = {
+                PARTNER = var:carn_ext_fav_aspirant_id
+                ATTITUDE = dominant
+            }
+            change_variable = {
+                name = carn_ext_pleasure_score
+                add = 2
+            }
+            var:carn_ext_fav_aspirant_id = {
+                add_opinion = {
+                    target = root
+                    modifier = carn_ext_opinion_secret_bond
+                }
+            }
+            add_opinion = {
+                target = var:carn_ext_fav_aspirant_id
+                modifier = carn_ext_opinion_deep_satisfaction
+            }
+        }
+
+        # Rakip event'i planla
+        trigger_event = {
+            id = carn_ext.0805
+            days = { 60 180 }
+        }
+    }
+
+    option = {
+        name = carn_ext.0804.transcendent
+        trigger = { carn_ext_pleasure_transcendent = yes }
+        # "Güç ve zevk aynı anda. Bu oyunu kazanabilirim."
+        add_character_modifier = {
+            modifier = carn_ext_afterglow_transcendent
+            days = 60
+        }
+        stress_impact = { base = -15 }
+        add_piety = -30
+    }
+
+    option = {
+        name = carn_ext.0804.deeply
+        trigger = { carn_ext_pleasure_deeply_satisfied = yes }
+        # "İyi bir başlangıç. Ama daha fazlası var bu işin."
+        add_character_modifier = {
+            modifier = carn_ext_afterglow
+            days = 30
+        }
+        stress_impact = { base = -10 }
+        add_piety = -20
+    }
+
+    option = {
+        name = carn_ext.0804.political
+        # "Zevk bir yan ürün. Asıl mesele güç."
+        stress_impact = { base = -5 }
+        add_prestige = 15
+    }
+
+    option = {
+        name = carn_ext.0804.default
+        # "Oyun başladı."
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# AŞAMA 4 — RAKİP ÇIKTI
+# ──────────────────────────────────────────────────────────────────────────────
+
+character_event = {
+    id = carn_ext.0805
+    title = carn_ext.0805.t
+    desc = {
+        triggered_desc = {
+            trigger = { has_character_flag = carn_ext_fav_direction_up }
+            desc = carn_ext.0805.desc_up
+        }
+        desc = carn_ext.0805.desc_down
+    }
+    theme = intrigue
+
+    left_portrait = {
+        character = root
+        animation = worry
+    }
+
+    trigger = {
+        is_player = yes
+        has_character_flag = carn_ext_fav_active
+        is_alive = yes
+    }
+
+    immediate = {
+        # Rakibi belirle
+        if = {
+            limit = { has_character_flag = carn_ext_fav_direction_up }
+            random_courtier = {
+                limit = {
+                    is_adult = yes
+                    NOT = { this = root }
+                    court_owner = var:carn_ext_fav_ruler_id
+                    NOT = { is_spouse_of = var:carn_ext_fav_ruler_id }
+                }
+                weight = {
+                    base = 1
+                    modifier = { add = 3  has_trait = ambitious }
+                    modifier = { add = 2  has_trait = lustful }
+                }
+                save_scope_as = carn_ext_fav_rival
+            }
+        }
+        else = {
+            random_courtier = {
+                limit = {
+                    is_adult = yes
+                    NOT = { this = root }
+                    NOT = { this = var:carn_ext_fav_aspirant_id }
+                    has_trait = ambitious
+                }
+                save_scope_as = carn_ext_fav_rival
+            }
+        }
+
+        if = {
+            limit = { exists = scope:carn_ext_fav_rival }
+            set_variable = {
+                name = carn_ext_fav_rival_id
+                value = scope:carn_ext_fav_rival
+            }
+        }
+    }
+
+    option = {
+        # Rakibi ezmek — entrika
+        name = carn_ext.0805.crush
+        trigger = {
+            intrigue >= 10
+            exists = scope:carn_ext_fav_rival
+        }
+        trigger_event = {
+            id = carn_ext.0806
+            days = { 7 21 }
+        }
+        add_piety = -15
+        stress_impact = { base = -5 }
+    }
+
+    option = {
+        # Rekabeti kazan — fiziksel
+        name = carn_ext.0805.compete
+        # "Beni kimse yetemez yatakta."
+        trigger_event = {
+            id = carn_ext.0806
+            days = { 7 14 }
+        }
+        add_character_flag = carn_ext_fav_compete_physical
+        stress_impact = { base = -8 }
+    }
+
+    option = {
+        # Çekil — bu bana göre değil
+        name = carn_ext.0805.retreat
+        remove_character_flag = carn_ext_fav_active
+        remove_character_flag = carn_ext_fav_direction_up
+        remove_character_flag = carn_ext_fav_direction_down
+        add_character_flag = {
+            flag = carn_ext_fav_cooldown
+            days = 365
+        }
+        add_stress = 8
+    }
+
+    option = {
+        # Paylaş — üçlü teklif et
+        name = carn_ext.0805.share
+        trigger = {
+            OR = {
+                has_trait = carn_ext_exp_libertine
+                has_trait = carn_ext_exp_depraved
+            }
+            exists = scope:carn_ext_fav_rival
+        }
+        trigger_event = {
+            id = carn_ext.0806
+            days = { 3 7 }
+        }
+        add_character_flag = carn_ext_fav_share_option
+        add_piety = -25
+        stress_impact = { base = -10 }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# AŞAMA 4B — REKABET SAHNESI
+# ──────────────────────────────────────────────────────────────────────────────
+
+character_event = {
+    id = carn_ext.0806
+    title = carn_ext.0806.t
+    desc = {
+        triggered_desc = {
+            trigger = { has_character_flag = carn_ext_fav_compete_physical }
+            desc = carn_ext.0806.desc_physical
+        }
+        triggered_desc = {
+            trigger = { has_character_flag = carn_ext_fav_share_option }
+            desc = carn_ext.0806.desc_share
+        }
+        desc = carn_ext.0806.desc_intrigue
+    }
+    theme = intrigue
+
+    left_portrait = {
+        character = root
+        animation = personality_bold
+    }
+
+    trigger = {
+        is_player = yes
+        has_character_flag = carn_ext_fav_active
+        is_alive = yes
+    }
+
+    immediate = {
+        remove_character_flag = carn_ext_fav_compete_physical
+        remove_character_flag = carn_ext_fav_share_option
+    }
+
+    option = {
+        # Kazandın — rakip elendi
+        name = carn_ext.0806.won
+        # Başarı şansı intrigue + exp seviyesine göre
+        trigger = {
+            OR = {
+                intrigue >= 12
+                has_trait = carn_ext_exp_libertine
+                has_trait = carn_ext_exp_depraved
+                carn_ext_pleasure_transcendent = yes
+                carn_ext_pleasure_deeply_satisfied = yes
+            }
+        }
+        if = {
+            limit = { exists = scope:carn_ext_fav_rival }
+            var:carn_ext_fav_rival_id = {
+                add_opinion = {
+                    target = root
+                    modifier = carn_ext_opinion_scorned
+                }
+            }
+        }
+        trigger_event = {
+            id = carn_ext.0807
+            days = { 7 14 }
+        }
+        add_prestige = 25
+        stress_impact = { base = -10 }
+    }
+
+    option = {
+        # Kaybettin — rakip galip
+        name = carn_ext.0806.lost
+        trigger_event = {
+            id = carn_ext.0808
+            days = { 7 14 }
+        }
+        add_prestige = -20
+        add_stress = 15
+    }
+
+    option = {
+        # Rakip suikast girişiminde bulunuyor
+        name = carn_ext.0806.assassination
+        trigger = {
+            exists = scope:carn_ext_fav_rival
+            var:carn_ext_fav_rival_id = {
+                has_trait = ambitious
+                intrigue >= 10
+            }
+        }
+        trigger_event = {
+            id = carn_ext.0810
+            days = { 14 30 }
+        }
+        add_stress = 10
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# AŞAMA 5A — GÜVENİLİR FAVORİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+character_event = {
+    id = carn_ext.0807
+    title = carn_ext.0807.t
+    desc = {
+        triggered_desc = {
+            trigger = { has_character_flag = carn_ext_fav_direction_up }
+            desc = carn_ext.0807.desc_up
+        }
+        desc = carn_ext.0807.desc_down
+    }
+    theme = seduction
+
+    left_portrait = {
+        character = root
+        animation = personality_content
+    }
+
+    trigger = {
+        is_player = yes
+        has_character_flag = carn_ext_fav_active
+        is_alive = yes
+    }
+
+    immediate = {
+        # Kalıcı güç kazanımı
+        if = {
+            limit = { has_character_flag = carn_ext_fav_direction_up }
+            var:carn_ext_fav_ruler_id = {
+                add_opinion = {
+                    target = root
+                    modifier = carn_ext_opinion_transcendent
+                }
+            }
+            add_prestige = 50
+            add_gold = 100
+        }
+        else = {
+            var:carn_ext_fav_aspirant_id = {
+                add_opinion = {
+                    target = root
+                    modifier = carn_ext_opinion_transcendent
+                }
+            }
+            add_prestige = 40
+        }
+
+        # Affair zincirine bağlan — kalıcı ilişki
+        if = {
+            limit = { has_character_flag = carn_ext_fav_direction_up }
+            set_variable = {
+                name = carn_ext_affair_partner_id
+                value = var:carn_ext_fav_ruler_id
+            }
+        }
+        else = {
+            set_variable = {
+                name = carn_ext_affair_partner_id
+                value = var:carn_ext_fav_aspirant_id
+            }
+        }
+        add_character_flag = carn_ext_affair_active
+
+        remove_character_flag = carn_ext_fav_active
+        remove_character_flag = carn_ext_fav_direction_up
+        remove_character_flag = carn_ext_fav_direction_down
+        add_character_flag = {
+            flag = carn_ext_fav_cooldown
+            days = 730
+        }
+    }
+
+    option = {
+        name = carn_ext.0807.embrace
+        # "Sarayın en güçlü sırrı şimdi benimle."
+        add_character_modifier = {
+            modifier = carn_ext_virile
+        }
+        stress_impact = { base = -15 }
+        add_piety = -20
+    }
+
+    option = {
+        name = carn_ext.0807.careful
+        # "Güç tehlikelidir. Dikkatli olmalıyım."
+        add_stress = 5
+        add_prestige = 10
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# AŞAMA 5B — RAKİP KAZANDI
+# ──────────────────────────────────────────────────────────────────────────────
+
+character_event = {
+    id = carn_ext.0808
+    title = carn_ext.0808.t
+    desc = carn_ext.0808.desc
+    theme = intrigue
+
+    left_portrait = {
+        character = root
+        animation = stress
+    }
+
+    trigger = {
+        is_player = yes
+        is_alive = yes
+    }
+
+    immediate = {
+        if = {
+            limit = { has_character_flag = carn_ext_fav_direction_up }
+            var:carn_ext_fav_ruler_id = {
+                add_opinion = {
+                    target = root
+                    modifier = carn_ext_opinion_unsatisfied
+                }
+            }
+        }
+        else = {
+            var:carn_ext_fav_aspirant_id = {
+                add_opinion = {
+                    target = root
+                    modifier = carn_ext_opinion_bad_lover
+                }
+            }
+        }
+
+        add_prestige = -40
+        remove_character_flag = carn_ext_fav_active
+        remove_character_flag = carn_ext_fav_direction_up
+        remove_character_flag = carn_ext_fav_direction_down
+        add_character_flag = {
+            flag = carn_ext_fav_cooldown
+            days = 365
+        }
+    }
+
+    option = {
+        name = carn_ext.0808.accept
+        # "Kaybettim. Bu sefer."
+        add_stress = 15
+    }
+
+    option = {
+        name = carn_ext.0808.revenge
+        # "Rakibimi mahvedeceğim."
+        trigger = {
+            OR = {
+                has_trait = vengeful
+                has_trait = ambitious
+                intrigue >= 10
+            }
+        }
+        add_stress = -5
+        add_piety = -20
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# AŞAMA 5C — HÜKÜMDAR BIKTI
+# ──────────────────────────────────────────────────────────────────────────────
+
+character_event = {
+    id = carn_ext.0809
+    title = carn_ext.0809.t
+    desc = carn_ext.0809.desc
+    theme = intrigue
+
+    left_portrait = {
+        character = root
+        animation = worry
+    }
+
+    trigger = {
+        is_player = yes
+        is_alive = yes
+    }
+
+    immediate = {
+        add_prestige = -30
+        add_stress = 20
+        remove_character_flag = carn_ext_fav_active
+        remove_character_flag = carn_ext_fav_direction_up
+        remove_character_flag = carn_ext_fav_direction_down
+        add_character_flag = {
+            flag = carn_ext_fav_cooldown
+            days = 730
+        }
+    }
+
+    option = {
+        name = carn_ext.0809.accept
+        # "Oyun bitti."
+        add_stress = 10
+    }
+
+    option = {
+        name = carn_ext.0809.fight
+        # "Bitirmeyeceğim."
+        trigger = {
+            OR = {
+                has_trait = ambitious
+                has_trait = carn_ext_libido_burning
+            }
+        }
+        add_character_flag = carn_ext_fav_active
+        trigger_event = {
+            id = carn_ext.0803
+            days = { 14 30 }
+        }
+        add_stress = -5
+        add_piety = -15
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# AŞAMA 5D — SUİKAST GİRİŞİMİ
+# ──────────────────────────────────────────────────────────────────────────────
+
+character_event = {
+    id = carn_ext.0810
+    title = carn_ext.0810.t
+    desc = carn_ext.0810.desc
+    theme = intrigue
+
+    left_portrait = {
+        character = root
+        animation = shock
+    }
+
+    trigger = {
+        is_player = yes
+        is_alive = yes
+    }
+
+    immediate = {
+        # Suikast girişimi — hayatta kalmak için kontrol
+        random_list = {
+            # Hayatta kaldın
+            70 = {
+                add_stress = 25
+                add_prestige = -20
+            }
+            # Yaralandın
+            30 = {
+                add_health = -1
+                add_stress = 40
+            }
+        }
+    }
+
+    option = {
+        name = carn_ext.0810.survive
+        # "Hayatta kaldım. Bu sefer."
+        add_stress = 10
+        # Rakibi ihbar et
+        if = {
+            limit = { exists = scope:carn_ext_fav_rival }
+            var:carn_ext_fav_rival_id = {
+                add_opinion = {
+                    target = root
+                    modifier = carn_ext_opinion_scorned
+                }
+            }
+        }
+        # Favori konumunu koru
+        trigger_event = {
+            id = carn_ext.0807
+            days = { 7 14 }
+        }
+    }
+
+    option = {
+        name = carn_ext.0810.flee
+        # "Bu tehlike bana göre değil."
+        remove_character_flag = carn_ext_fav_active
+        remove_character_flag = carn_ext_fav_direction_up
+        remove_character_flag = carn_ext_fav_direction_down
+        add_character_flag = {
+            flag = carn_ext_fav_cooldown
+            days = 730
+        }
+        add_stress = 15
+        add_prestige = -30
+    }
+}

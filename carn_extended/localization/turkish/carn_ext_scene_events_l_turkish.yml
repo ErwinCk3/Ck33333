@@ -1,0 +1,145 @@
+﻿# ==============================================================================
+# CARNALITAS EXTENDED — Türkçe Lokalizasyon: Sahne Event'leri
+# File: localization/turkish/carn_ext_scene_events_l_turkish.yml
+# ==============================================================================
+
+l_turkish:
+
+ # ── carn_ext.0100 — Ana Sahne ────────────────────────────────────────────────
+
+ carn_ext.0100.t: "Birlikte Bir Gece"
+
+ carn_ext.0100.desc_dominant: |
+  [Root.GetFirstName] ilk adımı attı — kasıtlı, acele etmeden.
+  #newline#newline
+  Bu gece kimin kontrolde olduğu konusunda hiçbir soru yok.
+  #newline#newline
+  [Root.GetFirstName], hiçbir zaman iki kez sormak zorunda kalmayan
+  birinin sakin özgüveniyle [Scope:partner.GetFirstName]'e yaklaştı.
+
+ carn_ext.0100.desc_submissive: |
+  [Root.GetFirstName], [Scope:partner.GetFirstName]'e sessizce geldi —
+  kelimelerle değil, varlığıyla. Bir isteklilikle.
+  #newline#newline
+  [Scope:partner.GetFirstName]'in bu gece istediği her şeyi
+  [Root.GetFirstName] verecekti. Bu anlaşıldı.
+
+ carn_ext.0100.desc_romantic: |
+  Akşam, her ikisi de harekete geçmeden önce saatlerce
+  aralarında asılı kaldı.
+  #newline#newline
+  [Root.GetFirstName] nihayet [Scope:partner.GetFirstName]'e uzandığında,
+  bu bir başlangıç gibi değil, çoktan kararlaştırılmış bir şey gibi hissettirdi.
+
+ carn_ext.0100.desc_desperate: |
+  Çok uzun zaman olmuştu. Çok uzun.
+  #newline#newline
+  [Root.GetFirstName] bunu planlamadı — beden planlamaz,
+  sadece varır. Ve işte buradaydı,
+  [Scope:partner.GetFirstName]'in kapısında,
+  gururdan geriye çok az şey kalmış halde.
+
+ carn_ext.0100.desc_cold: |
+  Romantizm taklidi yoktu.
+  #newline#newline
+  [Root.GetFirstName] ve [Scope:partner.GetFirstName] görevlerini biliyordu.
+  Tören olmadan, sıcaklık olmadan, gerçek duymadıkları kelimeler olmadan yerine getirdiler.
+
+ carn_ext.0100.desc_default: |
+  Gece onları birlikte buldu — bazen geceler böyle yapar.
+  Aralarında geçenler kendi meselesiydi
+  ve odanın duvarları sırlarını sakladı.
+
+ carn_ext.0100.transcendent: "Asla unutamayacağım bir gece."
+ carn_ext.0100.deeply: "İhtiyacım olan tam olarak buydu."
+ carn_ext.0100.satisfied: "İyi bir geceydi."
+ carn_ext.0100.unsatisfied: "Bundan daha fazlasını bekliyordum..."
+ carn_ext.0100.traumatic: "Sadece sabahı bekliyorum."
+ carn_ext.0100.default: "Olsun."
+
+ # ── carn_ext.0110 — Sabah Özeti ──────────────────────────────────────────────
+
+ carn_ext.0110.t: "Ertesi Sabah"
+
+ carn_ext.0110.desc_transcendent: |
+  Sabah yavaş geldi — sanki gece kendi isteğiyle bitmek istemiyordu.
+  #newline#newline
+  [Root.GetFirstName] uzun süre hareketsiz yattı, tavandaki
+  ışığın değişimini izledi. Bir şeyler kaymuştu —
+  sessizce, kalıcı olarak, bir ömürde yalnızca
+  birkaç gecenin başardığı biçimde.
+  #newline#newline
+  [Scope:partner.GetFirstName] hâlâ oradaydı.
+  Bu bir anlam taşıyordu.
+
+ carn_ext.0110.desc_deeply: |
+  [Root.GetFirstName] nadir bir gerçek memnuniyetle uyandı.
+  #newline#newline
+  Tam olarak sevinç değil — sevincten daha sessiz
+  ve daha kalıcı bir şey. Kemiklere yerleşen ve
+  hemen gitmeyen türden bir tatmin.
+
+ carn_ext.0110.desc_satisfied: |
+  İyi bir geceydi. [Root.GetFirstName] uzun süreden bu yana
+  ilk kez — gerçekten — dinlenmiş hissetti.
+  #newline#newline
+  [Scope:partner.GetFirstName] iyi bir arkadaştı. Bu yeterliydi.
+
+ carn_ext.0110.desc_unsatisfied: |
+  [Root.GetFirstName] kalkmadan önce bir süre tavana baktı.
+  Bir şeyler eksikti — hiçbir zaman tam olarak yakalayamadıkları
+  bir kıvılcım.
+  #newline#newline
+  Bunun hakkında konuşmazlardı. Bu tür şeyler nadiren konuşulur.
+
+ carn_ext.0110.desc_traumatic: |
+  Uyku kolayca gelmedi.
+  #newline#newline
+  [Root.GetFirstName] karanlıkta yattı, hiçbir şey söylemedi,
+  hiçbir şey düşünmeye çalışmadı. Sabah sonunda geldi. Hep gelir.
+  #newline#newline
+  Bunun bir teselli mi yoksa sadece bir gerçek mi olduğu henüz netleşmemişti.
+
+ carn_ext.0110.desc_default: |
+  Gece geçti. Sabah geldi.
+  [Root.GetFirstName] giyindi ve günlük işlerine döndü.
+
+ carn_ext.0110.ok: "Yeni bir gün başlıyor."
+
+ # ── carn_ext.0111 — Çok Tur ──────────────────────────────────────────────────
+
+ carn_ext.0111.t: "Henüz Değil"
+
+ carn_ext.0111.desc: |
+  Gece çok uzaktı bitmekten.
+  #newline#newline
+  [Root.GetFirstName] yorgunluk belirtisi göstermiyordu.
+  Tam tersine.
+  #newline#newline
+  [Scope:partner.GetFirstName] karanlık odada
+  [Root.GetHisHer] gözlerinin içine baktı. Soru sözlerle sorulmadı.
+  Cevap da kelime gerektirmedi.
+
+ carn_ext.0111.continue: "Gece hâlâ genç..."
+ carn_ext.0111.stop: "Bu gece için bu kadar yeter."
+
+ # ── carn_ext.0060 — Saray Duydu ──────────────────────────────────────────────
+
+ carn_ext.0060.t: "Duyuldu"
+
+ carn_ext.0060.desc: |
+  Hizmetkarlar konuşur. Muhafızlar konuşur. Hatta duvarların
+  bazen konuştuğu söylenir.
+  #newline#newline
+  [Root.GetFirstName] ile [Scope:partner.GetFirstName] arasında geçenler
+  özel kalması gerekiyordu. Tamamen özel kalmadı.
+  #newline#newline
+  Sabaha gelindiğinde [Root.GetFirstName] bunu saray üyelerinin
+  gözlerinde görebiliyordu — eğlence, yargı ve
+  zar zor gizlenmiş kıskançlığın o özel karışımında.
+  #newline#newline
+  Saray biliyor.
+
+ carn_ext.0060.a: "Demek duvarların da kulakları varmış. Not alındı."
+ carn_ext.0060.b: "Bilsinler. Saklanacak bir şeyim yok."
+ carn_ext.0060.c: "Kim yaydı bunu? Hesabını soracağım."

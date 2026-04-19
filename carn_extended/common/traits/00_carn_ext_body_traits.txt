@@ -1,0 +1,433 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — Body Traits
+# File: common/traits/00_carn_ext_body_traits.txt
+#
+# Bu dosya şu trait gruplarını tanımlar:
+#   1. Erkek Boyut Trait'leri  (carn_ext_size_*)
+#   2. Kadın Anatomi Trait'leri (carn_ext_fem_*)
+#   3. Stamina Trait'leri       (carn_ext_stamina_*)
+#   4. Deneyim Trait'leri       (carn_ext_exp_*)
+#
+# Carnalitas'ın kendi body part trait sistemi varsa (carn_well_endowed vb.)
+# bu trait'ler o sisteme EK olarak çalışır ve pleasure_score hesaplamasında
+# kullanılır. Carnalitas yoksa standalone çalışır.
+# ==============================================================================
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  BÖLÜM 1 — ERKEK BOYUT TRAİT'LERİ
+#  Grup: carn_ext_male_size (birbirini dışlar, mutually exclusive)
+# ══════════════════════════════════════════════════════════════════════════════
+
+carn_ext_eunuch = {
+	group = carn_ext_male_size
+	group_equivalence = 0
+
+	# Görsel
+	icon = trait_carn_ext_eunuch
+
+	# Kalıtım
+	congenital = no			# Hadım olmak doğuştan gelmez
+	inherit_chance = 0
+
+	# Efektler
+	attraction_opinion = -20
+	same_opinion = 5		# Diğer hadımlar birlik duygusu
+
+	# Gameplay modifier'ları
+	ruler_designer_cost = 0
+
+	# Özel flag'ler (pleasure_score systeminde kullanılır)
+	flag = carn_ext_male_size_none
+	flag = carn_ext_is_eunuch
+
+	# Bu trait'i almak diğerlerini kaldırır
+	compatibility = {
+		NOT = {
+			has_trait_flag = carn_ext_male_size
+		}
+	}
+
+	desc = carn_ext_eunuch_desc
+}
+
+carn_ext_size_tiny = {
+	group = carn_ext_male_size
+	group_equivalence = 1
+
+	icon = trait_carn_ext_size_tiny
+	congenital = yes
+	inherit_chance = 40		# Genetik bileşen
+
+	flag = carn_ext_male_size
+	flag = carn_ext_size_tier_1
+
+	attraction_opinion = -10
+
+	ruler_designer_cost = -5
+
+	desc = carn_ext_size_tiny_desc
+}
+
+carn_ext_size_small = {
+	group = carn_ext_male_size
+	group_equivalence = 2
+
+	icon = trait_carn_ext_size_small
+	congenital = yes
+	inherit_chance = 40
+
+	flag = carn_ext_male_size
+	flag = carn_ext_size_tier_2
+
+	attraction_opinion = -5
+
+	ruler_designer_cost = -2
+
+	desc = carn_ext_size_small_desc
+}
+
+carn_ext_size_average = {
+	group = carn_ext_male_size
+	group_equivalence = 3
+
+	icon = trait_carn_ext_size_average
+	congenital = yes
+	inherit_chance = 50		# En yaygın
+
+	flag = carn_ext_male_size
+	flag = carn_ext_size_tier_3
+
+	# Nötr — opinion etkisi yok
+	attraction_opinion = 0
+
+	ruler_designer_cost = 0
+
+	desc = carn_ext_size_average_desc
+}
+
+carn_ext_size_large = {
+	group = carn_ext_male_size
+	group_equivalence = 4
+
+	icon = trait_carn_ext_size_large
+	congenital = yes
+	inherit_chance = 30
+
+	flag = carn_ext_male_size
+	flag = carn_ext_size_tier_4
+
+	# Partnerler üzerinde olumlu izlenim
+	attraction_opinion = 10
+
+	ruler_designer_cost = 5
+
+	desc = carn_ext_size_large_desc
+}
+
+carn_ext_size_huge = {
+	group = carn_ext_male_size
+	group_equivalence = 5
+
+	icon = trait_carn_ext_size_huge
+	congenital = yes
+	inherit_chance = 15
+
+	flag = carn_ext_male_size
+	flag = carn_ext_size_tier_5
+
+	attraction_opinion = 15
+
+	ruler_designer_cost = 10
+
+	desc = carn_ext_size_huge_desc
+}
+
+carn_ext_size_legendary = {
+	group = carn_ext_male_size
+	group_equivalence = 6
+
+	icon = trait_carn_ext_size_legendary
+	congenital = yes
+	inherit_chance = 5		# Çok nadir
+
+	flag = carn_ext_male_size
+	flag = carn_ext_size_tier_6
+
+	attraction_opinion = 20
+	# Dezavantaj: bazı partnerler için pain flag tetikler (triggers'da kontrol edilir)
+
+	ruler_designer_cost = 20
+
+	desc = carn_ext_size_legendary_desc
+}
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  BÖLÜM 2 — KADIN ANATOMİ TRAİT'LERİ
+#  Grup: carn_ext_fem_anatomy (birbirini dışlar)
+# ══════════════════════════════════════════════════════════════════════════════
+
+carn_ext_fem_sensitive = {
+	# Bu trait diğerleriyle BİRLİKTE var olabilir (group yok)
+	# "Hassas" — pleasure 2x ama stress de artabilir
+
+	icon = trait_carn_ext_fem_sensitive
+	congenital = yes
+	inherit_chance = 20
+
+	flag = carn_ext_fem_special
+	flag = carn_ext_fem_is_sensitive
+
+	# Birlikte olduğu kişi için attraction artışı
+	attraction_opinion = 5
+
+	ruler_designer_cost = 5
+
+	desc = carn_ext_fem_sensitive_desc
+}
+
+carn_ext_fem_tight = {
+	group = carn_ext_fem_anatomy
+	group_equivalence = 1
+
+	icon = trait_carn_ext_fem_tight
+	congenital = yes
+	inherit_chance = 30
+
+	flag = carn_ext_fem_anatomy
+	flag = carn_ext_fem_tier_1
+
+	attraction_opinion = 10
+
+	ruler_designer_cost = 5
+
+	desc = carn_ext_fem_tight_desc
+}
+
+carn_ext_fem_average = {
+	group = carn_ext_fem_anatomy
+	group_equivalence = 2
+
+	icon = trait_carn_ext_fem_average
+	congenital = yes
+	inherit_chance = 50
+
+	flag = carn_ext_fem_anatomy
+	flag = carn_ext_fem_tier_2
+
+	attraction_opinion = 0
+
+	ruler_designer_cost = 0
+
+	desc = carn_ext_fem_average_desc
+}
+
+carn_ext_fem_experienced = {
+	group = carn_ext_fem_anatomy
+	group_equivalence = 3
+
+	icon = trait_carn_ext_fem_experienced
+	congenital = no		# Deneyimle kazanılır, doğuştan değil
+	inherit_chance = 0
+
+	flag = carn_ext_fem_anatomy
+	flag = carn_ext_fem_tier_3
+
+	# Deneyimli beden — pleasure daha kolay
+	attraction_opinion = 5
+
+	ruler_designer_cost = 0
+
+	desc = carn_ext_fem_experienced_desc
+}
+
+carn_ext_fem_insatiable = {
+	group = carn_ext_fem_anatomy
+	group_equivalence = 4
+
+	icon = trait_carn_ext_fem_insatiable
+	congenital = yes
+	inherit_chance = 10
+
+	flag = carn_ext_fem_anatomy
+	flag = carn_ext_fem_tier_4
+
+	# Partner stamina'sını daha hızlı tüketir
+	attraction_opinion = 10
+
+	ruler_designer_cost = 10
+
+	desc = carn_ext_fem_insatiable_desc
+}
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  BÖLÜM 3 — STAMINA TRAİT'LERİ
+#  Grup: carn_ext_stamina_group (birbirini dışlar)
+#  Prowess ile ilişkili ama bağımsız
+# ══════════════════════════════════════════════════════════════════════════════
+
+carn_ext_stamina_weak = {
+	group = carn_ext_stamina_group
+	group_equivalence = 1
+
+	icon = trait_carn_ext_stamina_weak
+	congenital = no
+	inherit_chance = 0		# Yaşam tarzıyla değişir
+
+	flag = carn_ext_stamina
+	flag = carn_ext_stamina_tier_1
+
+	# Savaş staminasını da etkile (küçük penalty)
+	prowess = -1
+
+	ruler_designer_cost = -3
+
+	desc = carn_ext_stamina_weak_desc
+}
+
+carn_ext_stamina_average = {
+	group = carn_ext_stamina_group
+	group_equivalence = 2
+
+	icon = trait_carn_ext_stamina_average
+	congenital = no
+	inherit_chance = 0
+
+	flag = carn_ext_stamina
+	flag = carn_ext_stamina_tier_2
+
+	ruler_designer_cost = 0
+
+	desc = carn_ext_stamina_average_desc
+}
+
+carn_ext_stamina_strong = {
+	group = carn_ext_stamina_group
+	group_equivalence = 3
+
+	icon = trait_carn_ext_stamina_strong
+	congenital = no
+	inherit_chance = 0
+
+	flag = carn_ext_stamina
+	flag = carn_ext_stamina_tier_3
+
+	prowess = 1
+
+	ruler_designer_cost = 5
+
+	desc = carn_ext_stamina_strong_desc
+}
+
+carn_ext_stamina_endless = {
+	group = carn_ext_stamina_group
+	group_equivalence = 4
+
+	icon = trait_carn_ext_stamina_endless
+	congenital = yes		# Ender rastlanan fiziksel üstünlük
+	inherit_chance = 5
+
+	flag = carn_ext_stamina
+	flag = carn_ext_stamina_tier_4
+
+	prowess = 2
+	attraction_opinion = 5
+
+	ruler_designer_cost = 15
+
+	desc = carn_ext_stamina_endless_desc
+}
+
+# ══════════════════════════════════════════════════════════════════════════════
+#  BÖLÜM 4 — DENEYİM TRAİT'LERİ
+#  Grup: carn_ext_exp_group (birbirini dışlar)
+#  Seks sayacı (carn_ext_exp_counter) artınca otomatik güncellenir
+# ══════════════════════════════════════════════════════════════════════════════
+
+carn_ext_exp_innocent = {
+	group = carn_ext_exp_group
+	group_equivalence = 1
+
+	icon = trait_carn_ext_exp_innocent
+	congenital = no
+	inherit_chance = 0
+
+	flag = carn_ext_experience
+	flag = carn_ext_exp_tier_1
+
+	# Deneyimsizlik — seks sonrası biraz daha stres
+	stress_gain_mult = 0.05
+
+	ruler_designer_cost = 0
+
+	desc = carn_ext_exp_innocent_desc
+}
+
+carn_ext_exp_curious = {
+	group = carn_ext_exp_group
+	group_equivalence = 2
+
+	icon = trait_carn_ext_exp_curious
+	congenital = no
+	inherit_chance = 0
+
+	flag = carn_ext_experience
+	flag = carn_ext_exp_tier_2
+
+	desc = carn_ext_exp_curious_desc
+}
+
+carn_ext_exp_experienced = {
+	group = carn_ext_exp_group
+	group_equivalence = 3
+
+	icon = trait_carn_ext_exp_experienced
+	congenital = no
+	inherit_chance = 0
+
+	flag = carn_ext_experience
+	flag = carn_ext_exp_tier_3
+
+	# Deneyim — partner memnuniyetine bonus
+	attraction_opinion = 5
+
+	desc = carn_ext_exp_experienced_desc
+}
+
+carn_ext_exp_depraved = {
+	group = carn_ext_exp_group
+	group_equivalence = 4
+
+	icon = trait_carn_ext_exp_depraved
+	congenital = no
+	inherit_chance = 0
+
+	flag = carn_ext_experience
+	flag = carn_ext_exp_tier_4
+
+	# Yozlaşma — bazı dini cezalar
+	piety_mult = -0.05
+	attraction_opinion = 8
+
+	desc = carn_ext_exp_depraved_desc
+}
+
+carn_ext_exp_libertine = {
+	group = carn_ext_exp_group
+	group_equivalence = 5
+
+	icon = trait_carn_ext_exp_libertine
+	congenital = no
+	inherit_chance = 0
+
+	flag = carn_ext_experience
+	flag = carn_ext_exp_tier_5
+
+	# Libertine — özel diyalog seçenekleri, en yüksek pleasure bonus
+	piety_mult = -0.10
+	attraction_opinion = 12
+
+	# Bağımlılık riski (on_actions ile kontrol edilir)
+	flag = carn_ext_addiction_risk
+
+	desc = carn_ext_exp_libertine_desc
+}

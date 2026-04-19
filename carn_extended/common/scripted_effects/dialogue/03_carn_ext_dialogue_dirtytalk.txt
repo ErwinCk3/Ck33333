@@ -1,0 +1,274 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — Diyalog Motoru: Katman 3 — Dirty Talk
+# File: common/scripted_effects/dialogue/03_carn_ext_dialogue_dirtytalk.txt
+#
+# Deneyim 16+ (Experienced+) olunca aktif.
+# "Full" content rule gerektirir.
+# Her pool dominant / submissive / mutual olarak ayrılır.
+# ==============================================================================
+
+# Ana seçici
+carn_ext_dialogue_dirtytalk_select = {
+    # Sistem kapalıysa çalışma
+    if = {
+        limit = {
+            carn_ext_content_full = yes
+            carn_ext_dirty_talk_unlocked = yes
+        }
+
+        # Dominant karakter — partner submissive veya opinion yüksek
+        if = {
+            limit = {
+                OR = {
+                    has_trait = dominant
+                    AND = {
+                        opinion = { target = scope:partner  value >= 20 }
+                        NOT = { has_trait = submissive }
+                    }
+                }
+            }
+            carn_ext_dirtytalk_dominant = yes
+        }
+
+        # Submissive karakter
+        else_if = {
+            limit = {
+                OR = {
+                    has_trait = submissive
+                    has_character_modifier = carn_ext_submission_addicted
+                }
+            }
+            carn_ext_dirtytalk_submissive = yes
+        }
+
+        # Libertine — kendi özel havuzu
+        else_if = {
+            limit = { has_trait = carn_ext_exp_libertine }
+            carn_ext_dirtytalk_libertine = yes
+        }
+
+        # Karşılıklı — romantic veya genel
+        else = {
+            carn_ext_dirtytalk_mutual = yes
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# DOMINANT DIRTY TALK
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_dirtytalk_dominant = {
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_dominant_01
+                # "'Söyle bana ne istediğini,' dedi [Root.GetFirstName].
+                #  'Yüksek sesle. Duymak istiyorum.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_dominant_02
+                # "'Benim olduğunu söyle.' Sesi alçaldı, sertleşti.
+                #  'Herkese duyulacak şekilde söyle.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_dominant_03
+                # "'Bu kadar mı?' diye sordu, gerçekten merak edermiş gibi.
+                #  'Daha fazlasını hak ettiğini düşünmüyorum henüz.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_dominant_04
+                # "'Dur,' dedi. [partner.GetFirstName] durdu.
+                #  'İzin verene kadar hareket etmeyeceksin.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_dominant_05
+                # "'Bak bana,' emretti [Root.GetFirstName].
+                #  'Gözlerini kapatma. Her şeyi görmek istiyorum.'"
+            }
+        }
+        1 = {
+            # Büyük boyut varsa — özel
+            trigger = {
+                OR = {
+                    has_trait = carn_ext_size_large
+                    has_trait = carn_ext_size_huge
+                    has_trait = carn_ext_size_legendary
+                }
+            }
+            custom_tooltip = {
+                text = carn_ext_dt_dominant_size_01
+                # "'Şimdi anlıyorsun neden seni seçtim,' dedi sakin bir özgüvenle.
+                #  'Başka kimse sana bunu veremez.'"
+            }
+        }
+        1 = {
+            # Küfür seçeneği (game rule full + libertine)
+            trigger = {
+                has_trait = carn_ext_exp_libertine
+                carn_ext_content_full = yes
+            }
+            custom_tooltip = {
+                text = carn_ext_dt_dominant_crude_01
+                # "[Root.GetFirstName] kulağına eğildi ve fısıldadı —
+                #  ne dediği yalnızca [partner.GetFirstName] duydu.
+                #  Yüzü kızardı. Ama itiraz etmedi."
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# SUBMISSIVE DIRTY TALK
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_dirtytalk_submissive = {
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_submissive_01
+                # "'Tanrım...' Sadece bu kadar çıkabildi ağzından.
+                #  Sonra yalnızca nefes sesi kaldı."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_submissive_02
+                # "'Daha...' diye inledi [Root.GetFirstName].
+                #  'Lütfen. Daha.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_submissive_03
+                # "'Senden başkasını istemiyorum. Hiç kimseyi.'
+                #  Bunu söylediğinde mümkün olan en az kontrolüne sahipti —
+                #  ve bu yüzden büyük ihtimalle doğruydu."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_submissive_04
+                # "'Ne istersen...' diye fısıldadı.
+                #  'Her şeyi yapabilirim. Sadece durma.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_submissive_05
+                # "Sesini bastırmaya çalışıyordu — ve başaramıyordu.
+                #  [partner.GetFirstName] bunun farkındaydı.
+                #  Ve bırakmıyordu."
+            }
+        }
+        1 = {
+            # Depraved/libertine submissive — daha ileri
+            trigger = {
+                OR = {
+                    has_trait = carn_ext_exp_depraved
+                    has_trait = carn_ext_exp_libertine
+                }
+            }
+            custom_tooltip = {
+                text = carn_ext_dt_submissive_depraved_01
+                # "'Mahvet beni,' dedi [Root.GetFirstName] sessizce.
+                #  'Önemli değil artık.'"
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# LİBERTİNE DIRTY TALK — Özel havuz
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_dirtytalk_libertine = {
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_libertine_01
+                # "[Root.GetFirstName] için bu bir sanattı —
+                #  kelimeleri bir silah gibi kullanmayı biliyordu.
+                #  Her cümle, dokunuştan önce [partner.GetFirstName]'i eritti."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_libertine_02
+                # "Öyle şeyler söyledi ki [partner.GetFirstName] —
+                #  bir kısmı şiirdi, bir kısmı suçtu, bir kısmı
+                #  hiçbir dilin kelimesi yoktu bunun için."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_libertine_03
+                # "'Sana bir şey öğreteceğim bu gece,' dedi [Root.GetFirstName].
+                #  'Sonra karar verirsin: bunu bilmeden nasıl yaşadın diye
+                #  mi hayıflanacaksın — yoksa daha fazlasını mı isteyeceksin.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_libertine_04
+                # "Konuşurken yapmaya devam etti.
+                #  [partner.GetFirstName] hem dinledi hem hissetti.
+                #  İkisini birden yönetmek neredeyse imkânsızdı."
+            }
+        }
+    }
+}
+
+# ──────────────────────────────────────────────────────────────────────────────
+# KARŞILIKLI — Romantic ton, her ikisi de eşit
+# ──────────────────────────────────────────────────────────────────────────────
+
+carn_ext_dirtytalk_mutual = {
+    random_list = {
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_mutual_01
+                # "'Bu böyle hissettirmeli miydi?' diye sordu
+                #  [partner.GetFirstName] nefes nefese.
+                #  [Root.GetFirstName] güldü — gerçekten, içten:
+                #  'Evet. Tam olarak böyle.'"
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_mutual_02
+                # "İkisi de konuşmaya çalıştı.
+                #  İkisi de başaramadı.
+                #  Kelimeler yetersiz kaldı — ve geçtiler onlarsız."
+            }
+        }
+        1 = {
+            custom_tooltip = {
+                text = carn_ext_dt_mutual_03
+                # "[Root.GetFirstName] adını söyledi —
+                #  sadece adını, başka bir şey değil.
+                #  Ama o anda bu yeterliydi. Her şeydi."
+            }
+        }
+        1 = {
+            # Afterglow — ikinci tur
+            trigger = {
+                has_character_modifier = carn_ext_afterglow
+            }
+            custom_tooltip = {
+                text = carn_ext_dt_mutual_again_01
+                # "'Bir daha,' dedi [partner.GetFirstName].
+                #  Değil soru olarak — rica olarak.
+                #  [Root.GetFirstName] cevap vermedi. Ama durdu."
+            }
+        }
+    }
+}

@@ -1,0 +1,456 @@
+﻿# ==============================================================================
+# CARNALITAS EXTENDED — Din Adamının Günahı Lokalizasyonu
+# File: localization/english/carn_ext_story_clergy_l_english.yml
+# ==============================================================================
+
+l_english:
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0701 — İlk Karşılaşma
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0701.t: "A Holy Presence"
+
+ carn_ext.0701.desc_nun: |
+  She had come to offer counsel — spiritual guidance,
+  the kind that has nothing to do with
+  [Root.GetFirstName]'s particular situation
+  and everything to do with the institution she represents.
+  #newline#newline
+  [Scope:carn_ext_cl_figure.GetFirstName] sat across from
+  [Root.GetHimHer] in her habit, hands folded,
+  voice careful and precise. She spoke of prayer.
+  Of patience. Of the body's lesser claims on the soul.
+  #newline#newline
+  [Root.GetFirstName] listened. And noticed,
+  with the part of [Root.GetHisHer] mind that notices things
+  regardless of whether they should be noticed,
+  that she was beautiful.
+  #newline#newline
+  The observation arrived without invitation.
+  [Root.GetFirstName] made no decision about what to do with it.
+
+ carn_ext.0701.desc_priest: |
+  [Scope:carn_ext_cl_figure.GetFirstName] had a scholar's face —
+  the kind made by years of reading in poor light,
+  of caring very seriously about things that most people
+  never think about twice.
+  #newline#newline
+  He spoke to [Root.GetFirstName] of faith,
+  of the life of the spirit, of the particular
+  kind of peace that comes from surrender to something larger.
+  #newline#newline
+  [Root.GetFirstName] was paying attention.
+  Just not entirely to the theology.
+
+ carn_ext.0701.desc_pagan: |
+  [Scope:carn_ext_cl_figure.GetFirstName] was not what
+  [Root.GetFirstName] had expected from a practitioner
+  of the old ways. Less wild, perhaps. More contained.
+  #newline#newline
+  But when [Root.GetHeShe] spoke of the old rites —
+  the ones that did not separate flesh from spirit,
+  that did not treat the body as an obstacle —
+  [Root.GetHisHer] voice changed.
+  Became something warmer. Something that went
+  somewhere below thought.
+
+ carn_ext.0701.desc_devout_woman: |
+  Devotion had made [Scope:carn_ext_cl_figure.GetFirstName]
+  precise. Careful. Every word considered,
+  every gesture measured against some internal standard.
+  #newline#newline
+  And yet when she looked at [Root.GetFirstName],
+  there was something in her eyes that her training
+  had not quite managed to extinguish.
+  Something that all the prayers in the world
+  had apparently not been able to reach.
+
+ carn_ext.0701.desc_devout_man: |
+  [Scope:carn_ext_cl_figure.GetFirstName]'s faith was clearly genuine.
+  That was what made this complicated —
+  [Root.GetFirstName] would have found it simpler
+  to dismiss performance.
+  #newline#newline
+  This was not performance.
+  And yet the way he looked at [Root.GetHimHer]
+  when he thought [Root.GetHeShe] wasn't watching
+  was not, quite, the look of a holy man.
+
+ carn_ext.0701.reject: "I have no need of spiritual counsel today. Thank you."
+ carn_ext.0701.listen: "Tell me more. I find myself... interested."
+ carn_ext.0701.approach: "Something beyond theology is happening here."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0702 — Gece İbadeti
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0702.t: "After Compline"
+
+ carn_ext.0702.desc_nun: |
+  She had stayed late — some errand, some text to be consulted.
+  [Root.GetFirstName] found [Root.GetHimHer]self still awake
+  and the corridor still lit and the door to the study still open.
+  #newline#newline
+  [Scope:carn_ext_cl_figure.GetFirstName] looked up when
+  [Root.GetHeShe] entered. Did not seem surprised.
+  #newline#newline
+  They sat together as the candles burned down.
+  She spoke less than usual. [Root.GetFirstName]
+  found [Root.GetHisHer]self measuring the distance
+  between them with a precision that had nothing
+  to do with piety.
+
+ carn_ext.0702.desc_priest: |
+  He had asked to speak privately — a matter of the soul,
+  he said. Matters of the soul, in [Root.GetFirstName]'s
+  experience, were rarely uncomplicated.
+  #newline#newline
+  This one was uncomplicated in its way.
+  Two people, a late hour, a lamp burning low —
+  and something in the air between them
+  that could not be called theological.
+
+ carn_ext.0702.desc_devout_woman: |
+  She had come to pray with [Root.GetHimHer],
+  she said. An old practice — communal prayer,
+  the comfort of shared devotion.
+  #newline#newline
+  They prayed. And in the silence that followed the prayer,
+  [Scope:carn_ext_cl_figure.GetFirstName]
+  looked at [Root.GetHimHer] with an expression
+  that was not, [Root.GetFirstName] thought,
+  the expression of someone whose mind was entirely on God.
+
+ carn_ext.0702.desc_default: |
+  The hour was late. The house was quiet.
+  [Scope:carn_ext_cl_figure.GetFirstName] sat
+  on the other side of a small table and said
+  very little, which was unusual.
+  #newline#newline
+  [Root.GetFirstName] waited.
+  Something was building. [Root.GetHeShe] was not sure
+  which of them would address it first,
+  or whether either of them should.
+
+ carn_ext.0702.retreat: "I should not be here at this hour. Good night."
+ carn_ext.0702.talk: "Tell me — what is it that you actually came to say?"
+ carn_ext.0702.touch: "I reached across the table. A gesture. Nothing more. Then more."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0703 — Pagan Ritual
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0703.t: "The Old Rite"
+
+ carn_ext.0703.desc: |
+  [Scope:carn_ext_cl_figure.GetFirstName] had explained it
+  without apology or embarrassment —
+  the old religions understood the body differently.
+  Not a trap. Not a lesser thing to be subdued.
+  A part of the sacred, to be honoured accordingly.
+  #newline#newline
+  The ritual she described was ancient.
+  [Root.GetFirstName] had heard versions of it —
+  usually from people who disapproved.
+  Hearing it from someone who practised it,
+  who spoke of it as naturally as breathing,
+  was something entirely different.
+  #newline#newline
+  She looked at [Root.GetHimHer] and waited.
+  The question was unspoken but perfectly clear.
+
+ carn_ext.0703.participate: "I understand. And yes — I want to understand more."
+ carn_ext.0703.refuse: "I respect your beliefs. But this is not for me."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0704 — Yasak An
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0704.t: "The Moment Before"
+
+ carn_ext.0704.desc_nun: |
+  [Scope:carn_ext_cl_figure.GetFirstName]'s habit
+  was still in place. Every part of her was still
+  in its proper arrangement. And yet the air in the room
+  had changed completely.
+  #newline#newline
+  She was looking at [Root.GetFirstName] with something
+  that her vows explicitly prohibited.
+  [Root.GetFirstName] was looking back with something
+  that was not, at this precise moment, being governed
+  by any particular consideration of propriety.
+  #newline#newline
+  She spoke first, very quietly:
+  "I know what I promised God."
+  #newline#newline
+  A pause.
+  #newline#newline
+  "I have been thinking about it all day.
+  About whether I can explain to Him what happened to it."
+
+ carn_ext.0704.desc_priest: |
+  He had been speaking for some time —
+  about temptation, of all things. About the particular
+  difficulty of being a man of faith in a world
+  that contained people like [Root.GetFirstName].
+  #newline#newline
+  It was, [Root.GetFirstName] thought, possibly
+  the most honest thing anyone had ever said to [Root.GetHimHer].
+  #newline#newline
+  When he stopped speaking, the silence was absolute.
+  Neither of them moved. Neither of them, quite,
+  was in the same world they had been in
+  an hour earlier.
+
+ carn_ext.0704.desc_devout_woman: |
+  She said: "I have prayed about this."
+  #newline#newline
+  [Root.GetFirstName] waited.
+  #newline#newline
+  "For a very long time," she continued.
+  "About whether what I feel is a sin
+  or simply — human. And whether the distinction matters
+  as much as I was taught it does."
+  #newline#newline
+  She had arrived, evidently, at a conclusion.
+
+ carn_ext.0704.desc_default: |
+  The distance between them had become very small.
+  [Root.GetFirstName] was aware of this
+  with exact, unhelpful precision.
+  #newline#newline
+  [Scope:carn_ext_cl_figure.GetFirstName] had stopped pretending
+  that this was about faith, or counsel, or anything else.
+  The pretence had simply — at some point in the last hour —
+  become unnecessary.
+
+ carn_ext.0704.stop: "No. We both know what this is and we both know we cannot."
+ carn_ext.0704.proceed: "Whatever God's judgment — I have made mine."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0705 — Sabah
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0705.t: "The Morning Office"
+
+ carn_ext.0705.desc_transcendent: |
+  Somewhere in the distance, a bell was ringing.
+  The hour for morning prayer — the one
+  [Scope:carn_ext_cl_figure.GetFirstName] had never, in years,
+  missed.
+  #newline#newline
+  [Root.GetHeShe] was still there. Not moving.
+  Looking at [Root.GetFirstName] with an expression
+  that contained no regret — and rather a lot of
+  something else.
+  #newline#newline
+  The bell rang on. Unanswered.
+  For the first time in years, unanswered.
+
+ carn_ext.0705.desc_deeply: |
+  [Scope:carn_ext_cl_figure.GetFirstName] dressed in silence.
+  Every movement careful, deliberate — putting
+  [Root.GetHimHer]self back together, in some sense,
+  around what had happened.
+  #newline#newline
+  Before leaving, [Root.GetHeShe] stood in the doorway
+  and looked at [Root.GetFirstName].
+  The look said several things. None of them were prayers.
+
+ carn_ext.0705.desc_nun_morning: |
+  She was gone before dawn. Of course she was —
+  there were offices to keep, appearances to maintain,
+  a life lived according to a schedule that did not include
+  what had happened last night.
+  #newline#newline
+  [Root.GetFirstName] found a small folded piece of paper
+  on the table by the window.
+  Three words, in careful handwriting.
+  #newline#newline
+  #italic "God help me."#!
+  #newline#newline
+  Whether it was prayer or confession or something else,
+  [Root.GetFirstName] could not say.
+  [Root.GetHeShe] kept the paper.
+
+ carn_ext.0705.desc_priest_morning: |
+  He had said, before leaving:
+  "I will need to consider what to do with this."
+  #newline#newline
+  The theological precision of it — even now,
+  even here, reaching for the language of conscience —
+  was almost unbearable.
+  [Root.GetFirstName] thought [Root.GetHeShe] might laugh.
+  Did not.
+  #newline#newline
+  "So will I," [Root.GetFirstName] said.
+
+ carn_ext.0705.desc_default: |
+  Morning arrived with the particular honesty of mornings —
+  lighting everything plainly, refusing metaphor.
+  #newline#newline
+  What had happened, had happened.
+  What to do about that was a separate question.
+
+ carn_ext.0705.deny: "This never happened. Neither of us will speak of it."
+ carn_ext.0705.confess: "We must tell the truth of what occurred."
+ carn_ext.0705.again: "Last night was not an ending. It was a beginning."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0706 — İtiraf
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0706.t: "Before the Authority"
+
+ carn_ext.0706.desc_nun: |
+  The abbess received the news with the controlled expression
+  of someone who has heard many things and learned not to show
+  what each of them costs [Root.GetHimHer].
+  #newline#newline
+  [Scope:carn_ext_cl_figure.GetFirstName] stood quietly
+  and said what needed to be said, plainly,
+  without excuse or elaboration.
+  #newline#newline
+  The consequences were swift.
+  They always were, for this.
+
+ carn_ext.0706.desc_priest: |
+  The bishop was not unkind. That, perhaps, was the worst part —
+  the gentle, implacable machinery of institutional justice,
+  moving without anger, without pleasure,
+  simply fulfilling its function.
+  #newline#newline
+  [Scope:carn_ext_cl_figure.GetFirstName]'s position
+  was reviewed. His future was rearranged.
+  Everything he had built with his faith and his learning
+  was inventoried and largely removed.
+
+ carn_ext.0706.desc_default: |
+  The institution responded as institutions do —
+  procedurally, thoroughly, without particular malice
+  and without particular mercy.
+  #newline#newline
+  [Root.GetFirstName] watched from a distance
+  and understood that [Root.GetHeShe] had set something
+  in motion that could not be recalled.
+
+ carn_ext.0706.accept: "I accept the consequences of what we did."
+ carn_ext.0706.regret: "What have I caused? What have I done to them?"
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0708 — Aforoz/Ceza
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0708.t: "Judgment"
+
+ carn_ext.0708.desc: |
+  The judgment came formally, in writing,
+  sealed with the appropriate authority.
+  #newline#newline
+  [Root.GetFirstName] read it twice.
+  The language was precise and, in its way, fair —
+  setting out what had been established, what was now required,
+  what [Root.GetHeShe] was to understand about [Root.GetHisHer]
+  standing before the institution and its God.
+  #newline#newline
+  [Root.GetFirstName] put the document down.
+  Thought about [Scope:carn_ext_cl_figure.GetFirstName].
+  About the bell that went unanswered that morning.
+  About whether the thing that had happened between them
+  was something that deserved this weight.
+  #newline#newline
+  [Root.GetFirstName] did not, quite, arrive at an answer.
+
+ carn_ext.0708.bear: "I submit to the Church's judgment."
+ carn_ext.0708.defy: "My lands, my laws. This goes no further."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0707 — Tekrar — Gizli İlişki
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0707.t: "Again"
+
+ carn_ext.0707.desc_nun: |
+  She had not taken vows lightly.
+  [Root.GetFirstName] understood this.
+  Every time [Scope:carn_ext_cl_figure.GetFirstName]
+  came back — and she came back — it was a decision
+  renewed, a line re-crossed with full knowledge
+  of what was being crossed.
+  #newline#newline
+  The weight of it seemed to make everything
+  more vivid. More real. As though the transgression
+  itself was a form of presence.
+
+ carn_ext.0707.desc_priest: |
+  He had told [Root.GetFirstName]
+  that he had prayed extensively about this.
+  [Root.GetFirstName] had said nothing.
+  There was nothing adequate to say.
+  #newline#newline
+  He was here, which was the only thing
+  that mattered now. Whatever the prayers
+  had concluded, they had concluded this.
+
+ carn_ext.0707.desc_pagan: |
+  For her, there was no transgression.
+  That was perhaps what [Root.GetFirstName] found
+  most extraordinary — the complete absence of guilt
+  in someone who had every reason, by every other measure,
+  to be devastated.
+  #newline#newline
+  She moved through the world as if the body
+  were simply itself — not a battlefield,
+  not a test, not a problem to be solved.
+  Just itself.
+  #newline#newline
+  [Root.GetFirstName] found this, quietly, revolutionary.
+
+ carn_ext.0707.desc_default: |
+  They had agreed on nothing. Made no arrangement.
+  And yet here [Root.GetFirstName] was, and here
+  [Scope:carn_ext_cl_figure.GetFirstName] was,
+  and here they were together again,
+  in the space between what they believed
+  and what they wanted.
+
+ carn_ext.0707.accept: "Every week. Whatever we are now — let it continue."
+ carn_ext.0707.end: "This cannot go on. I am ending it, here, now."
+
+ # ══════════════════════════════════════════════════════
+ # carn_ext.0709 — Gizli İlişki Derinleşiyor
+ # ══════════════════════════════════════════════════════
+
+ carn_ext.0709.t: "Cracks"
+
+ carn_ext.0709.desc_nun: |
+  Someone had noticed her absence from Vespers.
+  A small thing — easily explained, already explained —
+  but [Root.GetFirstName] had seen the look
+  on the sister who mentioned it.
+  That particular look of someone who is not asking
+  what they are asking.
+  #newline#newline
+  The secret was holding. But secrets, [Root.GetFirstName]
+  had learned, hold the way stone holds —
+  well, until suddenly they don't.
+
+ carn_ext.0709.desc_priest: |
+  He had become distracted, someone told [Root.GetFirstName].
+  His sermons less focused. His mind elsewhere.
+  His colleagues were concerned.
+  #newline#newline
+  [Root.GetFirstName] knew where his mind was.
+  This was becoming, quietly, a problem.
+
+ carn_ext.0709.desc_default: |
+  There are only so many evenings a person can disappear
+  before the court notices. Only so many private audiences,
+  so many late departures, so many silences
+  at the wrong moment, before someone begins to wonder.
+  #newline#newline
+  Someone had begun to wonder.
+
+ carn_ext.0709.continue: "The risk is worth it. I will be more careful."
+ carn_ext.0709.end: "It has gone on long enough. I must end it now."

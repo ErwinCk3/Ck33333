@@ -1,0 +1,303 @@
+# ==============================================================================
+# CARNALITAS EXTENDED — Character Interaction
+# File: common/character_interactions/00_carn_ext_interactions.txt
+#
+# Modun kendi "Spend the Night" interaction'ı.
+# Carnalitas'ın Make Love'ından bağımsız çalışır.
+# Cooldown: 1 gün (activity_cooldown flag ile)
+# ==============================================================================
+
+carn_ext_spend_the_night_interaction = {
+    category = interaction_category_romance
+
+    # ── Görsel ───────────────────────────────────────────────────────────────
+    icon = ir_interaction_romance        # CK3 base ikonu — ileride özel ikon yapılabilir
+
+    # ── Cooldown — 1 gün ─────────────────────────────────────────────────────
+    cooldown = { days = 1 }
+
+    # ── Kimler kullanabilir ───────────────────────────────────────────────────
+    is_shown = {
+        # Hedef yetişkin ve hayatta
+        scope:recipient = {
+            is_adult = yes
+            is_alive = yes
+            NOT = { this = scope:actor }
+        }
+        # Aktör yetişkin
+        scope:actor = {
+            is_adult = yes
+            NOT = { has_trait = incapable }
+        }
+        # Sistem aktif
+        carn_ext_pleasure_system_active = yes
+    }
+
+    is_valid = {
+        scope:actor = {
+            is_adult = yes
+            is_alive = yes
+            NOT = { has_trait = incapable }
+            # Cooldown flag yok
+            NOT = {
+                has_character_flag = carn_ext_scene_running
+            }
+        }
+        scope:recipient = {
+            is_adult = yes
+            is_alive = yes
+        }
+        # Aynı konumda veya aynı sarayda olmalı
+        OR = {
+            scope:actor = {
+                is_at_same_location_as = scope:recipient
+            }
+            scope:recipient = {
+                is_courtier_of = scope:actor.liege
+            }
+            scope:actor = {
+                is_courtier_of = scope:recipient.liege
+            }
+        }
+    }
+
+    # ── Rıza gerektirip gerektirmediği ───────────────────────────────────────
+    # Consensual — hedef kabul etmek zorunda
+    send_option = {
+        flag = carn_ext_romantic_approach
+        localization = CARN_EXT_APPROACH_ROMANTIC_OPTION
+        default = yes
+    }
+
+    send_option = {
+        flag = carn_ext_dominant_approach
+        localization = CARN_EXT_APPROACH_DOMINANT_OPTION
+        is_shown = {
+            scope:actor = { has_trait = dominant }
+        }
+    }
+
+    send_option = {
+        flag = carn_ext_submissive_approach
+        localization = CARN_EXT_APPROACH_SUBMISSIVE_OPTION
+        is_shown = {
+            scope:actor = { has_trait = submissive }
+        }
+    }
+
+    # ── Başarı koşulları (hedef AI kabul eder mi?) ───────────────────────────
+    ai_accept = {
+        # Temel kabul şansı
+        base = -10       # Default reddeder — koşullar onu açar
+
+        # Opinion bonusu
+        modifier = {
+            add = 30
+            scope:actor = {
+                opinion = { target = scope:recipient  value >= 30 }
+            }
+        }
+        modifier = {
+            add = 20
+            scope:actor = {
+                opinion = { target = scope:recipient  value >= 60 }
+            }
+        }
+
+        # Lustful — daha kolay kabul
+        modifier = {
+            add = 20
+            scope:recipient = { has_trait = lustful }
+        }
+
+        # Yüksek libido
+        modifier = {
+            add = 15
+            scope:recipient = { has_trait = carn_ext_libido_high }
+        }
+        modifier = {
+            add = 25
+            scope:recipient = { has_trait = carn_ext_libido_burning }
+        }
+
+        # Feromone etkisi
+        modifier = {
+            add = 10
+            scope:recipient = { has_trait = carn_ext_pheromone_potent }
+        }
+        modifier = {
+            add = 5
+            scope:recipient = { has_trait = carn_ext_pheromone_normal }
+        }
+
+        # Spouse her zaman daha kolay kabul eder
+        modifier = {
+            add = 25
+            scope:recipient = {
+                is_spouse_of = scope:actor
+            }
+        }
+
+        # Düşük opinion — reddeder
+        modifier = {
+            add = -30
+            scope:actor = {
+                opinion = { target = scope:recipient  value < 0 }
+            }
+        }
+
+        # Chaste trait — reddeder
+        modifier = {
+            add = -40
+            scope:recipient = { has_trait = chaste }
+        }
+
+        # Celibate — reddeder
+        modifier = {
+            add = -60
+            scope:recipient = { has_trait = celibate }
+        }
+    }
+
+    # ── Kabul efektleri ───────────────────────────────────────────────────────
+    on_accept = {
+        # Attitude flag'ini gönderici için belirle
+        scope:actor = {
+            # Flag temizle
+            remove_character_flag = carn_ext_attitude_dominant
+            remove_character_flag = carn_ext_attitude_submissive
+            remove_character_flag = carn_ext_attitude_romantic
+            remove_character_flag = carn_ext_attitude_desperate
+            remove_character_flag = carn_ext_attitude_cold
+            remove_character_flag = carn_ext_attitude_forbidden
+
+            # Seçilen yaklaşım
+            if = {
+                limit = { has_character_flag = carn_ext_dominant_approach }
+                add_character_flag = carn_ext_attitude_dominant
+            }
+            else_if = {
+                limit = { has_character_flag = carn_ext_submissive_approach }
+                add_character_flag = carn_ext_attitude_submissive
+            }
+            else = {
+                add_character_flag = carn_ext_attitude_romantic
+            }
+
+            # Yaklaşım flag'lerini temizle
+            remove_character_flag = carn_ext_romantic_approach
+            remove_character_flag = carn_ext_dominant_approach
+            remove_character_flag = carn_ext_submissive_approach
+
+            # Partner scope'unu set et
+            set_variable = {
+                name = carn_ext_current_partner
+                value = scope:recipient
+            }
+        }
+
+        # Sahne event'ini tetikle
+        scope:actor = {
+            trigger_event = {
+                id = carn_ext.0100
+                days = { 0 1 }
+            }
+        }
+
+        # Cooldown flag
+        scope:actor = {
+            add_character_flag = {
+                flag = carn_ext_scene_running
+                days = 2
+            }
+        }
+    }
+
+    # ── Red efektleri ─────────────────────────────────────────────────────────
+    on_decline = {
+        scope:actor = {
+            # Reddedilme biraz stres verir — utanç
+            add_stress = 5
+        }
+        scope:recipient = {
+            # Red eden hafif opinion düşüşü (yaklaşıldı, reddetti)
+            add_opinion = {
+                target = scope:actor
+                modifier = carn_ext_opinion_bad_lover   # Kötü değil ama hafif olumsuz
+            }
+        }
+    }
+
+    # ── Lokalizasyon referansları ─────────────────────────────────────────────
+    localization = {
+        # Interaction adı
+        INTERACTION_NAME = CARN_EXT_SPEND_NIGHT_NAME
+
+        # Gönderici bakış açısı
+        ACTOR_MESSAGE = CARN_EXT_SPEND_NIGHT_ACTOR_MSG
+
+        # Alıcı bakış açısı
+        RECIPIENT_MESSAGE = CARN_EXT_SPEND_NIGHT_RECIPIENT_MSG
+
+        # Red mesajı
+        DECLINE_MESSAGE = CARN_EXT_SPEND_NIGHT_DECLINE_MSG
+    }
+
+    # ── AI kullanım şansı ─────────────────────────────────────────────────────
+    ai_frequency = 30       # Her 30 günde bir AI bu interaction'ı değerlendirir
+
+    ai_potential = {
+        # AI bu interaction'ı kullanabilir mi?
+        is_adult = yes
+        NOT = { has_trait = chaste }
+        NOT = { has_trait = celibate }
+
+        # AI behavior rule'u aktifse
+        OR = {
+            has_game_rule = {
+                rule = carn_ext_ai_behavior
+                option = carn_ext_ai_active
+            }
+            # Burning libido — her zaman dener
+            has_trait = carn_ext_libido_burning
+        }
+    }
+
+    ai_will_do = {
+        # Temel şans
+        base = 20
+
+        # Lustful
+        modifier = {
+            add = 30
+            has_trait = lustful
+        }
+
+        # Burning libido
+        modifier = {
+            add = 50
+            has_trait = carn_ext_libido_burning
+        }
+
+        # Yüksek opinion
+        modifier = {
+            add = 20
+            opinion = { target = scope:recipient  value >= 40 }
+        }
+
+        # Chaste / celibate — kullanmaz
+        modifier = {
+            add = -200
+            OR = {
+                has_trait = chaste
+                has_trait = celibate
+            }
+        }
+
+        # Düşük opinion — kullanmaz
+        modifier = {
+            add = -50
+            opinion = { target = scope:recipient  value < 10 }
+        }
+    }
+}
